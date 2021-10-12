@@ -9,6 +9,9 @@ LLVM Examples and Code samples. LLVM Passes.
 - [LLVM Get Started](https://llvm.org/docs/GettingStarted.html)
 - [LLVM-12 Book](https://github.com/PacktPublishing/Learn-LLVM-12)
 
+- Legacy Pass Example : See `folder`.
+	- https://llvm.org/docs/WritingAnLLVMPass.html#introduction-what-is-a-pass
+
 - New LLVM Pass Manager : 
 	- https://llvm.org/docs/NewPassManager.html
 	- https://llvm.org/docs/WritingAnLLVMNewPMPass.html
