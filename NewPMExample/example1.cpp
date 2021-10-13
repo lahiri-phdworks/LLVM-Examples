@@ -5,7 +5,8 @@
 int retval() { return rand() % 5; }
 
 int main() {
-  int a, b, c, d, z, p, m, n, arr[5] = {0, 0, 0, 0, 0};
+  int a = 0, b = 0, c = 0, d = 0, z = 0, p = 0, m = 0, n = 0,
+      arr[5] = {0, 0, 0, 0, 0};
   srand(time(NULL));
   for (int i = 0; i < rand() % 500; i++) {
     if (i % 5 == 0) {
@@ -24,6 +25,10 @@ int main() {
             std::cout << c << d << a << std::endl;
             a = retval();
             a = m - n;
+          }
+          for (int k = 90; i > 0; i--) {
+            a = a + 1;
+            std::cout << a << std::endl;
           }
         }
         a = retval();
