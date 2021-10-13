@@ -8,6 +8,7 @@
 #include "llvm/Analysis/Verifier.h"
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/IR/CFG.h"
+#include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/PassManager.h"
 #include "llvm/Passes/PassBuilder.h"
 #include "llvm/Passes/PassPlugin.h"
@@ -37,10 +38,18 @@ struct PrinterPass final : public PassInfoMixin<PrinterPass> {
     LoopInfo &getLI = FAM.getResult<llvm::LoopAnalysis>(F);
     DominatorTree &DT = FAM.getResult<DominatorTreeAnalysis>(F);
 
+    /**
+     * @brief Loop Info Analysis
+     */
     if (getLI.empty())
       std::cout << "No Loops ! \n\n";
     else
       getLI.print(errs());
+
+    /**
+     * @brief Print Dominator Tree to llvm::errs()
+     */
+    DT.print(errs());
 
     std::cout << "Function: " << F.getName().str() << std::endl;
     for (Function::iterator BB = F.begin(); BB != F.end(); BB++) {
@@ -52,6 +61,7 @@ struct PrinterPass final : public PassInfoMixin<PrinterPass> {
         auto phi = dyn_cast<PHINode>(I);
         if (phi != NULL)
           errs() << "\t\tPhi Alloca : " << phi << "\n";
+
         for (Use &U : I->operands()) {
           Value *v = U.get();
           if (v != NULL)
