@@ -23,11 +23,6 @@ int main() {
             a = a + 1;
             std::cout << c << d << a << std::endl;
             a = retval();
-            if (i % 6 == 0 && a < d) {
-              a = z;
-              c = a - d + b;
-              std::cout << a << c << std::endl;
-            }
             a = m - n;
           }
         }

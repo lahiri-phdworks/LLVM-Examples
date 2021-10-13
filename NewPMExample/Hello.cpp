@@ -29,8 +29,11 @@ struct PrinterPass : public PassInfoMixin<PrinterPass> {
       std::cout << "\tBasic Block : " << BB->getName().str()
                 << ", size : " << BB->size() << "\n";
       for (BasicBlock::iterator I = BB->begin(); I != BB->end(); I++) {
-        std::cout << "\t\tOpcodes in BB : " << I->getOpcodeName()
-                  << " #ops : " << I->getNumOperands() << "\n";
+        std::cout << "\t\tOpcodes : " << I->getOpcodeName()
+                  << ", #ops : " << I->getNumOperands() << "\n";
+        auto phi = dyn_cast<PHINode>(I);
+        if (phi != NULL)
+          errs() << "\t\tPhi Alloca : " << phi << "\n";
         for (Use &U : I->operands()) {
           Value *v = U.get();
           // std::cout << " " << v;
