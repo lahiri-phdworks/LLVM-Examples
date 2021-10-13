@@ -2,6 +2,7 @@
 // https://github.com/alexjung/Writing-an-LLVM-Pass-using-the-new-PassManager
 
 #include "llvm/IR/BasicBlock.h"
+#include "llvm/IR/CFG.h"
 #include "llvm/IR/PassManager.h"
 #include "llvm/Passes/PassBuilder.h"
 #include "llvm/Passes/PassPlugin.h"
@@ -25,10 +26,15 @@ struct PrinterPass : public PassInfoMixin<PrinterPass> {
     std::cout << "Function: " << F.getName().str() << std::endl;
 
     for (Function::iterator BB = F.begin(); BB != F.end(); BB++) {
-      std::cout << "\tBasic Block : " << BB->getName().str() << "\n";
+      std::cout << "\tBasic Block : " << BB->getName().str()
+                << ", size : " << BB->size() << "\n";
       for (BasicBlock::iterator I = BB->begin(); I != BB->end(); I++) {
         std::cout << "\t\tOpcodes in BB : " << I->getOpcodeName()
                   << " #ops : " << I->getNumOperands() << "\n";
+        for (Use &U : I->operands()) {
+          Value *v = U.get();
+          // std::cout << " " << v;
+        }
       }
     }
     return PreservedAnalyses::all();
