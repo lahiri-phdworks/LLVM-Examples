@@ -62,6 +62,7 @@ struct PrinterPass final : public PassInfoMixin<PrinterPass> {
         if (phi != NULL)
           errs() << "\t\tPhi Alloca : " << phi << "\n";
 
+        // LLVM Instructions
         for (Use &U : I->operands()) {
           Value *v = U.get();
           if (v != NULL)
