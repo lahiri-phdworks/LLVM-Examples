@@ -1,4 +1,4 @@
-; ModuleID = 'example1.bc'
+; ModuleID = '<stdin>'
 source_filename = "example1.cpp"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
@@ -54,6 +54,22 @@ entry:
   %call.i12 = call i32 @rand() #8, !dbg !933
   %rem.i13 = srem i32 %call.i12, 5, !dbg !935
   call void @llvm.dbg.value(metadata i32 %rem.i13, metadata !928, metadata !DIExpression()), !dbg !932
+  %alloca1 = alloca i32, align 4, !dbg !936
+  %alloca2 = alloca i32, align 4, !dbg !936
+  %0 = add i32 %rem.i13, %rem.i, !dbg !936
+  %1 = mul i32 %rem.i13, %rem.i, !dbg !936
+  %checkeqver = icmp eq i32 %0, %1, !dbg !936
+  br i1 %checkeqver, label %2, label %3, !dbg !936
+
+2:                                                ; preds = %entry
+  store i32 %0, i32* %alloca1, align 4, !dbg !936
+  br label %4, !dbg !936
+
+3:                                                ; preds = %entry
+  store i32 %1, i32* %alloca2, align 4, !dbg !936
+  br label %4, !dbg !936
+
+4:                                                ; preds = %3, %2
   %add = add nsw i32 %rem.i13, %rem.i, !dbg !936
   call void @llvm.dbg.value(metadata i32 %add, metadata !927, metadata !DIExpression()), !dbg !932
   %add2 = add nsw i32 %rem.i13, 1, !dbg !937
@@ -65,50 +81,50 @@ entry:
   %call5 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call3, i32 %add2), !dbg !1009
   call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call5, metadata !1010, metadata !DIExpression()), !dbg !1024
   call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call5, metadata !1026, metadata !DIExpression()), !dbg !1032
-  %i = bitcast %"class.std::basic_ostream"* %call5 to i8**, !dbg !1034
-  %vtable.i = load i8*, i8** %i, align 8, !dbg !1034, !tbaa !1035
+  %5 = bitcast %"class.std::basic_ostream"* %call5 to i8**, !dbg !1034
+  %vtable.i = load i8*, i8** %5, align 8, !dbg !1034, !tbaa !1035
   %vbase.offset.ptr.i = getelementptr i8, i8* %vtable.i, i64 -24, !dbg !1034
-  %i1 = bitcast i8* %vbase.offset.ptr.i to i64*, !dbg !1034
-  %vbase.offset.i = load i64, i64* %i1, align 8, !dbg !1034
-  %i2 = bitcast %"class.std::basic_ostream"* %call5 to i8*, !dbg !1034
-  %add.ptr.i = getelementptr inbounds i8, i8* %i2, i64 %vbase.offset.i, !dbg !1034
+  %6 = bitcast i8* %vbase.offset.ptr.i to i64*, !dbg !1034
+  %vbase.offset.i = load i64, i64* %6, align 8, !dbg !1034
+  %7 = bitcast %"class.std::basic_ostream"* %call5 to i8*, !dbg !1034
+  %add.ptr.i = getelementptr inbounds i8, i8* %7, i64 %vbase.offset.i, !dbg !1034
   call void @llvm.dbg.value(metadata i8* %add.ptr.i, metadata !1038, metadata !DIExpression()), !dbg !1052
   call void @llvm.dbg.value(metadata i8 10, metadata !1050, metadata !DIExpression()), !dbg !1052
   %_M_ctype.i.i = getelementptr inbounds i8, i8* %add.ptr.i, i64 240, !dbg !1054
-  %i3 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**, !dbg !1054
-  %i4 = load %"class.std::ctype"*, %"class.std::ctype"** %i3, align 8, !dbg !1054, !tbaa !1055
-  call void @llvm.dbg.value(metadata %"class.std::ctype"* %i4, metadata !1060, metadata !DIExpression()), !dbg !1072
-  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %i4, null, !dbg !1074
+  %8 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**, !dbg !1054
+  %9 = load %"class.std::ctype"*, %"class.std::ctype"** %8, align 8, !dbg !1054, !tbaa !1055
+  call void @llvm.dbg.value(metadata %"class.std::ctype"* %9, metadata !1060, metadata !DIExpression()), !dbg !1072
+  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %9, null, !dbg !1074
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i, !dbg !1076
 
-if.then.i.i.i:                                    ; preds = %entry
+if.then.i.i.i:                                    ; preds = %4
   call void @_ZSt16__throw_bad_castv() #9, !dbg !1077
   unreachable, !dbg !1077
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %entry
-  call void @llvm.dbg.value(metadata %"class.std::ctype"* %i4, metadata !1078, metadata !DIExpression()), !dbg !1087
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %4
+  call void @llvm.dbg.value(metadata %"class.std::ctype"* %9, metadata !1078, metadata !DIExpression()), !dbg !1087
   call void @llvm.dbg.value(metadata i8 10, metadata !1086, metadata !DIExpression()), !dbg !1087
-  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %i4, i64 0, i32 8, !dbg !1089
-  %i5 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !dbg !1089, !tbaa !1091
-  %tobool.not.i3.i.i = icmp eq i8 %i5, 0, !dbg !1089
+  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 8, !dbg !1089
+  %10 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !dbg !1089, !tbaa !1091
+  %tobool.not.i3.i.i = icmp eq i8 %10, 0, !dbg !1089
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i, !dbg !1093
 
 if.then.i4.i.i:                                   ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %i4, i64 0, i32 9, i64 10, !dbg !1094
-  %i6 = load i8, i8* %arrayidx.i.i.i, align 1, !dbg !1094, !tbaa !1095
+  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 9, i64 10, !dbg !1094
+  %11 = load i8, i8* %arrayidx.i.i.i, align 1, !dbg !1094, !tbaa !1095
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, !dbg !1096
 
 if.end.i.i.i:                                     ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %i4), !dbg !1097
-  %i7 = bitcast %"class.std::ctype"* %i4 to i8 (%"class.std::ctype"*, i8)***, !dbg !1098
-  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %i7, align 8, !dbg !1098, !tbaa !1035
+  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9), !dbg !1097
+  %12 = bitcast %"class.std::ctype"* %9 to i8 (%"class.std::ctype"*, i8)***, !dbg !1098
+  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %12, align 8, !dbg !1098, !tbaa !1035
   %vfn.i.i.i = getelementptr inbounds i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vtable.i.i.i, i64 6, !dbg !1098
-  %i8 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8, !dbg !1098
-  %call.i.i.i = call signext i8 %i8(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %i4, i8 signext 10), !dbg !1098
+  %13 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8, !dbg !1098
+  %call.i.i.i = call signext i8 %13(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9, i8 signext 10), !dbg !1098
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, !dbg !1099
 
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.then.i4.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi i8 [ %i6, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ], !dbg !1087
+  %retval.0.i.i.i = phi i8 [ %11, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ], !dbg !1087
   %call1.i15 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call5, i8 signext %retval.0.i.i.i), !dbg !1100
   call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call1.i15, metadata !1101, metadata !DIExpression()), !dbg !1104
   %call.i.i16 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo5flushEv(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call1.i15), !dbg !1106
@@ -132,7 +148,7 @@ declare dso_local void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* no
 define internal void @_GLOBAL__sub_I_example1.cpp() #6 section ".text.startup" !dbg !1108 {
 entry:
   call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit), !dbg !1110
-  %i = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #8, !dbg !1114
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #8, !dbg !1114
   ret void
 }
 
@@ -1269,3 +1285,5 @@ attributes #9 = { noreturn }
 !1112 = distinct !DISubprogram(name: "__cxx_global_var_init", scope: !8, file: !8, type: !520, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
 !1113 = distinct !DILocation(line: 0, scope: !1108)
 !1114 = !DILocation(line: 0, scope: !1112, inlinedAt: !1113)
+
+No Loops !

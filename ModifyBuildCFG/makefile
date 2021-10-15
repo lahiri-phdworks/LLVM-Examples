@@ -15,7 +15,7 @@ endif
 
 .PHONY: test 
 
-all: build visual runpass
+all: build visual runpass test
 
 build: $(source).cpp 
 	mkdir -p build
@@ -25,10 +25,12 @@ build: $(source).cpp
 test:
 	clang++ -fno-discard-value-names -c -emit-llvm -g -O1 -DMODIFY example1.cpp -o example1.bc
 
-run: build
-	clang++ -Xclang -load -Xclang build/$(source).cpp.so -std=c++11 -O0 -DMODIFY example1.cpp -o example 
-	clang++ -Xclang -load -Xclang build/$(source).cpp.so -std=c++11 -O0 -DMODIFY -S -emit-llvm example1.cpp -o temp.ll 
-	./example
+# run: build
+# 	clang++ -Xclang -load -Xclang build/$(source).cpp.so -std=c++11 -O1 -DMODIFY example1.cpp -o example 
+# 	clang++ -Xclang -load -Xclang build/$(source).cpp.so -std=c++11 -fno-discard-value-names -O1 -DMODIFY -S -emit-llvm example1.cpp -o temp.ll 
+# 	clang++ -std=c++11 -fno-discard-value-names -O1 -DMODIFY -S -emit-llvm example1.cpp -o temp.nomod.ll 
+# 	./example
+
 visual: build test
 	opt -instnamer -mem2reg -enable-new-pm=0 --ipsccp --domtree example1.bc -S -o example1.mem2reg.ll
 	opt -dot-cfg-only --view-cfg-only -cfg-func-name=main example1.mem2reg.ll -disable-output -enable-new-pm=0
@@ -40,7 +42,7 @@ visual: build test
 	rm -rf *.dot
 
 runpass: test
-	opt -load-pass-plugin=build/$(source).cpp.so -disable-output -enable-new-pm=1 -passes=$(passname) < example1.bc
+	opt -load-pass-plugin=build/$(source).cpp.so -enable-new-pm=1 -passes=$(passname) -O0 -S < example1.bc > testout.ll
 	rm -rf example1.bc
 clean: 
 	rm -rf build *.bc *.ll *.pdf *.dot *.a *.o 
