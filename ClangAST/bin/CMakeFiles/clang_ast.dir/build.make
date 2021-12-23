@@ -57,27 +57,42 @@ include CMakeFiles/clang_ast.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/clang_ast.dir/flags.make
 
-CMakeFiles/clang_ast.dir/src/main.cpp.o: CMakeFiles/clang_ast.dir/flags.make
-CMakeFiles/clang_ast.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/clang_ast.dir/src/main.cpp.o"
-	/usr/bin/clang++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clang_ast.dir/src/main.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/main.cpp
+CMakeFiles/clang_ast.dir/src/astUsage.cpp.o: CMakeFiles/clang_ast.dir/flags.make
+CMakeFiles/clang_ast.dir/src/astUsage.cpp.o: ../src/astUsage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/clang_ast.dir/src/astUsage.cpp.o"
+	/usr/bin/clang++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clang_ast.dir/src/astUsage.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astUsage.cpp
 
-CMakeFiles/clang_ast.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clang_ast.dir/src/main.cpp.i"
-	/usr/bin/clang++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/main.cpp > CMakeFiles/clang_ast.dir/src/main.cpp.i
+CMakeFiles/clang_ast.dir/src/astUsage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clang_ast.dir/src/astUsage.cpp.i"
+	/usr/bin/clang++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astUsage.cpp > CMakeFiles/clang_ast.dir/src/astUsage.cpp.i
 
-CMakeFiles/clang_ast.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clang_ast.dir/src/main.cpp.s"
-	/usr/bin/clang++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/main.cpp -o CMakeFiles/clang_ast.dir/src/main.cpp.s
+CMakeFiles/clang_ast.dir/src/astUsage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clang_ast.dir/src/astUsage.cpp.s"
+	/usr/bin/clang++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astUsage.cpp -o CMakeFiles/clang_ast.dir/src/astUsage.cpp.s
+
+CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o: CMakeFiles/clang_ast.dir/flags.make
+CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o: ../src/clangChecker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o"
+	/usr/bin/clang++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangChecker.cpp
+
+CMakeFiles/clang_ast.dir/src/clangChecker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clang_ast.dir/src/clangChecker.cpp.i"
+	/usr/bin/clang++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangChecker.cpp > CMakeFiles/clang_ast.dir/src/clangChecker.cpp.i
+
+CMakeFiles/clang_ast.dir/src/clangChecker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clang_ast.dir/src/clangChecker.cpp.s"
+	/usr/bin/clang++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangChecker.cpp -o CMakeFiles/clang_ast.dir/src/clangChecker.cpp.s
 
 # Object files for target clang_ast
 clang_ast_OBJECTS = \
-"CMakeFiles/clang_ast.dir/src/main.cpp.o"
+"CMakeFiles/clang_ast.dir/src/astUsage.cpp.o" \
+"CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o"
 
 # External object files for target clang_ast
 clang_ast_EXTERNAL_OBJECTS =
 
-clang_ast: CMakeFiles/clang_ast.dir/src/main.cpp.o
+clang_ast: CMakeFiles/clang_ast.dir/src/astUsage.cpp.o
+clang_ast: CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o
 clang_ast: CMakeFiles/clang_ast.dir/build.make
 clang_ast: /usr/local/lib/libLLVMX86AsmParser.a
 clang_ast: /usr/local/lib/libLLVMX86Desc.a
@@ -129,7 +144,7 @@ clang_ast: /usr/lib/x86_64-linux-gnu/libz.so
 clang_ast: /usr/lib/x86_64-linux-gnu/libtinfo.so
 clang_ast: /usr/local/lib/libLLVMDemangle.a
 clang_ast: CMakeFiles/clang_ast.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable clang_ast"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable clang_ast"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clang_ast.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

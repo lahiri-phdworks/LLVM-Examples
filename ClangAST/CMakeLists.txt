@@ -3,8 +3,11 @@ project(clang_ast)
 
 set(LLVM_PATH $ENV{HOME}/llvm-project/llvm/build)
 find_package(LLVM REQUIRED CONFIG)
+
 link_directories(${LLVM_PATH}/lib)
+link_directories(${LLVM_PATH}/tools/clang/lib)
 include_directories(${LLVM_PATH}/include)
+include_directories(${LLVM_PATH}/tools/clang/include)
 
 add_definitions(
     -D__STDC_LIMIT_MACROS
@@ -13,12 +16,14 @@ add_definitions(
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti -O3 -std=c++17")
 
-set(SOURCE_FILES src/main.cpp)
+set(SOURCE_FILES src/astUsage.cpp src/clangChecker.cpp)
 add_executable(clang_ast ${SOURCE_FILES})
 
 target_link_libraries(
     clang_ast
+    clang
     clangAST
+    clangASTMatchers
     clangBasic
     clangFrontend
     clangSerialization
@@ -31,6 +36,15 @@ target_link_libraries(
     clangEdit
     clangLex
     clangTooling
+    clangRewrite
+    clangStaticAnalyzerFrontend
+    clangStaticAnalyzerCheckers
+    clangStaticAnalyzerCore
+    clangToolingCore
+    clangFrontendTool
+    clangLex
+    clangRewriteFrontend
+    clangFormat
 )
 
 target_link_libraries(clang_ast

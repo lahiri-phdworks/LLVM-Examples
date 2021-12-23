@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/main.cpp
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astUsage.cpp
 clang/AST/ASTConsumer.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/ASTConsumer.h
 clang/AST/RecursiveASTVisitor.h

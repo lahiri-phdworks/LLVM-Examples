@@ -77,12 +77,12 @@ clean: CMakeFiles/intrinsics_gen.dir/clean
 CMakeFiles/clang_ast.dir/all:
 	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/depend
 	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=1,2 "Built target clang_ast"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=1,2,3 "Built target clang_ast"
 .PHONY : CMakeFiles/clang_ast.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/clang_ast.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/clang_ast.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles 0
 .PHONY : CMakeFiles/clang_ast.dir/rule

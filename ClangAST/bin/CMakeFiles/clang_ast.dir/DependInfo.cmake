@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/main.cpp" "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/clang_ast.dir/src/main.cpp.o"
+  "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astUsage.cpp" "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/clang_ast.dir/src/astUsage.cpp.o"
+  "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangChecker.cpp" "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 
@@ -17,6 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/clustfuzz/llvm-project/llvm/build/include"
+  "/home/clustfuzz/llvm-project/llvm/build/tools/clang/include"
   )
 
 # Targets to which this target links.
