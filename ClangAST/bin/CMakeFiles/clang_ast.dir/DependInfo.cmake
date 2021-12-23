@@ -16,7 +16,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/clusterfuzz/llvm-project/llvm/build/include"
+  "/home/clustfuzz/llvm-project/llvm/build/include"
   )
 
 # Targets to which this target links.

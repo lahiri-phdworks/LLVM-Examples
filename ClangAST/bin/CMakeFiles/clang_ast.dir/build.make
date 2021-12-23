@@ -81,11 +81,13 @@ clang_ast: CMakeFiles/clang_ast.dir/src/main.cpp.o
 clang_ast: CMakeFiles/clang_ast.dir/build.make
 clang_ast: /usr/local/lib/libLLVMX86AsmParser.a
 clang_ast: /usr/local/lib/libLLVMX86Desc.a
+clang_ast: /usr/local/lib/libLLVMAsmParser.a
 clang_ast: /usr/local/lib/libLLVMX86Info.a
 clang_ast: /usr/local/lib/libLLVMipo.a
 clang_ast: /usr/local/lib/libLLVMScalarOpts.a
 clang_ast: /usr/local/lib/libLLVMInstCombine.a
 clang_ast: /usr/local/lib/libLLVMTransformUtils.a
+clang_ast: /usr/local/lib/libLLVMInstrumentation.a
 clang_ast: /usr/local/lib/libLLVMAnalysis.a
 clang_ast: /usr/local/lib/libLLVMTarget.a
 clang_ast: /usr/local/lib/libLLVMOption.a
@@ -109,7 +111,6 @@ clang_ast: /usr/local/lib/libLLVMIRReader.a
 clang_ast: /usr/local/lib/libLLVMAsmParser.a
 clang_ast: /usr/local/lib/libLLVMLinker.a
 clang_ast: /usr/local/lib/libLLVMVectorize.a
-clang_ast: /usr/local/lib/libLLVMInstrumentation.a
 clang_ast: /usr/local/lib/libLLVMTransformUtils.a
 clang_ast: /usr/local/lib/libLLVMAnalysis.a
 clang_ast: /usr/local/lib/libLLVMObject.a

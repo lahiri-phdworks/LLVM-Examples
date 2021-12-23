@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1.4)
 project(clang_ast)
 
-set(LLVM_PATH /home/clusterfuzz/llvm-project/llvm/build)
+set(LLVM_PATH $ENV{HOME}/llvm-project/llvm/build)
 find_package(LLVM REQUIRED CONFIG)
 link_directories(${LLVM_PATH}/lib)
 include_directories(${LLVM_PATH}/include)
@@ -36,13 +36,14 @@ target_link_libraries(
 target_link_libraries(clang_ast
     LLVMX86AsmParser # MC, MCParser, Support, X86Desc, X86Info
     LLVMX86Desc # MC, Support, X86AsmPrinter, X86Info
-#        LLVMX86AsmPrinter # MC, Support, X86Utils
+    LLVMAsmParser # MC, Support, X86Utils
     LLVMX86Info # MC, Support, Target
     LLVMX86Utils # Core, Support
     LLVMipo
     LLVMScalarOpts
     LLVMInstCombine
     LLVMTransformUtils
+    LLVMInstrumentation
     LLVMAnalysis
     LLVMTarget
     LLVMOption # Support

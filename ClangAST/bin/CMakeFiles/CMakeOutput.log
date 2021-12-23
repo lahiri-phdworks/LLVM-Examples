@@ -28,13 +28,13 @@ The CXX compiler identification is Clang, found in "/home/clustfuzz/Documents/LL
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_9cef2/fast && /usr/bin/make -f CMakeFiles/cmTC_9cef2.dir/build.make CMakeFiles/cmTC_9cef2.dir/build
+Run Build Command(s):/usr/bin/make cmTC_c4bf9/fast && /usr/bin/make -f CMakeFiles/cmTC_c4bf9.dir/build.make CMakeFiles/cmTC_c4bf9.dir/build
 make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9cef2.dir/testCCompiler.c.o
-/usr/bin/clang-10    -o CMakeFiles/cmTC_9cef2.dir/testCCompiler.c.o   -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_9cef2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9cef2.dir/link.txt --verbose=1
-/usr/bin/clang-10      -rdynamic CMakeFiles/cmTC_9cef2.dir/testCCompiler.c.o  -o cmTC_9cef2 
+Building C object CMakeFiles/cmTC_c4bf9.dir/testCCompiler.c.o
+/usr/bin/clang-10    -o CMakeFiles/cmTC_c4bf9.dir/testCCompiler.c.o   -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_c4bf9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4bf9.dir/link.txt --verbose=1
+/usr/bin/clang-10      -rdynamic CMakeFiles/cmTC_c4bf9.dir/testCCompiler.c.o  -o cmTC_c4bf9 
 make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
 
 
@@ -42,10 +42,10 @@ make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAS
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_ce953/fast && /usr/bin/make -f CMakeFiles/cmTC_ce953.dir/build.make CMakeFiles/cmTC_ce953.dir/build
+Run Build Command(s):/usr/bin/make cmTC_41f17/fast && /usr/bin/make -f CMakeFiles/cmTC_41f17.dir/build.make CMakeFiles/cmTC_41f17.dir/build
 make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o
-/usr/bin/clang-10   -v -o CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Building C object CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o
+/usr/bin/clang-10   -v -o CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
 clang version 10.0.0-4ubuntu1 
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -60,7 +60,7 @@ Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/10
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
  (in-process)
- "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+ "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c
 clang -cc1 version 10.0.0 based upon LLVM 10.0.0 default target x86_64-pc-linux-gnu
 ignoring nonexistent directory "/include"
 #include "..." search starts here:
@@ -70,9 +70,9 @@ ignoring nonexistent directory "/include"
  /usr/include/x86_64-linux-gnu
  /usr/include
 End of search list.
-Linking C executable cmTC_ce953
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce953.dir/link.txt --verbose=1
-/usr/bin/clang-10     -v -rdynamic CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o  -o cmTC_ce953 
+Linking C executable cmTC_41f17
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41f17.dir/link.txt --verbose=1
+/usr/bin/clang-10     -v -rdynamic CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o  -o cmTC_41f17 
 clang version 10.0.0-4ubuntu1 
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -86,7 +86,7 @@ Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
 Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/10
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ce953 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
+ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_41f17 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
 
 
@@ -110,10 +110,10 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_ce953/fast && /usr/bin/make -f CMakeFiles/cmTC_ce953.dir/build.make CMakeFiles/cmTC_ce953.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_41f17/fast && /usr/bin/make -f CMakeFiles/cmTC_41f17.dir/build.make CMakeFiles/cmTC_41f17.dir/build]
   ignore line: [make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/clang-10   -v -o CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Building C object CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/clang-10   -v -o CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
   ignore line: [clang version 10.0.0-4ubuntu1 ]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -130,7 +130,7 @@ Parsed C implicit link information from above output:
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
   ignore line: [ (in-process)]
-  ignore line: [ "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [ "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
   ignore line: [clang -cc1 version 10.0.0 based upon LLVM 10.0.0 default target x86_64-pc-linux-gnu]
   ignore line: [ignoring nonexistent directory "/include"]
   ignore line: [#include "..." search starts here:]
@@ -140,9 +140,9 @@ Parsed C implicit link information from above output:
   ignore line: [ /usr/include/x86_64-linux-gnu]
   ignore line: [ /usr/include]
   ignore line: [End of search list.]
-  ignore line: [Linking C executable cmTC_ce953]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce953.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/clang-10     -v -rdynamic CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o  -o cmTC_ce953 ]
+  ignore line: [Linking C executable cmTC_41f17]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41f17.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/clang-10     -v -rdynamic CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o  -o cmTC_41f17 ]
   ignore line: [clang version 10.0.0-4ubuntu1 ]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -158,7 +158,7 @@ Parsed C implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ce953 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_41f17 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/bin/ld] ==> ignore
     arg [-export-dynamic] ==> ignore
     arg [-zrelro] ==> ignore
@@ -171,7 +171,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ce953] ==> ignore
+    arg [cmTC_41f17] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o] ==> ignore
@@ -187,7 +187,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/llvm-10/bin/../lib] ==> dir [/usr/lib/llvm-10/bin/../lib]
     arg [-L/lib] ==> dir [/lib]
     arg [-L/usr/lib] ==> dir [/usr/lib]
-    arg [CMakeFiles/cmTC_ce953.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_41f17.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -219,13 +219,13 @@ Parsed C implicit link information from above output:
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_d4826/fast && /usr/bin/make -f CMakeFiles/cmTC_d4826.dir/build.make CMakeFiles/cmTC_d4826.dir/build
+Run Build Command(s):/usr/bin/make cmTC_9f744/fast && /usr/bin/make -f CMakeFiles/cmTC_9f744.dir/build.make CMakeFiles/cmTC_9f744.dir/build
 make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_d4826.dir/testCXXCompiler.cxx.o
-/usr/bin/clang++-10     -o CMakeFiles/cmTC_d4826.dir/testCXXCompiler.cxx.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_d4826
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d4826.dir/link.txt --verbose=1
-/usr/bin/clang++-10       -rdynamic CMakeFiles/cmTC_d4826.dir/testCXXCompiler.cxx.o  -o cmTC_d4826 
+Building CXX object CMakeFiles/cmTC_9f744.dir/testCXXCompiler.cxx.o
+/usr/bin/clang++-10     -o CMakeFiles/cmTC_9f744.dir/testCXXCompiler.cxx.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_9f744
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f744.dir/link.txt --verbose=1
+/usr/bin/clang++-10       -rdynamic CMakeFiles/cmTC_9f744.dir/testCXXCompiler.cxx.o  -o cmTC_9f744 
 make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
 
 
@@ -233,10 +233,10 @@ make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAS
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_71750/fast && /usr/bin/make -f CMakeFiles/cmTC_71750.dir/build.make CMakeFiles/cmTC_71750.dir/build
+Run Build Command(s):/usr/bin/make cmTC_4d174/fast && /usr/bin/make -f CMakeFiles/cmTC_4d174.dir/build.make CMakeFiles/cmTC_4d174.dir/build
 make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/clang++-10    -v -o CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Building CXX object CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/clang++-10    -v -o CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
 clang version 10.0.0-4ubuntu1 
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -251,7 +251,7 @@ Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/10
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
  (in-process)
- "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/backward -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+ "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/backward -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
 clang -cc1 version 10.0.0 based upon LLVM 10.0.0 default target x86_64-pc-linux-gnu
 ignoring nonexistent directory "/include"
 ignoring duplicate directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10"
@@ -265,9 +265,9 @@ ignoring duplicate directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../.
  /usr/include/x86_64-linux-gnu
  /usr/include
 End of search list.
-Linking CXX executable cmTC_71750
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71750.dir/link.txt --verbose=1
-/usr/bin/clang++-10      -v -rdynamic CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_71750 
+Linking CXX executable cmTC_4d174
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4d174.dir/link.txt --verbose=1
+/usr/bin/clang++-10      -v -rdynamic CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_4d174 
 clang version 10.0.0-4ubuntu1 
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -281,7 +281,7 @@ Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
 Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/10
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_71750 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
+ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_4d174 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
 
 
@@ -311,10 +311,10 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_71750/fast && /usr/bin/make -f CMakeFiles/cmTC_71750.dir/build.make CMakeFiles/cmTC_71750.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_4d174/fast && /usr/bin/make -f CMakeFiles/cmTC_4d174.dir/build.make CMakeFiles/cmTC_4d174.dir/build]
   ignore line: [make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/clang++-10    -v -o CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Building CXX object CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/clang++-10    -v -o CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [clang version 10.0.0-4ubuntu1 ]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -331,7 +331,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
   ignore line: [ (in-process)]
-  ignore line: [ "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/backward -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [ "/usr/lib/llvm-10/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-10/lib/clang/10.0.0 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/backward -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-10/lib/clang/10.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -faddrsig -o CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [clang -cc1 version 10.0.0 based upon LLVM 10.0.0 default target x86_64-pc-linux-gnu]
   ignore line: [ignoring nonexistent directory "/include"]
   ignore line: [ignoring duplicate directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10"]
@@ -345,9 +345,9 @@ Parsed CXX implicit link information from above output:
   ignore line: [ /usr/include/x86_64-linux-gnu]
   ignore line: [ /usr/include]
   ignore line: [End of search list.]
-  ignore line: [Linking CXX executable cmTC_71750]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71750.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/clang++-10      -v -rdynamic CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_71750 ]
+  ignore line: [Linking CXX executable cmTC_4d174]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4d174.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/clang++-10      -v -rdynamic CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_4d174 ]
   ignore line: [clang version 10.0.0-4ubuntu1 ]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -363,7 +363,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_71750 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_4d174 /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../.. -L/usr/lib/llvm-10/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/bin/ld] ==> ignore
     arg [-export-dynamic] ==> ignore
     arg [-zrelro] ==> ignore
@@ -376,7 +376,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_71750] ==> ignore
+    arg [cmTC_4d174] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/10/crtbegin.o] ==> ignore
@@ -392,7 +392,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/llvm-10/bin/../lib] ==> dir [/usr/lib/llvm-10/bin/../lib]
     arg [-L/lib] ==> dir [/lib]
     arg [-L/usr/lib] ==> dir [/usr/lib]
-    arg [CMakeFiles/cmTC_71750.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_4d174.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -422,13 +422,13 @@ Parsed CXX implicit link information from above output:
 Performing C SOURCE FILE Test Terminfo_LINKABLE succeeded with the following output:
 Change Dir: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_aba42/fast && /usr/bin/make -f CMakeFiles/cmTC_aba42.dir/build.make CMakeFiles/cmTC_aba42.dir/build
+Run Build Command(s):/usr/bin/make cmTC_2c45d/fast && /usr/bin/make -f CMakeFiles/cmTC_2c45d.dir/build.make CMakeFiles/cmTC_2c45d.dir/build
 make[1]: Entering directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_aba42.dir/src.c.o
-/usr/bin/clang-10   -DTerminfo_LINKABLE   -o CMakeFiles/cmTC_aba42.dir/src.c.o   -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_aba42
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aba42.dir/link.txt --verbose=1
-/usr/bin/clang-10  -DTerminfo_LINKABLE    -rdynamic CMakeFiles/cmTC_aba42.dir/src.c.o  -o cmTC_aba42  /usr/lib/x86_64-linux-gnu/libtinfo.so 
+Building C object CMakeFiles/cmTC_2c45d.dir/src.c.o
+/usr/bin/clang-10   -DTerminfo_LINKABLE   -o CMakeFiles/cmTC_2c45d.dir/src.c.o   -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2c45d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c45d.dir/link.txt --verbose=1
+/usr/bin/clang-10  -DTerminfo_LINKABLE    -rdynamic CMakeFiles/cmTC_2c45d.dir/src.c.o  -o cmTC_2c45d  /usr/lib/x86_64-linux-gnu/libtinfo.so 
 make[1]: Leaving directory '/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/CMakeTmp'
 
 
