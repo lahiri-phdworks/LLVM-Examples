@@ -47,7 +47,7 @@ public:
   }
 };
 
-int main(int argc, char **argv) {
+int astUsage(int argc, char **argv) {
   if (argc > 1) {
     clang::tooling::runToolOnCode(std::make_unique<FindNamedClassAction>(), argv[1]);
   }

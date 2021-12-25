@@ -10,7 +10,6 @@
 //------------------------------------------------------------------------------
 
 // https://reviews.llvm.org/D50346
-//
 #include <cstdio>
 #include <memory>
 #include <sstream>
@@ -112,7 +111,7 @@ private:
   MyASTVisitor Visitor;
 };
 
-int start(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
   if (argc != 2) {
     llvm::errs() << "Usage: rewritersample <filename>\n";
     return 1;

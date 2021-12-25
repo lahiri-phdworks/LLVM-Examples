@@ -19,6 +19,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/clustfuzz/llvm-project/llvm/build/include"
   "/home/clustfuzz/llvm-project/llvm/build/tools/clang/include"
+  "../include"
   )
 
 # Targets to which this target links.

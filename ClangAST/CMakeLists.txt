@@ -8,6 +8,7 @@ link_directories(${LLVM_PATH}/lib)
 link_directories(${LLVM_PATH}/tools/clang/lib)
 include_directories(${LLVM_PATH}/include)
 include_directories(${LLVM_PATH}/tools/clang/include)
+include_directories(include)
 
 add_definitions(
     -D__STDC_LIMIT_MACROS
