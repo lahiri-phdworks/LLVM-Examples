@@ -224,7 +224,7 @@ LIBXML2_INCLUDE_DIR:PATH=/usr/include/libxml2
 LIBXML2_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libxml2.so
 
 //Path to a program.
-LIBXML2_XMLLINT_EXECUTABLE:FILEPATH=LIBXML2_XMLLINT_EXECUTABLE-NOTFOUND
+LIBXML2_XMLLINT_EXECUTABLE:FILEPATH=/usr/bin/xmllint
 
 //The directory containing a CMake configuration file for LLVM.
 LLVM_DIR:PATH=/usr/local/lib/cmake/llvm
