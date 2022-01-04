@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseOld.cpp" "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.o"
+  "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp" "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

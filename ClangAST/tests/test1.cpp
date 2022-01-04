@@ -1,7 +1,7 @@
-//
-//#include <iostream>
-//#include <vector>
-int main () {
+#include <iostream>
+#include <vector>
+
+int main() {
 
   int a = 90;
 

@@ -162,32 +162,32 @@ intrinsics_gen/fast:
 	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
 .PHONY : intrinsics_gen/fast
 
-src/clangIfElseOld.o: src/clangIfElseOld.cpp.o
+src/clangIfElseTooling.o: src/clangIfElseTooling.cpp.o
 
-.PHONY : src/clangIfElseOld.o
+.PHONY : src/clangIfElseTooling.o
 
 # target to build an object file
-src/clangIfElseOld.cpp.o:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.o
-.PHONY : src/clangIfElseOld.cpp.o
+src/clangIfElseTooling.cpp.o:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o
+.PHONY : src/clangIfElseTooling.cpp.o
 
-src/clangIfElseOld.i: src/clangIfElseOld.cpp.i
+src/clangIfElseTooling.i: src/clangIfElseTooling.cpp.i
 
-.PHONY : src/clangIfElseOld.i
+.PHONY : src/clangIfElseTooling.i
 
 # target to preprocess a source file
-src/clangIfElseOld.cpp.i:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.i
-.PHONY : src/clangIfElseOld.cpp.i
+src/clangIfElseTooling.cpp.i:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.i
+.PHONY : src/clangIfElseTooling.cpp.i
 
-src/clangIfElseOld.s: src/clangIfElseOld.cpp.s
+src/clangIfElseTooling.s: src/clangIfElseTooling.cpp.s
 
-.PHONY : src/clangIfElseOld.s
+.PHONY : src/clangIfElseTooling.s
 
 # target to generate assembly for a file
-src/clangIfElseOld.cpp.s:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.s
-.PHONY : src/clangIfElseOld.cpp.s
+src/clangIfElseTooling.cpp.s:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.s
+.PHONY : src/clangIfElseTooling.cpp.s
 
 # Help Target
 help:
@@ -201,9 +201,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... omp_gen"
 	@echo "... intrinsics_gen"
-	@echo "... src/clangIfElseOld.o"
-	@echo "... src/clangIfElseOld.i"
-	@echo "... src/clangIfElseOld.s"
+	@echo "... src/clangIfElseTooling.o"
+	@echo "... src/clangIfElseTooling.i"
+	@echo "... src/clangIfElseTooling.s"
 .PHONY : help
 
 

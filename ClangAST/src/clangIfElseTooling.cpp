@@ -27,13 +27,21 @@ using namespace clang;
 using namespace clang::driver;
 using namespace clang::tooling;
 
-static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
+static llvm::cl::extrahelp
+    CommonHelp(clang::tooling::CommonOptionsParser::HelpMessage);
+llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample options");
 
 // By implementing RecursiveASTVisitor, we can specify which AST nodes
 // we're interested in by overriding relevant methods.
 class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
+
 public:
   MyASTVisitor(Rewriter &R) : TheRewriter(R) {}
+
+  bool VisitNamedDecl(clang::NamedDecl *NamedDecl) {
+    llvm::outs() << "Found : " << NamedDecl->getQualifiedNameAsString() << "\n";
+    return true;
+  }
 
   bool VisitStmt(Stmt *s) {
     // Only care about If statements.
