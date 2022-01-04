@@ -6,19 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astUsage.cpp
-clang/AST/ASTConsumer.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/ASTConsumer.h
-clang/AST/RecursiveASTVisitor.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/RecursiveASTVisitor.h
-clang/Frontend/CompilerInstance.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Frontend/CompilerInstance.h
-clang/Frontend/FrontendAction.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Frontend/FrontendAction.h
-clang/Tooling/Tooling.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Tooling/Tooling.h
-
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangChecker.cpp
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseOld.cpp
 cstdio
 -
 memory
@@ -33,12 +21,12 @@ clang/AST/RecursiveASTVisitor.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/RecursiveASTVisitor.h
 clang/Basic/Diagnostic.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/Diagnostic.h
+clang/Basic/FileEntry.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/FileEntry.h
 clang/Basic/FileManager.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/FileManager.h
 clang/Basic/SourceManager.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/SourceManager.h
-clang/Basic/FileEntry.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/FileEntry.h
 clang/Basic/TargetInfo.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/TargetInfo.h
 clang/Basic/TargetOptions.h
@@ -53,10 +41,10 @@ clang/Rewrite/Core/Rewriter.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Rewrite/Core/Rewriter.h
 clang/Rewrite/Frontend/Rewriters.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Rewrite/Frontend/Rewriters.h
-llvm/Support/Host.h
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/llvm/Support/Host.h
 llvm/Support/ErrorOr.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/llvm/Support/ErrorOr.h
+llvm/Support/Host.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/llvm/Support/Host.h
 llvm/Support/raw_ostream.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/llvm/Support/raw_ostream.h
 

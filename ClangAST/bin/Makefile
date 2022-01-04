@@ -162,59 +162,32 @@ intrinsics_gen/fast:
 	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
 .PHONY : intrinsics_gen/fast
 
-src/astUsage.o: src/astUsage.cpp.o
+src/clangIfElseOld.o: src/clangIfElseOld.cpp.o
 
-.PHONY : src/astUsage.o
-
-# target to build an object file
-src/astUsage.cpp.o:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/astUsage.cpp.o
-.PHONY : src/astUsage.cpp.o
-
-src/astUsage.i: src/astUsage.cpp.i
-
-.PHONY : src/astUsage.i
-
-# target to preprocess a source file
-src/astUsage.cpp.i:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/astUsage.cpp.i
-.PHONY : src/astUsage.cpp.i
-
-src/astUsage.s: src/astUsage.cpp.s
-
-.PHONY : src/astUsage.s
-
-# target to generate assembly for a file
-src/astUsage.cpp.s:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/astUsage.cpp.s
-.PHONY : src/astUsage.cpp.s
-
-src/clangChecker.o: src/clangChecker.cpp.o
-
-.PHONY : src/clangChecker.o
+.PHONY : src/clangIfElseOld.o
 
 # target to build an object file
-src/clangChecker.cpp.o:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangChecker.cpp.o
-.PHONY : src/clangChecker.cpp.o
+src/clangIfElseOld.cpp.o:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.o
+.PHONY : src/clangIfElseOld.cpp.o
 
-src/clangChecker.i: src/clangChecker.cpp.i
+src/clangIfElseOld.i: src/clangIfElseOld.cpp.i
 
-.PHONY : src/clangChecker.i
+.PHONY : src/clangIfElseOld.i
 
 # target to preprocess a source file
-src/clangChecker.cpp.i:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangChecker.cpp.i
-.PHONY : src/clangChecker.cpp.i
+src/clangIfElseOld.cpp.i:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.i
+.PHONY : src/clangIfElseOld.cpp.i
 
-src/clangChecker.s: src/clangChecker.cpp.s
+src/clangIfElseOld.s: src/clangIfElseOld.cpp.s
 
-.PHONY : src/clangChecker.s
+.PHONY : src/clangIfElseOld.s
 
 # target to generate assembly for a file
-src/clangChecker.cpp.s:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangChecker.cpp.s
-.PHONY : src/clangChecker.cpp.s
+src/clangIfElseOld.cpp.s:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseOld.cpp.s
+.PHONY : src/clangIfElseOld.cpp.s
 
 # Help Target
 help:
@@ -228,12 +201,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... omp_gen"
 	@echo "... intrinsics_gen"
-	@echo "... src/astUsage.o"
-	@echo "... src/astUsage.i"
-	@echo "... src/astUsage.s"
-	@echo "... src/clangChecker.o"
-	@echo "... src/clangChecker.i"
-	@echo "... src/clangChecker.s"
+	@echo "... src/clangIfElseOld.o"
+	@echo "... src/clangIfElseOld.i"
+	@echo "... src/clangIfElseOld.s"
 .PHONY : help
 
 

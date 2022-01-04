@@ -17,8 +17,9 @@ add_definitions(
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti -O3 -std=c++17")
 
-set(SOURCE_FILES src/astUsage.cpp src/clangChecker.cpp)
+set(SOURCE_FILES src/clangIfElseOld.cpp)
 add_executable(clang_ast ${SOURCE_FILES})
+set(LLVM_LINK_COMPONENTS support)
 
 target_link_libraries(
     clang_ast
