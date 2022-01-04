@@ -162,32 +162,32 @@ intrinsics_gen/fast:
 	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
 .PHONY : intrinsics_gen/fast
 
-src/clangIfElseTooling.o: src/clangIfElseTooling.cpp.o
+src/astVisitor.o: src/astVisitor.cpp.o
 
-.PHONY : src/clangIfElseTooling.o
+.PHONY : src/astVisitor.o
 
 # target to build an object file
-src/clangIfElseTooling.cpp.o:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o
-.PHONY : src/clangIfElseTooling.cpp.o
+src/astVisitor.cpp.o:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o
+.PHONY : src/astVisitor.cpp.o
 
-src/clangIfElseTooling.i: src/clangIfElseTooling.cpp.i
+src/astVisitor.i: src/astVisitor.cpp.i
 
-.PHONY : src/clangIfElseTooling.i
+.PHONY : src/astVisitor.i
 
 # target to preprocess a source file
-src/clangIfElseTooling.cpp.i:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.i
-.PHONY : src/clangIfElseTooling.cpp.i
+src/astVisitor.cpp.i:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/astVisitor.cpp.i
+.PHONY : src/astVisitor.cpp.i
 
-src/clangIfElseTooling.s: src/clangIfElseTooling.cpp.s
+src/astVisitor.s: src/astVisitor.cpp.s
 
-.PHONY : src/clangIfElseTooling.s
+.PHONY : src/astVisitor.s
 
 # target to generate assembly for a file
-src/clangIfElseTooling.cpp.s:
-	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.s
-.PHONY : src/clangIfElseTooling.cpp.s
+src/astVisitor.cpp.s:
+	$(MAKE) -f CMakeFiles/clang_ast.dir/build.make CMakeFiles/clang_ast.dir/src/astVisitor.cpp.s
+.PHONY : src/astVisitor.cpp.s
 
 # Help Target
 help:
@@ -201,9 +201,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... omp_gen"
 	@echo "... intrinsics_gen"
-	@echo "... src/clangIfElseTooling.o"
-	@echo "... src/clangIfElseTooling.i"
-	@echo "... src/clangIfElseTooling.s"
+	@echo "... src/astVisitor.o"
+	@echo "... src/astVisitor.i"
+	@echo "... src/astVisitor.s"
 .PHONY : help
 
 

@@ -3,6 +3,7 @@
 #include "clang/Frontend/CompilerInstance.h"
 #include "clang/Frontend/FrontendAction.h"
 #include "clang/Tooling/Tooling.h"
+#include <clang/AST/Stmt.h>
 
 using namespace clang;
 
@@ -11,17 +12,35 @@ class FindNamedClassVisitor
 public:
   explicit FindNamedClassVisitor(ASTContext *Context) : Context(Context) {}
 
-  bool VisitCXXRecordDecl(CXXRecordDecl *Declaration) {
-    if (Declaration->getQualifiedNameAsString() == "n::m::C") {
-      FullSourceLoc FullLocation =
-          Context->getFullLoc(Declaration->getBeginLoc());
-      if (FullLocation.isValid())
-        llvm::outs() << "Found declaration at "
-                     << FullLocation.getSpellingLineNumber() << ":"
-                     << FullLocation.getSpellingColumnNumber() << "\n";
-    }
+  // bool VisitIfStmt(IfStmt *S) {
+  //   llvm::outs() << "If Condition : ";
+  //   if (S)
+  //     VisitDecl(S->getConditionVariable());
+  //   return true;
+  // }
+
+  // bool VisitWhileStmt(WhileStmt *S) {
+  //   llvm::outs() << "While Condition : ";
+  //   if (S)
+  //     VisitDecl(S->getConditionVariable());
+  //   return true;
+  // }
+
+  // Declaration Visitor
+  bool VisitDecl(clang::Decl *Declaration) {
+    Declaration->dump();
     return true;
   }
+
+  // Statement Visitor
+  // bool VisitStmt(Stmt *s) {
+  //   s->dump();
+  //   for (Stmt::child_iterator C = s->child_begin(), CEnd = s->child_end();
+  //        C != CEnd; ++C)
+  //     if (*C)
+  //       VisitStmt(*C);
+  //   return true;
+  // }
 
 private:
   ASTContext *Context;
