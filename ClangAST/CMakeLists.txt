@@ -15,21 +15,21 @@ add_definitions(
     -D__STDC_CONSTANT_MACROS
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti -O3 -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++17")
+if(NOT LLVM_ENABLE_RTTI)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
+endif()
 
 # set(SOURCE_FILES src/clangIfElseOld.cpp)
-# set(SOURCE_FILES src/clangIfElseTooling.cpp)
-set(SOURCE_FILES src/astVisitor.cpp)
+set(SOURCE_FILES src/clangIfElseTooling.cpp)
+# set(SOURCE_FILES src/astVisitor.cpp)
 
 add_executable(clang_ast ${SOURCE_FILES})
 set(LLVM_LINK_COMPONENTS support)
 
-target_link_libraries(
-    clang_ast
+target_link_libraries(clang_ast
     clang
-    clangAST
     clangASTMatchers
-    clangBasic
     clangFrontend
     clangSerialization
     clangDriver
@@ -39,27 +39,24 @@ target_link_libraries(
     clangAST
     clangBasic
     clangEdit
-    clangLex
-    clangTooling
-    clangRewrite
     clangStaticAnalyzerFrontend
     clangStaticAnalyzerCheckers
     clangStaticAnalyzerCore
+    clangTooling
+    clangToolingSyntax
     clangToolingCore
     clangFrontendTool
     clangLex
+    clangRewrite
     clangRewriteFrontend
     clangFormat
-)
-
-target_link_libraries(clang_ast
-    LLVMX86AsmParser # MC, MCParser, Support, X86Desc, X86Info
-    LLVMX86Desc # MC, Support, X86AsmPrinter, X86Info
-    LLVMAsmParser # MC, Support, X86Utils
-    LLVMX86Info # MC, Support, Target
+    # LLVMX86AsmParser # MC, MCParser, Support, X86Desc, X86Info
+    # LLVMX86Desc # MC, Support, X86AsmPrinter, X86Info
+    # LLVMAsmParser # MC, Support, X86Utils
+    # LLVMX86Info # MC, Support, Target
     # LLVMX86Utils # Core, Support
     LLVMipo
-    LLVMScalarOpts
+    # LLVMScalarOpts
     LLVMInstCombine
     LLVMTransformUtils
     LLVMInstrumentation

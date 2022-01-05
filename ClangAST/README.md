@@ -1,9 +1,28 @@
+# Clang AST
+
+- [Introduction to the Clang AST](https://clang.llvm.org/docs/IntroductionToTheClangAST.html)
+- [How to write RecursiveASTVisitor based ASTFrontendActions.](https://clang.llvm.org/docs/RAVFrontendAction.html)
+- [Tutorial for building tools using LibTooling and LibASTMatchers](https://clang.llvm.org/docs/LibASTMatchersTutorial.html)
+
+We follow the `clang LibTooling` approach here.
+
+- [Clang LibTooling](https://clang.llvm.org/docs/LibTooling.html)
+
 ## Commands
 
+Installing and building LLVM (LLVM-14/clang-14) from source.
+You must have `cmake`, `make`, `cmake-data` installed along with `binutils`.
+
+- [Building LLVM From Source](https://llvm.org/docs/CMake.html)
+
 ```bash
+# Install NCurses GUI/dev
+sudo apt-get install libncurses5-dev libncursesw5-dev
+
 # Installing LLVM
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
+
 cmake -S llvm -B build -G "Unix Makefiles" \
   -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt" \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
@@ -11,14 +30,71 @@ cmake -S llvm -B build -G "Unix Makefiles" \
   -DLLVM_INSTALL_UTILS=ON
 
 cd build
-make -j 4
+make -j 4 # Adjust as per your machine.
 sudo make install
+```
 
-# Runnning this example
+### For Ninja Build.
+
+```bash
+# Install NCurses GUI/dev
+sudo apt-get install libncurses5-dev libncursesw5-dev
+
+# Installing LLVM
+git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+
+cmake -S llvm -B build -G "Ninja" \
+  -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt" \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DLLVM_INSTALL_UTILS=ON
+
+cd build
+ninja make all
+```
+
+# Runnning Examples.
+
+Open the `dir` and cd to `bin`. Run `cmake` followed by `make`.
+
+```
 cd bin
 CC=clang CXX=clang++ cmake ..
 make -j 2
 ./clang_ast ..<other-args>
+```
+
+You will see someting similar to this.
+
+```
+-- The C compiler identification is Clang 14.0.0
+-- The CXX compiler identification is Clang 14.0.0
+-- Check for working C compiler: /usr/local/bin/clang
+-- Check for working C compiler: /usr/local/bin/clang -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/local/bin/clang++
+-- Check for working CXX compiler: /usr/local/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test Terminfo_LINKABLE
+-- Performing Test Terminfo_LINKABLE - Success
+-- Found Terminfo: /usr/lib/x86_64-linux-gnu/libtinfo.so
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11")
+-- Found LibXml2: /usr/lib/x86_64-linux-gnu/libxml2.so (found version "2.9.10")
+-- Found Curses: /usr/lib/x86_64-linux-gnu/libcurses.so
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin
+Scanning dependencies of target clang_ast
+[ 50%] Building CXX object CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o
+[100%] Linking CXX executable clang_ast
+[100%] Built target clang_ast
 ```
 
 ## Ast Visitor
@@ -85,4 +161,12 @@ FunctionDecl 0x478cdc0 <input.cc:1:1, line:10:1> line:1:5 main 'int ()'
     `-IntegerLiteral 0x478d070 <col:10> 'int' 0
 VarDecl 0x478cee8 <input.cc:3:3, col:11> col:7 used a 'int' cinit
 `-IntegerLiteral 0x478cf50 <col:11> 'int' 90
+```
+
+## AST Rewrite Actions
+
+Source is `src/clangIfElseTooling.cpp`, add the following to the CMakeLists.txt `set(SOURCE_FILES src/clangIfElseTooling.cpp)`.
+
+```
+./clang_ast ../tests/test1.cpp
 ```

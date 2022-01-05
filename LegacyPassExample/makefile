@@ -13,7 +13,7 @@ endif
 
 .PHONY: test 
 
-all: build
+all: build runpass
 
 build: Hello.cpp
 	mkdir -p build

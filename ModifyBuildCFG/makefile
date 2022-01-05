@@ -42,7 +42,7 @@ visual: build test
 	rm -rf *.dot
 
 runpass: test
-	opt -load-pass-plugin=build/$(source).cpp.so -enable-new-pm=1 -passes=$(passname) -O0 -S < example1.bc > testout.ll
+	opt -load-pass-plugin=build/$(source).cpp.so -enable-new-pm=1 -passes=$(passname) -S < example1.bc > testout.ll
 	rm -rf example1.bc
 clean: 
 	rm -rf build *.bc *.ll *.pdf *.dot *.a *.o 

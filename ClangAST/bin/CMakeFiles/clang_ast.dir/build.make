@@ -57,34 +57,29 @@ include CMakeFiles/clang_ast.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/clang_ast.dir/flags.make
 
-CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o: CMakeFiles/clang_ast.dir/flags.make
-CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o: ../src/astVisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o"
-	/usr/local/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astVisitor.cpp
+CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o: CMakeFiles/clang_ast.dir/flags.make
+CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o: ../src/clangIfElseTooling.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o"
+	/usr/local/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp
 
-CMakeFiles/clang_ast.dir/src/astVisitor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clang_ast.dir/src/astVisitor.cpp.i"
-	/usr/local/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astVisitor.cpp > CMakeFiles/clang_ast.dir/src/astVisitor.cpp.i
+CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.i"
+	/usr/local/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp > CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.i
 
-CMakeFiles/clang_ast.dir/src/astVisitor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clang_ast.dir/src/astVisitor.cpp.s"
-	/usr/local/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/astVisitor.cpp -o CMakeFiles/clang_ast.dir/src/astVisitor.cpp.s
+CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.s"
+	/usr/local/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp -o CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.s
 
 # Object files for target clang_ast
 clang_ast_OBJECTS = \
-"CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o"
+"CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o"
 
 # External object files for target clang_ast
 clang_ast_EXTERNAL_OBJECTS =
 
-clang_ast: CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o
+clang_ast: CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o
 clang_ast: CMakeFiles/clang_ast.dir/build.make
-clang_ast: /usr/local/lib/libLLVMX86AsmParser.a
-clang_ast: /usr/local/lib/libLLVMX86Desc.a
-clang_ast: /usr/local/lib/libLLVMAsmParser.a
-clang_ast: /usr/local/lib/libLLVMX86Info.a
 clang_ast: /usr/local/lib/libLLVMipo.a
-clang_ast: /usr/local/lib/libLLVMScalarOpts.a
 clang_ast: /usr/local/lib/libLLVMInstCombine.a
 clang_ast: /usr/local/lib/libLLVMTransformUtils.a
 clang_ast: /usr/local/lib/libLLVMInstrumentation.a
@@ -99,17 +94,14 @@ clang_ast: /usr/local/lib/libLLVMCore.a
 clang_ast: /usr/local/lib/libLLVMSupport.a
 clang_ast: /usr/lib/x86_64-linux-gnu/libcurses.so
 clang_ast: /usr/lib/x86_64-linux-gnu/libform.so
-clang_ast: /usr/lib/x86_64-linux-gnu/libcurses.so
-clang_ast: /usr/lib/x86_64-linux-gnu/libform.so
-clang_ast: /usr/local/lib/libLLVMMCDisassembler.a
 clang_ast: /usr/local/lib/libLLVMBitWriter.a
 clang_ast: /usr/local/lib/libLLVMFrontendOpenMP.a
-clang_ast: /usr/local/lib/libLLVMScalarOpts.a
-clang_ast: /usr/local/lib/libLLVMInstCombine.a
-clang_ast: /usr/local/lib/libLLVMAggressiveInstCombine.a
 clang_ast: /usr/local/lib/libLLVMIRReader.a
 clang_ast: /usr/local/lib/libLLVMAsmParser.a
 clang_ast: /usr/local/lib/libLLVMLinker.a
+clang_ast: /usr/local/lib/libLLVMScalarOpts.a
+clang_ast: /usr/local/lib/libLLVMInstCombine.a
+clang_ast: /usr/local/lib/libLLVMAggressiveInstCombine.a
 clang_ast: /usr/local/lib/libLLVMVectorize.a
 clang_ast: /usr/local/lib/libLLVMTransformUtils.a
 clang_ast: /usr/local/lib/libLLVMAnalysis.a

@@ -513,10 +513,10 @@ declare dso_local void @_ZSt16__throw_bad_castv() local_unnamed_addr #5
 declare dso_local void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_example1.cpp() #6 section ".text.startup" !dbg !1303 {
+define internal void @_GLOBAL__sub_I_example1.cpp() #6 section ".text.startup" !dbg !1306 {
 entry:
-  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit), !dbg !1305
-  %i = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #8, !dbg !1309
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit), !dbg !1308
+  %i = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #8, !dbg !1312
   ret void
 }
 
@@ -545,8 +545,8 @@ attributes #9 = { noreturn }
 !4 = distinct !DICompositeType(tag: DW_TAG_class_type, name: "Init", scope: !6, file: !5, line: 626, size: 8, flags: DIFlagFwdDecl | DIFlagNonTrivial, identifier: "_ZTSNSt8ios_base4InitE")
 !5 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/ios_base.h", directory: "")
 !6 = distinct !DICompositeType(tag: DW_TAG_class_type, name: "ios_base", scope: !2, file: !5, line: 228, size: 1728, flags: DIFlagFwdDecl | DIFlagNonTrivial, identifier: "_ZTSSt8ios_base")
-!7 = distinct !DICompileUnit(language: DW_LANG_C_plus_plus_14, file: !8, producer: "clang version 14.0.0 (https://github.com/HPSSA-LLVM/llvm-project.git ad890aa2327feb6b6aee676fe85b2352fba2403e)", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, retainedTypes: !9, globals: !11, imports: !12, splitDebugInlining: false, nameTableKind: None)
-!8 = !DIFile(filename: "example1.cpp", directory: "/home/zcluster55/llvm-examples/LLVM-Examples/NewPMExample")
+!7 = distinct !DICompileUnit(language: DW_LANG_C_plus_plus_14, file: !8, producer: "clang version 14.0.0 (https://github.com/HPSSA-LLVM/llvm-project.git a556ec8861df920bfaee3057df8aac739aa59b24)", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, retainedTypes: !9, globals: !11, imports: !12, splitDebugInlining: false, nameTableKind: None)
+!8 = !DIFile(filename: "example1.cpp", directory: "/home/clustfuzz/Documents/LLVM/LLVM-Examples/NewPMExample")
 !9 = !{!10}
 !10 = !DIBasicType(name: "unsigned char", size: 8, encoding: DW_ATE_unsigned_char)
 !11 = !{!0}
@@ -612,7 +612,7 @@ attributes #9 = { noreturn }
 !71 = !DIDerivedType(tag: DW_TAG_member, name: "_old_offset", scope: !48, file: !49, line: 74, baseType: !72, size: 64, offset: 960)
 !72 = !DIDerivedType(tag: DW_TAG_typedef, name: "__off_t", file: !73, line: 152, baseType: !74)
 !73 = !DIFile(filename: "/usr/include/x86_64-linux-gnu/bits/types.h", directory: "")
-!74 = !DIBasicType(name: "long int", size: 64, encoding: DW_ATE_signed)
+!74 = !DIBasicType(name: "long", size: 64, encoding: DW_ATE_signed)
 !75 = !DIDerivedType(tag: DW_TAG_member, name: "_cur_column", scope: !48, file: !49, line: 77, baseType: !76, size: 16, offset: 1024)
 !76 = !DIBasicType(name: "unsigned short", size: 16, encoding: DW_ATE_unsigned)
 !77 = !DIDerivedType(tag: DW_TAG_member, name: "_vtable_offset", scope: !48, file: !49, line: 78, baseType: !78, size: 8, offset: 1040)
@@ -638,7 +638,7 @@ attributes #9 = { noreturn }
 !97 = !DIDerivedType(tag: DW_TAG_member, name: "__pad5", scope: !48, file: !49, line: 95, baseType: !98, size: 64, offset: 1472)
 !98 = !DIDerivedType(tag: DW_TAG_typedef, name: "size_t", file: !99, line: 46, baseType: !100)
 !99 = !DIFile(filename: "/usr/local/lib/clang/14.0.0/include/stddef.h", directory: "")
-!100 = !DIBasicType(name: "long unsigned int", size: 64, encoding: DW_ATE_unsigned)
+!100 = !DIBasicType(name: "unsigned long", size: 64, encoding: DW_ATE_unsigned)
 !101 = !DIDerivedType(tag: DW_TAG_member, name: "_mode", scope: !48, file: !49, line: 96, baseType: !21, size: 32, offset: 1536)
 !102 = !DIDerivedType(tag: DW_TAG_member, name: "_unused2", scope: !48, file: !49, line: 98, baseType: !103, size: 160, offset: 1568)
 !103 = !DICompositeType(tag: DW_TAG_array_type, baseType: !29, size: 160, elements: !104)
@@ -876,12 +876,12 @@ attributes #9 = { noreturn }
 !335 = !DISubprogram(name: "wcstoll", scope: !38, file: !38, line: 441, type: !336, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
 !336 = !DISubroutineType(types: !337)
 !337 = !{!338, !122, !267, !21}
-!338 = !DIBasicType(name: "long long int", size: 64, encoding: DW_ATE_signed)
+!338 = !DIBasicType(name: "long long", size: 64, encoding: DW_ATE_signed)
 !339 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !329, entity: !340, file: !32, line: 261)
 !340 = !DISubprogram(name: "wcstoull", scope: !38, file: !38, line: 448, type: !341, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
 !341 = !DISubroutineType(types: !342)
 !342 = !{!343, !122, !267, !21}
-!343 = !DIBasicType(name: "long long unsigned int", size: 64, encoding: DW_ATE_unsigned)
+!343 = !DIBasicType(name: "unsigned long long", size: 64, encoding: DW_ATE_unsigned)
 !344 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !2, entity: !330, file: !32, line: 267)
 !345 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !2, entity: !335, file: !32, line: 268)
 !346 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !2, entity: !340, file: !32, line: 269)
@@ -1442,7 +1442,7 @@ attributes #9 = { noreturn }
 !901 = !{i32 2, !"Debug Info Version", i32 3}
 !902 = !{i32 1, !"wchar_size", i32 4}
 !903 = !{i32 7, !"uwtable", i32 1}
-!904 = !{!"clang version 14.0.0 (https://github.com/HPSSA-LLVM/llvm-project.git ad890aa2327feb6b6aee676fe85b2352fba2403e)"}
+!904 = !{!"clang version 14.0.0 (https://github.com/HPSSA-LLVM/llvm-project.git a556ec8861df920bfaee3057df8aac739aa59b24)"}
 !905 = distinct !DISubprogram(name: "retval", linkageName: "_Z6retvalv", scope: !8, file: !8, line: 5, type: !591, scopeLine: 5, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !906)
 !906 = !{}
 !907 = !DILocation(line: 5, column: 23, scope: !905)
@@ -1839,12 +1839,15 @@ attributes #9 = { noreturn }
 !1298 = !DISubprogram(name: "time", scope: !1299, file: !1299, line: 75, type: !1300, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized, retainedNodes: !906)
 !1299 = !DIFile(filename: "/usr/include/time.h", directory: "")
 !1300 = !DISubroutineType(types: !1301)
-!1301 = !{!74, !1302}
-!1302 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !74, size: 64)
-!1303 = distinct !DISubprogram(linkageName: "_GLOBAL__sub_I_example1.cpp", scope: !8, file: !8, type: !1304, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !906)
-!1304 = !DISubroutineType(types: !906)
-!1305 = !DILocation(line: 74, column: 25, scope: !1306, inlinedAt: !1308)
-!1306 = !DILexicalBlockFile(scope: !1307, file: !3, discriminator: 0)
-!1307 = distinct !DISubprogram(name: "__cxx_global_var_init", scope: !8, file: !8, type: !506, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !906)
-!1308 = distinct !DILocation(line: 0, scope: !1303)
-!1309 = !DILocation(line: 0, scope: !1307, inlinedAt: !1308)
+!1301 = !{!1302, !1305}
+!1302 = !DIDerivedType(tag: DW_TAG_typedef, name: "time_t", file: !1303, line: 7, baseType: !1304)
+!1303 = !DIFile(filename: "/usr/include/x86_64-linux-gnu/bits/types/time_t.h", directory: "")
+!1304 = !DIDerivedType(tag: DW_TAG_typedef, name: "__time_t", file: !73, line: 160, baseType: !74)
+!1305 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1302, size: 64)
+!1306 = distinct !DISubprogram(linkageName: "_GLOBAL__sub_I_example1.cpp", scope: !8, file: !8, type: !1307, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !906)
+!1307 = !DISubroutineType(types: !906)
+!1308 = !DILocation(line: 74, column: 25, scope: !1309, inlinedAt: !1311)
+!1309 = !DILexicalBlockFile(scope: !1310, file: !3, discriminator: 0)
+!1310 = distinct !DISubprogram(name: "__cxx_global_var_init", scope: !8, file: !8, type: !506, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !906)
+!1311 = distinct !DILocation(line: 0, scope: !1306)
+!1312 = !DILocation(line: 0, scope: !1310, inlinedAt: !1311)
