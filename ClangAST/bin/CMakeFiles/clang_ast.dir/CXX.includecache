@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp
+clang/AST/ASTFwd.h
+-
 sstream
 -
 string
@@ -17,6 +19,8 @@ clang/AST/ASTConsumer.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/ASTConsumer.h
 clang/AST/RecursiveASTVisitor.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/RecursiveASTVisitor.h
+clang/Basic/SourceManager.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/SourceManager.h
 clang/Frontend/ASTConsumers.h
 /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Frontend/ASTConsumers.h
 clang/Frontend/CompilerInstance.h

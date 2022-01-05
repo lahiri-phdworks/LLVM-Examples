@@ -8,13 +8,18 @@
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
 // Ported to LLVM 14 (codersguild)
+// Example modified to add new functionality
+//    - Parsing other types.
+//    - TranslationUnitDecl Vs HandleTopLevelDecl
 //------------------------------------------------------------------------------
+#include <clang/AST/ASTFwd.h>
 #include <sstream>
 #include <string>
 
 #include "clang/AST/AST.h"
 #include "clang/AST/ASTConsumer.h"
 #include "clang/AST/RecursiveASTVisitor.h"
+#include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/ASTConsumers.h"
 #include "clang/Frontend/CompilerInstance.h"
 #include "clang/Frontend/FrontendActions.h"
@@ -34,6 +39,8 @@ llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample options");
 // By implementing RecursiveASTVisitor, we can specify which AST nodes
 // we're interested in by overriding relevant methods.
 class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
+private:
+  Rewriter &TheRewriter;
 
 public:
   MyASTVisitor(Rewriter &R) : TheRewriter(R) {}
@@ -44,18 +51,37 @@ public:
   }
 
   bool VisitStmt(Stmt *s) {
-    // Only care about If statements.
+    // Only care about If/Else statements.
     if (isa<IfStmt>(s)) {
       IfStmt *IfStatement = cast<IfStmt>(s);
       Stmt *Then = IfStatement->getThen();
 
+      Stmt *cond = IfStatement->getCond();
+      const char *stmtName = cond->getStmtClassName();
+      (*cond).dumpColor();
+
       TheRewriter.InsertText(Then->getBeginLoc(), "// the 'if' part\n", true,
                              true);
+      TheRewriter.InsertText(Then->getBeginLoc(), "// ", true, true);
+      TheRewriter.InsertText(Then->getBeginLoc(), stmtName, true, true);
+      TheRewriter.InsertText(Then->getBeginLoc(), " \n", true, true);
 
       Stmt *Else = IfStatement->getElse();
       if (Else)
         TheRewriter.InsertText(Else->getBeginLoc(), "// the 'else' part\n",
                                true, true);
+    }
+
+    // Only care about While statements.
+    if (isa<WhileStmt>(s)) {
+      WhileStmt *loopWhile = cast<WhileStmt>(s);
+      TheRewriter.InsertText(loopWhile->getBeginLoc(),
+                             "// this is a while loop\n", true, true);
+
+      Stmt *condVar = loopWhile->getConditionVariableDeclStmt();
+      Stmt *cond = loopWhile->getCond();
+      (*cond).dumpColor();
+      // VisitStmt(cond);
     }
 
     return true;
@@ -74,6 +100,10 @@ public:
       DeclarationName DeclName = f->getNameInfo().getName();
       std::string FuncName = DeclName.getAsString();
 
+      if (FuncName != "main") {
+        llvm::outs() << "Found other functions : " << FuncName << " \n";
+      }
+
       // Add comment before
       std::stringstream SSBefore;
       SSBefore << "// Begin function " << FuncName << " returning " << TypeStr
@@ -90,30 +120,44 @@ public:
 
     return true;
   }
-
-private:
-  Rewriter &TheRewriter;
 };
 
-// Implementation of the ASTConsumer interface for reading an AST produced
-// by the Clang parser.
-class MyASTConsumer : public ASTConsumer {
+class MyASTConsumer : public clang::ASTConsumer {
+private:
+  clang::SourceManager &SourceManager;
+  MyASTVisitor Visitor;
+
 public:
-  MyASTConsumer(Rewriter &R) : Visitor(R) {}
+  MyASTConsumer(Rewriter &R, clang::SourceManager &SM)
+      : SourceManager(SM), Visitor(R) {}
 
   // Override the method that gets called for each parsed top-level
   // declaration.
-  bool HandleTopLevelDecl(DeclGroupRef DR) override {
-    for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b) {
-      // Traverse the declaration using our AST visitor.
-      Visitor.TraverseDecl(*b);
-      (*b)->dump();
-    }
-    return true;
-  }
+  // bool HandleTopLevelDecl(DeclGroupRef DR) override {
+  //   for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b) {
+  //     // Traverse the declaration using our AST visitor.
+  //     // Only work on the code in main source file, not the headers.
+  //     const auto &FileID = SourceManager.getFileID((*b)->getLocation());
+  //     if (FileID != SourceManager.getMainFileID())
+  //       continue;
+  //     Visitor.TraverseDecl(*b);
+  //     (*b)->dump();
+  //   }
+  //   return true;
+  // }
 
-private:
-  MyASTVisitor Visitor;
+  void HandleTranslationUnit(clang::ASTContext &Context) override {
+    auto Decls = Context.getTranslationUnitDecl()->decls();
+    for (auto &Decl : Decls) {
+      // Only work on the code in main source file, not the headers.
+      const auto &thisFileID = SourceManager.getFileID(Decl->getLocation());
+      if (thisFileID != SourceManager.getMainFileID())
+        continue;
+      // Traverse the declaration using our AST visitor.
+      Visitor.TraverseDecl(Decl);
+      Decl->dump();
+    }
+  }
 };
 
 // For each source file provided to the tool, a new FrontendAction is created.
@@ -133,7 +177,10 @@ public:
                                                  StringRef file) override {
     llvm::errs() << "** Creating AST consumer for: " << file << "\n";
     TheRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
-    return std::make_unique<MyASTConsumer>(TheRewriter);
+    SourceManager &SM = TheRewriter.getSourceMgr();
+
+    // We need both the rewritter and the source manager.
+    return std::make_unique<MyASTConsumer>(TheRewriter, SM);
   }
 
 private:

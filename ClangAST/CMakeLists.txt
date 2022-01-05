@@ -25,7 +25,7 @@ set(SOURCE_FILES src/clangIfElseTooling.cpp)
 # set(SOURCE_FILES src/astVisitor.cpp)
 
 add_executable(clang_ast ${SOURCE_FILES})
-set(LLVM_LINK_COMPONENTS support)
+set(LLVM_LINK_COMPONENTS support options)
 
 target_link_libraries(clang_ast
     clang
