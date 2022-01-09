@@ -15,6 +15,7 @@ Installing and building LLVM (LLVM-14/clang-14) from source.
 You must have `cmake`, `make`, `cmake-data` installed along with `binutils`.
 
 - [Building LLVM From Source](https://llvm.org/docs/CMake.html)
+- [Other Dependencies](https://llvm.org/docs/GettingStarted.html#software)
 
 ```bash
 # Install NCurses GUI/dev

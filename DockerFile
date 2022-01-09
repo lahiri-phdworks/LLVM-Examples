@@ -17,6 +17,7 @@ RUN apt-get update ; apt-get install --no-install-recommends \
     libxml2-dev \
     make \
     musl-dev \
+    ninja-build \
     libncurses5-dev libncursesw5-dev \
     python3 \ 
     python3-dev \
@@ -25,14 +26,19 @@ RUN apt-get update ; apt-get install --no-install-recommends \
     wget
 
 WORKDIR /
-RUN git clone --progress --verbose https://github.com/llvm/llvm-project.git ; cd llvm-project ; cmake -S llvm -B build -G "Unix Makefiles" \
+RUN git clone --progress --verbose --depth 1 https://github.com/llvm/llvm-project.git
+
+RUN cd llvm-project ; cmake -S llvm -B build -G "Ninja" \
     -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt" \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-    -DCMAKE_BUILD_TYPE=MinSizeRel \
-    -DLLVM_INSTALL_UTILS=ON ; cd build ; make -j 2 ; make install
+    -DCMAKE_BUILD_TYPE=Release \
+    -DLLVM_INSTALL_UTILS=ON ; cd build ; ninja all ; ninja install
+
 RUN git clone https://github.com/lahiri-phdworks/LLVM-Examples
 
-ENV CXX=clang++
-ENV CC=clang
-ENV OPT=opt
-ENV HOME=HOME
+ENV CXX=/llvm-project/build/bin/clang++
+ENV CC=/llvm-project/build/bin/clang
+ENV OPT=/llvm-project/build/bin/opt
+ENV HOME=
+ENV LLVM_BUILD_PATH=/llvm-project/build
+ENV LLVM_BIN_DIR=/llvm-project/build/bin

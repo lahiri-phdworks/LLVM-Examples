@@ -5,7 +5,7 @@ set (CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 # Modify this based on where you cloned and build llvm,
-set(LLVM_PATH $ENV{HOME}/llvm-project/llvm/build)
+set(LLVM_PATH $ENV{LLVM_BUILD_PATH})
 find_package(LLVM REQUIRED CONFIG)
 
 link_directories(${LLVM_PATH}/lib)
