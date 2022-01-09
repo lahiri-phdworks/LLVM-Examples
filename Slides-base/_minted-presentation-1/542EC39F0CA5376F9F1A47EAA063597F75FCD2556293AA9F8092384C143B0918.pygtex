@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{ClassAction} \PYG{o}{:} \PYG{k}{public} \PYG{n}{clang}\PYG{o}{::}\PYG{n}{ASTFrontendAction} \PYG{p}{\PYGZob{}}
+	\PYG{k}{public}\PYG{o}{:}
+	\PYG{c+cp}{\PYGZsh{} returns a uniq ptr to your consumer.}
+	\PYG{k}{virtual} \PYG{n}{std}\PYG{o}{::}\PYG{n}{unique\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{n}{clang}\PYG{o}{::}\PYG{n}{ASTConsumer}\PYG{o}{\PYGZgt{}}
+	\PYG{n}{CreateASTConsumer}\PYG{p}{(}\PYG{n}{clang}\PYG{o}{::}\PYG{n}{CompilerInstance} \PYG{o}{\PYGZam{}}\PYG{n}{Compiler}\PYG{p}{,}
+		\PYG{n}{llvm}\PYG{o}{::}\PYG{n}{StringRef} \PYG{n}{InFile}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return}
+			\PYG{c+cp}{\PYGZsh{} Instantiate your consumer.}
+			\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}unique}\PYG{o}{\PYGZlt{}}\PYG{n}{ClassConsumer}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+				\PYG{o}{\PYGZam{}}\PYG{n}{Compiler}\PYG{p}{.}\PYG{n}{getASTContext}\PYG{p}{()}
+			\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

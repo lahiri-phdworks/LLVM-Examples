@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n+nl}{MyPass} \PYG{p}{:} \PYG{k}{public} \PYG{n}{PassInfoMixin}\PYG{o}{\PYGZlt{}}\PYG{n}{MyPass}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
+	\PYG{n}{PreservedAnalyses} \PYG{n}{run}\PYG{p}{(}\PYG{n}{Module} \PYG{err}{\PYGZbs{}}\PYG{o}{\PYGZam{}}\PYG{n}{T}\PYG{p}{,} \PYG{n}{ModuleAnalysisManager} \PYG{err}{\PYGZbs{}}\PYG{o}{\PYGZam{}}\PYG{n}{M}\PYG{p}{)\PYGZob{}}
+		\PYG{c+cp}{\PYGZsh{} Your code logic	}
+		\PYG{p}{...}
+		\PYG{k}{return} \PYG{n}{PreservedAnalyses}\PYG{o}{::}\PYG{n}{all}\PYG{p}{();}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{p}{...}
+\PYG{p}{\PYGZcb{};}
+\PYG{k}{extern} \PYG{l+s}{\PYGZdq{}C\PYGZdq{}} \PYG{o}{::}\PYG{n}{llvm}\PYG{o}{::}\PYG{n}{PassPluginLibraryInfo} \PYG{n}{LLVM\PYGZus{}ATTRIBUTE\PYGZus{}WEAK}
+\PYG{n}{llvmGetPassPluginInfo}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+	\PYG{k}{return} \PYG{p}{\PYGZob{}}\PYG{n}{LLVM\PYGZus{}PLUGIN\PYGZus{}API\PYGZus{}VERSION}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}MyPass\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}v0.1\PYGZdq{}}\PYG{p}{,}
+		\PYG{p}{[](}\PYG{n}{PassBuilder} \PYG{o}{\PYGZam{}}\PYG{n}{PB}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{PB}\PYG{p}{.}\PYG{n}{registerPipelineParsingCallback}\PYG{p}{(}
+			\PYG{p}{[](}\PYG{n}{StringRef} \PYG{n}{Name}\PYG{p}{,} \PYG{n}{ModulePassManager} \PYG{o}{\PYGZam{}}\PYG{n}{MPM}\PYG{p}{,}
+			\PYG{n}{ArrayRef}\PYG{o}{\PYGZlt{}}\PYG{n}{PassBuilder}\PYG{o}{::}\PYG{n}{PipelineElement}\PYG{o}{\PYGZgt{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{k}{if} \PYG{p}{(}\PYG{n}{Name} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}mypass\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+					\PYG{n}{MPM}\PYG{p}{.}\PYG{n}{addPass}\PYG{p}{(}\PYG{n}{ModifyBuildCFG}\PYG{p}{());}
+					\PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+				\PYG{p}{\PYGZcb{}}
+				\PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;} \PYG{p}{\PYGZcb{});} \PYG{p}{\PYGZcb{}\PYGZcb{};}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

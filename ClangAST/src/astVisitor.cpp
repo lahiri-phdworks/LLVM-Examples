@@ -17,19 +17,19 @@ class FindNamedClassVisitor
 public:
   explicit FindNamedClassVisitor(ASTContext *Context) : Context(Context) {}
 
-  // bool VisitIfStmt(IfStmt *S) {
-  //   llvm::outs() << "If Condition : ";
-  //   if (S)
-  //     VisitDecl(S->getConditionVariable());
-  //   return true;
-  // }
+  bool VisitIfStmt(IfStmt *S) {
+    llvm::outs() << "If Condition : ";
+    if (S)
+      VisitDecl(S->getConditionVariable());
+    return true;
+  }
 
-  // bool VisitWhileStmt(WhileStmt *S) {
-  //   llvm::outs() << "While Condition : ";
-  //   if (S)
-  //     VisitDecl(S->getConditionVariable());
-  //   return true;
-  // }
+  bool VisitWhileStmt(WhileStmt *S) {
+    llvm::outs() << "While Condition : ";
+    if (S)
+      VisitDecl(S->getConditionVariable());
+    return true;
+  }
 
   // Declaration Visitor
   bool VisitDecl(clang::Decl *Declaration) {
@@ -38,14 +38,14 @@ public:
   }
 
   // Statement Visitor
-  // bool VisitStmt(Stmt *s) {
-  //   s->dump();
-  //   for (Stmt::child_iterator C = s->child_begin(), CEnd = s->child_end();
-  //        C != CEnd; ++C)
-  //     if (*C)
-  //       VisitStmt(*C);
-  //   return true;
-  // }
+  bool VisitStmt(Stmt *s) {
+    s->dump();
+    for (Stmt::child_iterator C = s->child_begin(), CEnd = s->child_end();
+         C != CEnd; ++C)
+      if (*C)
+        VisitStmt(*C);
+    return true;
+  }
 
 private:
   ASTContext *Context;
