@@ -16,8 +16,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/include"
-  "/tools/clang/include"
+  "/llvm-project/build/include"
+  "/llvm-project/build/tools/clang/include"
   "../include"
   )
 

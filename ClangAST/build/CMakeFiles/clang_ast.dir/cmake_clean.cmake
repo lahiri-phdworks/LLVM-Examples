@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o"
+  "CMakeFiles/clang_ast.dir/src/astVisitor.cpp.o"
   "clang_ast"
   "clang_ast.pdb"
 )

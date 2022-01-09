@@ -25,8 +25,8 @@ if(NOT LLVM_ENABLE_RTTI)
 endif()
 
 # set(SOURCE_FILES src/clangIfElseOld.cpp)
-set(SOURCE_FILES src/clangIfElseTooling.cpp)
-# set(SOURCE_FILES src/astVisitor.cpp)
+# set(SOURCE_FILES src/clangIfElseTooling.cpp)
+set(SOURCE_FILES src/astVisitor.cpp)
 
 add_executable(clang_ast ${SOURCE_FILES})
 add_executable(example ../tests/test1.cpp)

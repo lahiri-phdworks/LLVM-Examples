@@ -6,9 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/tests/test1.cpp
-iostream
--
-vector
--
-

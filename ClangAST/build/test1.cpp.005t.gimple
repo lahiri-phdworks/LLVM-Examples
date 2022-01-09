@@ -1,0 +1,76 @@
+main ()
+{
+  int D.43365;
+
+  {
+    int a;
+
+    a = 90;
+    <D.43355>:
+    if (a <= 40) goto <D.39752>; else goto <D.43356>;
+    <D.43356>:
+    a = a + -1;
+    goto <D.43355>;
+    <D.39752>:
+    _1 = std::basic_ostream<char>::operator<< (&cout, a);
+    std::operator<< <std::char_traits<char> > (_1, "\n");
+    {
+      if (a > 70) goto <D.43357>; else goto <D.43358>;
+      <D.43357>:
+      if (a > 22) goto <D.43359>; else goto <D.43360>;
+      <D.43359>:
+      a = a + -40;
+      goto <D.43361>;
+      <D.43360>:
+      a = a + -90;
+      <D.43361>:
+      goto <D.43362>;
+      <D.43358>:
+      {
+        int j;
+
+        j = 0;
+        <D.43363>:
+        if (j > 9) goto <D.39754>; else goto <D.43364>;
+        <D.43364>:
+        a = a + -1;
+        j = j + 1;
+        goto <D.43363>;
+        <D.39754>:
+        a = a + 90;
+        _2 = std::basic_ostream<char>::operator<< (&cout, j);
+        std::operator<< <std::char_traits<char> > (_2, "\n");
+      }
+      <D.43362>:
+    }
+    D.43365 = 0;
+    return D.43365;
+  }
+  D.43365 = 0;
+  return D.43365;
+}
+
+
+__static_initialization_and_destruction_0 (int __initialize_p, int __priority)
+{
+  if (__initialize_p == 1) goto <D.43369>; else goto <D.43370>;
+  <D.43369>:
+  if (__priority == 65535) goto <D.43371>; else goto <D.43372>;
+  <D.43371>:
+  std::ios_base::Init::Init (&__ioinit);
+  __cxa_atexit (__dt_comp , &__ioinit, &__dso_handle);
+  goto <D.43373>;
+  <D.43372>:
+  <D.43373>:
+  goto <D.43374>;
+  <D.43370>:
+  <D.43374>:
+}
+
+
+_GLOBAL__sub_I_main ()
+{
+  __static_initialization_and_destruction_0 (1, 65535);
+}
+
+

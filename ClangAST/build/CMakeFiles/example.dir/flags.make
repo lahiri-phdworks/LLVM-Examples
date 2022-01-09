@@ -6,5 +6,5 @@ CXX_FLAGS =  -O3 -std=c++17 -fno-rtti -O3 -std=c++17   -std=gnu++17
 
 CXX_DEFINES = -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS
 
-CXX_INCLUDES = -I/include -I/tools/clang/include -I/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/include 
+CXX_INCLUDES = -I/llvm-project/build/include -I/llvm-project/build/tools/clang/include -I/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/include 
 

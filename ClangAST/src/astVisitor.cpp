@@ -17,17 +17,31 @@ class FindNamedClassVisitor
 public:
   explicit FindNamedClassVisitor(ASTContext *Context) : Context(Context) {}
 
+  // IfStmt Visitor
   bool VisitIfStmt(IfStmt *S) {
-    llvm::outs() << "If Condition : ";
+    llvm::outs() << "If Condition : \n";
     if (S)
       VisitDecl(S->getConditionVariable());
+    for (Stmt::child_iterator C = S->child_begin(), CEnd = S->child_end();
+         C != CEnd; ++C) {
+      llvm::outs() << "\t" << C->getStmtClassName() << "\n";
+      if (*C)
+        VisitStmt(*C);
+    }
     return true;
   }
 
+  // While Stmt Visitor.
   bool VisitWhileStmt(WhileStmt *S) {
-    llvm::outs() << "While Condition : ";
+    llvm::outs() << "While Condition : \n";
     if (S)
       VisitDecl(S->getConditionVariable());
+    for (Stmt::child_iterator C = S->child_begin(), CEnd = S->child_end();
+         C != CEnd; ++C) {
+      llvm::outs() << "\t" << C->getStmtClassName() << "\n";
+      if (*C)
+        VisitStmt(*C);
+    }
     return true;
   }
 
@@ -37,13 +51,26 @@ public:
     return true;
   }
 
-  // Statement Visitor
-  bool VisitStmt(Stmt *s) {
-    s->dump();
-    for (Stmt::child_iterator C = s->child_begin(), CEnd = s->child_end();
-         C != CEnd; ++C)
+  // Function Visitor
+  bool VisitFunctionDecl(FunctionDecl *F) {
+    F->dumpColor();
+    llvm::outs() << "Function Decl : \n";
+    llvm::outs() << F->getNameAsString() << "\n";
+    auto funcBody = F->getBody();
+    for (Stmt::child_iterator C = funcBody->child_begin(),
+                              CEnd = funcBody->child_end();
+         C != CEnd; ++C) {
+      llvm::outs() << "\t" << C->getStmtClassName() << "\n";
       if (*C)
         VisitStmt(*C);
+    }
+    return true;
+  }
+
+  // Statement Visitor
+  bool VisitStmt(Stmt *S) {
+    llvm::outs() << "\t\t" << S->getStmtClassName() << "\n";
+    S->dumpColor();
     return true;
   }
 

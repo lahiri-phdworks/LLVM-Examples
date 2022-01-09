@@ -1,1 +1,1 @@
-/usr/local/bin/clang++   -O3 -std=c++17 -fno-rtti -O3 -std=c++17  -rdynamic CMakeFiles/example.dir/tests/test1.cpp.o  -o example   -L/tools/clang/lib 
+/usr/local/bin/clang++   -O3 -std=c++17 -fno-rtti -O3 -std=c++17  -rdynamic CMakeFiles/example.dir/tests/test1.cpp.o  -o example   -L/llvm-project/build/lib  -L/llvm-project/build/tools/clang/lib 

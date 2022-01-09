@@ -1,8 +1,10 @@
 \documentclass{beamer}
 \usetheme{Warsaw}
+\usepackage{tikz}
 \usepackage{minted}
 \usefonttheme{professionalfonts}
 \usecolortheme{sidebartab}
+\usetikzlibrary{chains, shadows.blur, trees}
 %Information to be included in the title page:
 \title[\url{https://llvm.org/}] %optional
 {LLVM \& Clang}
@@ -53,6 +55,105 @@ int retsum(int a, int b) {
 					`-ImplicitCastExpr <col:14> 'int' <LValueToRValue>
 						`-DeclRefExpr <col:14> 'int' lvalue ParmVar 'b' 'int'
 	\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Clang AST}
+	\begin{minted}[fontsize=\footnotesize, tabsize=2,linenos]{cpp}
+int main() 
+{ 
+	int a = 90;
+}
+# ./clang_ast "int main() { int a = 90; }"
+FunctionDecl 0x3705db0 <input.cc:1:1, col:26> col:5 main 'int ()'
+	`-CompoundStmt 0x3705f78 <col:12, col:26>
+		`-DeclStmt 0x3705f60 <col:14, col:24>
+			`-VarDecl 0x3705ed8 <col:14, col:22> col:18 a 'int' cinit
+				`-IntegerLiteral 0x3705f40 <col:22> 'int' 90
+	\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{AST Visual}
+\begin{minted}[fontsize=\footnotesize, tabsize=2]{cpp}
+	x > 0xff2 
+	
+	|-BinaryOperator 0x3c32fb0 '_Bool' '>'
+	| |-ImplicitCastExpr 0x3c32f98 'int' <LValueToRValue>
+	| | `-DeclRefExpr 0x3c32f58 'int' lvalue Var 0x3c32ed8 'x' 'int'
+	| `-IntegerLiteral 0x3c32f78 'int' 4082
+	
+\end{minted}
+	\begin{tikzpicture}[auto,level distance=1cm,
+		level 1/.style={sibling distance=4cm},
+		level 2/.style={sibling distance=3.5cm},
+		level 3/.style={sibling distance=3.2cm},
+		level 4/.style={sibling distance=1.9cm},
+		level 5/.style={sibling distance=1cm},
+		level 6/.style={sibling distance=0.5cm},
+		box/.style = {draw,rounded corners,align=center}]
+		\node [box, fill=yellow, text=black]{\texttt{BinaryOperator}};
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{AST Visual}
+\begin{minted}[fontsize=\footnotesize, tabsize=2]{cpp}
+	x > 0xff2 
+	
+	|-BinaryOperator 0x3c32fb0 '_Bool' '>'
+	| |-ImplicitCastExpr 0x3c32f98 'int' <LValueToRValue>
+	| | `-DeclRefExpr 0x3c32f58 'int' lvalue Var 0x3c32ed8 'x' 'int'
+	| `-IntegerLiteral 0x3c32f78 'int' 4082
+	
+\end{minted}
+			\begin{tikzpicture}[auto,level distance=1cm,
+			level 1/.style={sibling distance=4cm},
+			level 2/.style={sibling distance=3.5cm},
+			level 3/.style={sibling distance=3.2cm},
+			level 4/.style={sibling distance=1.9cm},
+			level 5/.style={sibling distance=1cm},
+			level 6/.style={sibling distance=0.5cm},
+			box/.style = {draw,rounded corners,align=center}]
+			\node [box, fill=yellow, text=black]{\texttt{BinaryOperator}}
+			child {node [box, fill=pink, text=black] {$>$}}
+			child {node [box, fill=white, text=black] {\texttt{ImplicitCastExpr}}
+			}
+			child {node [box, fill=white, text=black] {\texttt{IntegerLiteral}}
+			};
+		\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{AST Visual}
+\begin{minted}[fontsize=\footnotesize, tabsize=2]{cpp}
+	x > 0xff2 
+	
+	|-BinaryOperator 0x3c32fb0 '_Bool' '>'
+	| |-ImplicitCastExpr 0x3c32f98 'int' <LValueToRValue>
+	| | `-DeclRefExpr 0x3c32f58 'int' lvalue Var 0x3c32ed8 'x' 'int'
+	| `-IntegerLiteral 0x3c32f78 'int' 4082
+	
+\end{minted}
+	\begin{tikzpicture}[auto,level distance=1cm,
+		level 1/.style={sibling distance=4cm},
+		level 2/.style={sibling distance=3.5cm},
+		level 3/.style={sibling distance=3.2cm},
+		level 4/.style={sibling distance=1.9cm},
+		level 5/.style={sibling distance=1cm},
+		level 6/.style={sibling distance=0.5cm},
+		box/.style = {draw,rounded corners,align=center}]
+		\node [box, fill=yellow, text=black]{\texttt{BinaryOperator}}
+		child {node [box, fill=pink, text=black] {$>$}}
+		child {node [box, fill=white, text=black] {\texttt{ImplicitCastExpr}}
+			child {node [box, fill=white, text=black] {\texttt{DeclRefExpr}} 
+				child {node [box, fill=red, text=white] {x}}
+			}
+		}
+		child {node [box, fill=white, text=black] {\texttt{IntegerLiteral}}
+			child {node [box, fill=teal, text=white] {4082}}
+		};
+	\end{tikzpicture}
 \end{frame}
 
 \begin{frame}[fragile]
