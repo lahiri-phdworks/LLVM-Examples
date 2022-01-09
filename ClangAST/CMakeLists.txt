@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.1.4)
 project(clang_ast)
+set (CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+
+# Modify this based on where you cloned and build llvm,
 set(LLVM_PATH $ENV{HOME}/llvm-project/llvm/build)
 find_package(LLVM REQUIRED CONFIG)
 
@@ -17,7 +21,7 @@ add_definitions(
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++17")
 if(NOT LLVM_ENABLE_RTTI)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti -O3 -std=c++17")
 endif()
 
 # set(SOURCE_FILES src/clangIfElseOld.cpp)
@@ -25,6 +29,8 @@ set(SOURCE_FILES src/clangIfElseTooling.cpp)
 # set(SOURCE_FILES src/astVisitor.cpp)
 
 add_executable(clang_ast ${SOURCE_FILES})
+add_executable(example ../tests/test1.cpp)
+
 set(LLVM_LINK_COMPONENTS support options)
 
 target_link_libraries(clang_ast
@@ -78,3 +84,5 @@ target_link_libraries(clang_ast
     dl
     ${CURSES_LIBRARIES}
 )
+
+set_property(TARGET clang_ast PROPERTY CXX_STANDARD 17)

@@ -4,11 +4,12 @@
 - [How to write RecursiveASTVisitor based ASTFrontendActions.](https://clang.llvm.org/docs/RAVFrontendAction.html)
 - [Tutorial for building tools using LibTooling and LibASTMatchers](https://clang.llvm.org/docs/LibASTMatchersTutorial.html)
 
-We follow the `clang LibTooling` approach here.
+We follow the clang tooling approach here with `clang LibTooling`, making a standalone tool that can
+perform actions on a given test `C/C++` file.
 
 - [Clang LibTooling](https://clang.llvm.org/docs/LibTooling.html)
 
-## Commands
+## Building & Installing LLVM.
 
 Installing and building LLVM (LLVM-14/clang-14) from source.
 You must have `cmake`, `make`, `cmake-data` installed along with `binutils`.
@@ -34,7 +35,7 @@ make -j 4 # Adjust as per your machine.
 sudo make install
 ```
 
-### For Ninja Build.
+#### For Ninja Build.
 
 ```bash
 # Install NCurses GUI/dev
@@ -54,15 +55,25 @@ cd build
 ninja make all
 ```
 
-# Runnning Examples.
+## Runnning Examples.
 
-Open the `dir` and cd to `bin`. Run `cmake` followed by `make`.
+Open the `dir` and cd to `build`. Run `cmake` followed by `make`.
+The `test` folder contains test examples on which we run our `clang` tool.
 
 ```
-cd bin
+cd build
 CC=clang CXX=clang++ cmake ..
 make -j 2
 ./clang_ast ..<other-args>
+```
+
+Example :
+
+```
+cd build
+CC=clang CXX=clang++ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=True ..
+make -j 2
+./clang_ast ../tests/test2.cpp -p compile_commands.json -- - -I/usr/lib/gcc/x86_64-linux-gnu/10/include/
 ```
 
 You will see someting similar to this.
@@ -97,7 +108,7 @@ Scanning dependencies of target clang_ast
 [100%] Built target clang_ast
 ```
 
-## Ast Visitor
+## Ast Visitor Example.
 
 Check `src/astVisitor.cpp`.
 
@@ -168,5 +179,16 @@ VarDecl 0x478cee8 <input.cc:3:3, col:11> col:7 used a 'int' cinit
 Source is `src/clangIfElseTooling.cpp`, add the following to the CMakeLists.txt `set(SOURCE_FILES src/clangIfElseTooling.cpp)`.
 
 ```
-./clang_ast ../tests/test1.cpp
+./clang_ast ../tests/test2.cpp -p compile_commands.json -- - -I/usr/lib/gcc/x86_64-linux-gnu/10/include/
 ```
+
+## References :
+
+- [clang::Stmt Class Reference](https://clang.llvm.org/doxygen/classclang_1_1Stmt.html)
+- [clang::BinaryOperator Class Reference](https://clang.llvm.org/doxygen/classclang_1_1BinaryOperator.html)
+- [clang::RecursiveASTVisitor< Derived > Class Template Reference](https://clang.llvm.org/doxygen/classclang_1_1RecursiveASTVisitor.html)
+- [clang::FrontendAction Class Reference](https://clang.llvm.org/doxygen/classclang_1_1FrontendAction.html)
+- [clang::ASTConsumer Class Reference](https://clang.llvm.org/doxygen/classclang_1_1ASTConsumer.html)
+
+- [Clang LLVM Repo Examples](https://github.com/llvm/llvm-project/tree/main/clang/examples)
+- [Porting from old to New Pass Manager](https://www.duskborn.com/posts/llvm-new-pass-manager/)

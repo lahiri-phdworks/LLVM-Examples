@@ -7,17 +7,19 @@
 //
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
-// Ported to LLVM 14 (codersguild)
+// Ported to LLVM 14 (lahiri-phdworks)
 // Example modified to add new functionality
 //    - Parsing other types.
 //    - TranslationUnitDecl Vs HandleTopLevelDecl
 //------------------------------------------------------------------------------
 #include <clang/AST/ASTFwd.h>
+#include <clang/AST/Stmt.h>
 #include <sstream>
 #include <string>
 
 #include "clang/AST/AST.h"
 #include "clang/AST/ASTConsumer.h"
+#include "clang/AST/Expr.h"
 #include "clang/AST/RecursiveASTVisitor.h"
 #include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/ASTConsumers.h"
@@ -45,14 +47,39 @@ private:
 public:
   MyASTVisitor(Rewriter &R) : TheRewriter(R) {}
 
+  bool VisitCXXRecordDecl(CXXRecordDecl *Declaration) {
+    llvm::outs() << "\tFound Record/Struct \n";
+    Declaration->dump();
+    return true;
+  }
+
   bool VisitNamedDecl(clang::NamedDecl *NamedDecl) {
-    llvm::outs() << "Found : " << NamedDecl->getQualifiedNameAsString() << "\n";
+    llvm::outs() << "\tFound Declaration \n"
+                 << NamedDecl->getQualifiedNameAsString() << "\n";
+    return true;
+  }
+
+  bool VisitBinaryOperator(BinaryOperator *E) {
+    llvm::outs() << "\tFound BinaryOperator \n";
+    const Expr *lhs = E->getLHS();
+    const Expr *rhs = E->getRHS();
+    (*lhs).dumpColor();
+    (*rhs).dumpColor();
+    return true;
+  }
+
+  bool VisitForStmt(ForStmt *forstmt) {
+    llvm::outs() << "\tFound For Loop \n";
+    Stmt *cond = forstmt->getCond();
+    const char *stmtName = cond->getStmtClassName();
+    (*cond).dumpColor();
     return true;
   }
 
   bool VisitStmt(Stmt *s) {
     // Only care about If/Else statements.
     if (isa<IfStmt>(s)) {
+      llvm::outs() << "\tFound If/Else \n";
       IfStmt *IfStatement = cast<IfStmt>(s);
       Stmt *Then = IfStatement->getThen();
 
@@ -74,6 +101,7 @@ public:
 
     // Only care about While statements.
     if (isa<WhileStmt>(s)) {
+      llvm::outs() << "\tFound While \n";
       WhileStmt *loopWhile = cast<WhileStmt>(s);
       TheRewriter.InsertText(loopWhile->getBeginLoc(),
                              "// this is a while loop\n", true, true);
@@ -88,6 +116,7 @@ public:
   }
 
   bool VisitFunctionDecl(FunctionDecl *f) {
+    llvm::outs() << "\tFound Function Decl \n";
     // Only function definitions (with bodies), not declarations.
     if (f->hasBody()) {
       Stmt *FuncBody = f->getBody();
@@ -133,18 +162,19 @@ public:
 
   // Override the method that gets called for each parsed top-level
   // declaration.
-  // bool HandleTopLevelDecl(DeclGroupRef DR) override {
-  //   for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b) {
-  //     // Traverse the declaration using our AST visitor.
-  //     // Only work on the code in main source file, not the headers.
-  //     const auto &FileID = SourceManager.getFileID((*b)->getLocation());
-  //     if (FileID != SourceManager.getMainFileID())
-  //       continue;
-  //     Visitor.TraverseDecl(*b);
-  //     (*b)->dump();
-  //   }
-  //   return true;
-  // }
+  bool HandleTopLevelDecl(DeclGroupRef DR) override {
+    for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b) {
+      // Traverse the declaration using our AST visitor.
+      // Only work on the code in main source file, not the headers.
+      const auto &FileID = SourceManager.getFileID((*b)->getLocation());
+      if (FileID != SourceManager.getMainFileID())
+        continue;
+      const Decl *D = *b;
+      if (const NamedDecl *ND = dyn_cast<NamedDecl>(D))
+        llvm::errs() << "top-level-decl: \"" << ND->getNameAsString() << "\"\n";
+    }
+    return true;
+  }
 
   void HandleTranslationUnit(clang::ASTContext &Context) override {
     auto Decls = Context.getTranslationUnitDecl()->decls();
@@ -155,7 +185,7 @@ public:
         continue;
       // Traverse the declaration using our AST visitor.
       Visitor.TraverseDecl(Decl);
-      Decl->dump();
+      // Decl->dump();
     }
   }
 };

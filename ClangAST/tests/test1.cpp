@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+class Main {};
+struct DummyStruct {};
+
 int main() {
 
   int a = 90;
@@ -8,6 +11,7 @@ int main() {
   while (a > 40) {
     a--;
   }
+  std::cout << a << "\n";
 
   if (a > 70) {
     if (a + 8 > 30) {
@@ -21,6 +25,7 @@ int main() {
       a -= 1;
     }
     a += 90;
+    std::cout << j << "\n";
   }
 
   return 0;

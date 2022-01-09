@@ -1,0 +1,38 @@
+FROM ubuntu:latest
+
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# LLVM dependencies:
+RUN apt-get update ; apt-get install --no-install-recommends \
+    -y \
+    autoconf \
+    automake \
+    ca-certificates \
+    cmake \
+    libfreetype6-dev \
+    g++ \
+    gcc \
+    time \
+    libxml2-dev \
+    make \
+    musl-dev \
+    libncurses5-dev libncursesw5-dev \
+    python3 \ 
+    python3-dev \
+    nano \
+    git \
+    wget
+
+WORKDIR /
+RUN git clone --progress --verbose https://github.com/llvm/llvm-project.git ; cd llvm-project ; cmake -S llvm -B build -G "Unix Makefiles" \
+    -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt" \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+    -DCMAKE_BUILD_TYPE=MinSizeRel \
+    -DLLVM_INSTALL_UTILS=ON ; cd build ; make -j 2 ; make install
+RUN git clone https://github.com/lahiri-phdworks/LLVM-Examples
+
+ENV CXX=clang++
+ENV CC=clang
+ENV OPT=opt
+ENV HOME=HOME

@@ -6,7 +6,7 @@
 //
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
-// Ported to LLVM 14 (codersguild)
+// Ported to LLVM 14 (lahiri-phdworks)
 //------------------------------------------------------------------------------
 
 // https://reviews.llvm.org/D50346
