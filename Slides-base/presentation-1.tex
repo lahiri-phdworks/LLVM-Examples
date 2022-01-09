@@ -4,6 +4,13 @@
 \usepackage{minted}
 \usefonttheme{professionalfonts}
 \usecolortheme{sidebartab}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
 \usetikzlibrary{chains, shadows.blur, trees}
 %Information to be included in the title page:
 \title[\url{https://llvm.org/}] %optional
@@ -338,6 +345,19 @@ private:
 	ASTContext *Context;
 };
 	\end{minted}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Questions??}
+	Questions??
+\end{frame}
+
+\begin{frame}
+	\frametitle{Links}
+	\begin{itemize}
+		\item Docker Image : \texttt{\href{https://hub.docker.com/r/prodrelworks/llvm-examples}{https://hub.docker.com/r/prodrelworks/llvm-examples}}
+		\item LLVM Example : \texttt{\href{https://github.com/lahiri-phdworks/LLVM-Examples}{https://github.com/lahiri-phdworks/LLVM-Examples}}
+	\end{itemize}
 \end{frame}
 
 \end{document}
