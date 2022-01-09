@@ -2,6 +2,13 @@
 
 LLVM Examples and Code samples. LLVM Passes.
 
+## Installing from Docker
+
+```
+$ docker build -f DockerFile -t prodrelworks/llvm-examples:latest .
+$ docker run --name llvm-examples --ulimit stack=10000000:10000000 --cpus=4 --memory=20g -it prodrelworks/llvm-examples:latest
+```
+
 ## Examples & Implementations :
 
 - [llvm::LoopInfo in the runOnModule](https://lists.llvm.org/pipermail/llvm-dev/2019-April/131534.html)
@@ -47,3 +54,7 @@ LLVM Examples and Code samples. LLVM Passes.
 
   - https://llvm.org/docs/ProgrammersManual.html#basic-inspection-and-traversal-routines
   - https://llvm.org/docs/ProgrammersManual.html#making-simple-changes
+
+```
+
+```

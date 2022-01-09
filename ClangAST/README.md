@@ -109,6 +109,22 @@ Scanning dependencies of target clang_ast
 [100%] Built target clang_ast
 ```
 
+#### Running from Docker
+
+A `DockerFile` has also been provided to build and run LLVM Examples.
+
+```
+$ docker pull prodrelworks/llvm-examples:latest
+$ docker run --name llvm-examples --ulimit stack=10000000:10000000 --cpus=4 --memory=20g -it prodrelworks/llvm-examples:latest
+
+# Once inside docker container, you can procced exactly like below.
+root@6eecc3ef3ca0:/# cd LLVM-Examples/ClangAST && rm -rf build bin
+root@6eecc3ef3ca0:/LLVM-Examples/ClangAST# mkdir -p build ; cd build
+root@6eecc3ef3ca0:/LLVM-Examples/ClangAST/build# CC=clang CXX=clang++ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=True ..
+root@6eecc3ef3ca0:/LLVM-Examples/ClangAST/build# make -j 2
+root@6eecc3ef3ca0:/LLVM-Examples/ClangAST/build# ./clang_ast ../tests/test2.cpp -p compile_commands.json -- - -I/usr/lib/gcc/x86_64-linux-gnu/9/include/
+```
+
 ## Ast Visitor Example.
 
 Check `src/astVisitor.cpp`.
