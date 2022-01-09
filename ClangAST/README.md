@@ -63,7 +63,7 @@ The `test` folder contains test examples on which we run our `clang` tool.
 
 ```
 cd build
-CC=clang CXX=clang++ cmake ..
+CC=clang CXX=clang++ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=True ..
 make -j 2
 ./clang_ast ..<other-args>
 ```

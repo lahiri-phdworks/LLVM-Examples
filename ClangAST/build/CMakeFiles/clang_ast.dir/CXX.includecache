@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp
+clang/AST/ASTFwd.h
+-
+clang/AST/Stmt.h
+-
+sstream
+-
+string
+-
+clang/AST/AST.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/AST.h
+clang/AST/ASTConsumer.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/ASTConsumer.h
+clang/AST/Expr.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/Expr.h
+clang/AST/RecursiveASTVisitor.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/AST/RecursiveASTVisitor.h
+clang/Basic/SourceManager.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Basic/SourceManager.h
+clang/Frontend/ASTConsumers.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Frontend/ASTConsumers.h
+clang/Frontend/CompilerInstance.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Frontend/CompilerInstance.h
+clang/Frontend/FrontendActions.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Frontend/FrontendActions.h
+clang/Rewrite/Core/Rewriter.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Rewrite/Core/Rewriter.h
+clang/Tooling/CommonOptionsParser.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Tooling/CommonOptionsParser.h
+clang/Tooling/Tooling.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clang/Tooling/Tooling.h
+llvm/Support/raw_ostream.h
+/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/llvm/Support/raw_ostream.h
+

@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/build",
+  "command": "/usr/local/bin/clang++  -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -I/include -I/tools/clang/include -I/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/include   -O3 -std=c++17 -fno-rtti -O3 -std=c++17   -std=gnu++17 -o CMakeFiles/example.dir/tests/test1.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/tests/test1.cpp",
+  "file": "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/tests/test1.cpp"
+},
+{
+  "directory": "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/build",
+  "command": "/usr/local/bin/clang++  -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -I/include -I/tools/clang/include -I/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/include   -O3 -std=c++17 -fno-rtti -O3 -std=c++17   -std=gnu++17 -o CMakeFiles/clang_ast.dir/src/clangIfElseTooling.cpp.o -c /home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp",
+  "file": "/home/clustfuzz/Documents/LLVM/LLVM-Examples/ClangAST/src/clangIfElseTooling.cpp"
+}
+]
