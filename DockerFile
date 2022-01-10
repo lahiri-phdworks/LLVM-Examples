@@ -43,6 +43,6 @@ ENV OPT=/home/llvm-project/build/bin/opt
 ENV LLVM_BUILD_PATH=/home/llvm-project/build
 ENV LLVM_BIN_DIR=/home/llvm-project/build/bin
 
-WORKDIR /home
-RUN cd LLVM-Examples/LLVMIRModify ; make -j 2 ;
-RUN cd LLVM-Examples/ClangAST ; rm -rf build ; mkdir -p build ; cd build ; cmake .. ; make -j 2 ; ./clang_ast ../tests/test1.cpp
+# WORKDIR /home
+# RUN cd LLVM-Examples/LLVMIRModify ; make -j 2 ;
+# RUN cd LLVM-Examples/ClangAST ; rm -rf build ; mkdir -p build ; cd build ; cmake .. ; make -j 2 ; ./clang_ast ../tests/test1.cpp
