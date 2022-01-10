@@ -25,20 +25,24 @@ RUN apt-get update ; apt-get install --no-install-recommends \
     git \
     wget
 
-WORKDIR /
+WORKDIR /home
 RUN git clone --progress --verbose --depth 1 https://github.com/llvm/llvm-project.git
-
 RUN cd llvm-project ; cmake -S llvm -B build -G "Ninja" \
     -DLLVM_ENABLE_PROJECTS="llvm;clang;compiler-rt" \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
     -DCMAKE_BUILD_TYPE=Release \
-    -DLLVM_INSTALL_UTILS=ON ; cd build ; ninja all ; ninja install
+    -DLLVM_INSTALL_UTILS=ON ; cd build ; ninja -j3 -v all ; ninja -j3 install
 
-RUN git clone https://github.com/lahiri-phdworks/LLVM-Examples
+WORKDIR /home
+RUN git clone --progress --verbose --depth 1 https://github.com/lahiri-phdworks/LLVM-Examples
 
-ENV CXX=/llvm-project/build/bin/clang++
-ENV CC=/llvm-project/build/bin/clang
-ENV OPT=/llvm-project/build/bin/opt
-ENV HOME=
-ENV LLVM_BUILD_PATH=/llvm-project/build
-ENV LLVM_BIN_DIR=/llvm-project/build/bin
+ENV HOME=/home
+ENV CXX=/home/llvm-project/build/bin/clang++
+ENV CC=/home/llvm-project/build/bin/clang
+ENV OPT=/home/llvm-project/build/bin/opt
+ENV LLVM_BUILD_PATH=/home/llvm-project/build
+ENV LLVM_BIN_DIR=/home/llvm-project/build/bin
+
+WORKDIR /home
+RUN cd LLVM-Examples/LLVMIRModify ; make -j 2 ;
+RUN cd LLVM-Examples/ClangAST ; rm -rf build ; mkdir -p build ; cd build ; cmake .. ; make -j 2 ; ./clang_ast ../tests/test1.cpp
