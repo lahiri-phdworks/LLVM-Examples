@@ -4,9 +4,13 @@ LLVM Examples and Code samples. LLVM Passes.
 
 ## Installing from Docker
 
+Check `build` commands in the `Dockerfile` for more information 
+on installing `LLVM` on local machine.
+
 ```
 $ docker build -f DockerFile -t prodrelworks/llvm-examples:latest .
-$ docker run --name llvm-examples --ulimit stack=10000000:10000000 --cpus=4 --memory=20g -it prodrelworks/llvm-examples:latest
+$ docker run --name llvm-examples --ulimit stack=10000000:10000000 \
+  --cpus=4 --memory=20g -it prodrelworks/llvm-examples:latest
 ```
 
 ## Examples & Implementations :
@@ -16,22 +20,27 @@ $ docker run --name llvm-examples --ulimit stack=10000000:10000000 --cpus=4 --me
 ## References & Links :
 
 - [LLVM Get Started](https://llvm.org/docs/GettingStarted.html)
+- [Learning Compilers](https://lowlevelbits.org/how-to-learn-compilers-llvm-edition/)
+- [Learning Compilers/LLVM: How to start?](https://www.linkedin.com/pulse/learning-compilersllvm-how-start-sushim-shrivastava)
 - [LLVM-12 Book](https://github.com/PacktPublishing/Learn-LLVM-12)
+- [LLVM Passes](https://llvm.org/docs/Passes.html)
+- [LLVM GitHub Monorepo](https://github.com/llvm/llvm-project)
+- [Clang AST LLVM](https://clang.llvm.org/docs/IntroductionToTheClangAST.html)
 
 - Legacy Pass Example : See `folder`.
 
-  - https://llvm.org/docs/WritingAnLLVMPass.html#introduction-what-is-a-pass
+  - [LLVM : What is a pass? Legacy Pass Example](https://llvm.org/docs/WritingAnLLVMPass.html#introduction-what-is-a-pass)
 
 - New LLVM Pass Manager :
 
-  - https://llvm.org/docs/NewPassManager.html
-  - https://llvm.org/docs/WritingAnLLVMNewPMPass.html
+  - [LLVM : New Pass Manager](https://llvm.org/docs/NewPassManager.html)
+  - [LLVM : Writing a new pass](https://llvm.org/docs/WritingAnLLVMNewPMPass.html)
 
 - For function paraments as operands, you can get it get it via Function Argumentslist()
 
-  - Reference : https://llvm.org/doxygen/group__LLVMCCoreValueFunctionParameters.html
-  - Value reference : http://llvm.org/doxygen/classllvm_1_1Value.html
-  - User class : for getnumoperands, getoperands etc. https://llvm.org/doxygen/classllvm_1_1User.html
+  - [Function Parameters LLVM Function](https://llvm.org/doxygen/group__LLVMCCoreValueFunctionParameters.html)
+  - [Value Reference](http://llvm.org/doxygen/classllvm_1_1Value.html)
+  - [User class : for getnumoperands, getoperands](https://llvm.org/doxygen/classllvm_1_1User.html)
 
 - Some other differences are listed here. Even C++ one is quadratic probed.
 
@@ -52,9 +61,5 @@ $ docker run --name llvm-examples --ulimit stack=10000000:10000000 --cpus=4 --me
 
 - Inspection & Traversal over `CFG` in `IR` :
 
-  - https://llvm.org/docs/ProgrammersManual.html#basic-inspection-and-traversal-routines
-  - https://llvm.org/docs/ProgrammersManual.html#making-simple-changes
-
-```
-
-```
+  - [Inspection & Traversal Routines over CFG](https://llvm.org/docs/ProgrammersManual.html#basic-inspection-and-traversal-routines)
+  - [LLVM : Making simple manipulations](https://llvm.org/docs/ProgrammersManual.html#making-simple-changes)

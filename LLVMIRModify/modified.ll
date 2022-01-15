@@ -51,13 +51,13 @@ entry:
   %call.i = call i32 @rand() #8, !dbg !929
   %rem.i = srem i32 %call.i, 5, !dbg !931
   call void @llvm.dbg.value(metadata i32 %rem.i, metadata !927, metadata !DIExpression()), !dbg !932
-  %call.i12 = call i32 @rand() #8, !dbg !933
-  %rem.i13 = srem i32 %call.i12, 5, !dbg !935
-  call void @llvm.dbg.value(metadata i32 %rem.i13, metadata !928, metadata !DIExpression()), !dbg !932
+  %call.i15 = call i32 @rand() #8, !dbg !933
+  %rem.i16 = srem i32 %call.i15, 5, !dbg !935
+  call void @llvm.dbg.value(metadata i32 %rem.i16, metadata !928, metadata !DIExpression()), !dbg !932
   %new_alloca_1 = alloca i32, align 4, !dbg !936
   %new_alloca_2 = alloca i32, align 4, !dbg !936
-  %0 = add i32 %rem.i13, %rem.i, !dbg !936
-  %1 = mul i32 %rem.i13, %rem.i, !dbg !936
+  %0 = add i32 %rem.i16, %rem.i, !dbg !936
+  %1 = mul i32 %rem.i16, %rem.i, !dbg !936
   %equals_compare = icmp eq i32 %0, %1, !dbg !936
   br i1 %equals_compare, label %2, label %3, !dbg !936
 
@@ -70,65 +70,74 @@ entry:
   br label %4, !dbg !936
 
 4:                                                ; preds = %3, %2
-  %add = add nsw i32 %rem.i13, %rem.i, !dbg !936
+  %add = add nsw i32 %rem.i16, %rem.i, !dbg !936
   call void @llvm.dbg.value(metadata i32 %add, metadata !927, metadata !DIExpression()), !dbg !932
-  %add2 = add nsw i32 %rem.i13, 1, !dbg !937
-  call void @llvm.dbg.value(metadata i32 %add2, metadata !928, metadata !DIExpression()), !dbg !932
-  %call3 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %add), !dbg !938
-  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call3, metadata !939, metadata !DIExpression()), !dbg !1005
-  call void @llvm.dbg.value(metadata i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str, i64 0, i64 0), metadata !948, metadata !DIExpression()), !dbg !1005
-  %call1.i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call3, i8* nonnull getelementptr inbounds ([2 x i8], [2 x i8]* @.str, i64 0, i64 0), i64 1), !dbg !1007
-  %call5 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call3, i32 %add2), !dbg !1009
-  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call5, metadata !1010, metadata !DIExpression()), !dbg !1024
-  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call5, metadata !1026, metadata !DIExpression()), !dbg !1032
-  %5 = bitcast %"class.std::basic_ostream"* %call5 to i8**, !dbg !1034
-  %vtable.i = load i8*, i8** %5, align 8, !dbg !1034, !tbaa !1035
-  %vbase.offset.ptr.i = getelementptr i8, i8* %vtable.i, i64 -24, !dbg !1034
-  %6 = bitcast i8* %vbase.offset.ptr.i to i64*, !dbg !1034
-  %vbase.offset.i = load i64, i64* %6, align 8, !dbg !1034
-  %7 = bitcast %"class.std::basic_ostream"* %call5 to i8*, !dbg !1034
-  %add.ptr.i = getelementptr inbounds i8, i8* %7, i64 %vbase.offset.i, !dbg !1034
-  call void @llvm.dbg.value(metadata i8* %add.ptr.i, metadata !1038, metadata !DIExpression()), !dbg !1052
-  call void @llvm.dbg.value(metadata i8 10, metadata !1050, metadata !DIExpression()), !dbg !1052
-  %_M_ctype.i.i = getelementptr inbounds i8, i8* %add.ptr.i, i64 240, !dbg !1054
-  %8 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**, !dbg !1054
-  %9 = load %"class.std::ctype"*, %"class.std::ctype"** %8, align 8, !dbg !1054, !tbaa !1055
-  call void @llvm.dbg.value(metadata %"class.std::ctype"* %9, metadata !1060, metadata !DIExpression()), !dbg !1072
-  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %9, null, !dbg !1074
-  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i, !dbg !1076
+  call void @llvm.dbg.value(metadata i32 %rem.i16, metadata !928, metadata !DIExpression(DW_OP_plus_uconst, 1, DW_OP_stack_value)), !dbg !932
+  %cmp = icmp sgt i32 %add, 0
+  br label %while.cond, !dbg !937
 
-if.then.i.i.i:                                    ; preds = %4
-  call void @_ZSt16__throw_bad_castv() #9, !dbg !1077
-  unreachable, !dbg !1077
+while.cond:                                       ; preds = %while.cond, %4
+  %b.0.in = phi i32 [ %rem.i16, %4 ], [ %b.0, %while.cond ]
+  %b.0 = add nsw i32 %b.0.in, 1, !dbg !932
+  call void @llvm.dbg.value(metadata i32 %b.0, metadata !928, metadata !DIExpression()), !dbg !932
+  br i1 %cmp, label %while.cond, label %while.end, !dbg !937, !llvm.loop !938
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %4
-  call void @llvm.dbg.value(metadata %"class.std::ctype"* %9, metadata !1078, metadata !DIExpression()), !dbg !1087
-  call void @llvm.dbg.value(metadata i8 10, metadata !1086, metadata !DIExpression()), !dbg !1087
-  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 8, !dbg !1089
-  %10 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !dbg !1089, !tbaa !1091
-  %tobool.not.i3.i.i = icmp eq i8 %10, 0, !dbg !1089
-  br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i, !dbg !1093
+while.end:                                        ; preds = %while.cond
+  %call4 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %add), !dbg !942
+  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call4, metadata !943, metadata !DIExpression()), !dbg !1009
+  call void @llvm.dbg.value(metadata i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str, i64 0, i64 0), metadata !952, metadata !DIExpression()), !dbg !1009
+  %call1.i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call4, i8* nonnull getelementptr inbounds ([2 x i8], [2 x i8]* @.str, i64 0, i64 0), i64 1), !dbg !1011
+  %call6 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call4, i32 %b.0), !dbg !1013
+  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call6, metadata !1014, metadata !DIExpression()), !dbg !1028
+  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call6, metadata !1030, metadata !DIExpression()), !dbg !1036
+  %5 = bitcast %"class.std::basic_ostream"* %call6 to i8**, !dbg !1038
+  %vtable.i = load i8*, i8** %5, align 8, !dbg !1038, !tbaa !1039
+  %vbase.offset.ptr.i = getelementptr i8, i8* %vtable.i, i64 -24, !dbg !1038
+  %6 = bitcast i8* %vbase.offset.ptr.i to i64*, !dbg !1038
+  %vbase.offset.i = load i64, i64* %6, align 8, !dbg !1038
+  %7 = bitcast %"class.std::basic_ostream"* %call6 to i8*, !dbg !1038
+  %add.ptr.i = getelementptr inbounds i8, i8* %7, i64 %vbase.offset.i, !dbg !1038
+  call void @llvm.dbg.value(metadata i8* %add.ptr.i, metadata !1042, metadata !DIExpression()), !dbg !1056
+  call void @llvm.dbg.value(metadata i8 10, metadata !1054, metadata !DIExpression()), !dbg !1056
+  %_M_ctype.i.i = getelementptr inbounds i8, i8* %add.ptr.i, i64 240, !dbg !1058
+  %8 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**, !dbg !1058
+  %9 = load %"class.std::ctype"*, %"class.std::ctype"** %8, align 8, !dbg !1058, !tbaa !1059
+  call void @llvm.dbg.value(metadata %"class.std::ctype"* %9, metadata !1064, metadata !DIExpression()), !dbg !1076
+  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %9, null, !dbg !1078
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i, !dbg !1080
+
+if.then.i.i.i:                                    ; preds = %while.end
+  call void @_ZSt16__throw_bad_castv() #9, !dbg !1081
+  unreachable, !dbg !1081
+
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %while.end
+  call void @llvm.dbg.value(metadata %"class.std::ctype"* %9, metadata !1082, metadata !DIExpression()), !dbg !1091
+  call void @llvm.dbg.value(metadata i8 10, metadata !1090, metadata !DIExpression()), !dbg !1091
+  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 8, !dbg !1093
+  %10 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !dbg !1093, !tbaa !1095
+  %tobool.not.i3.i.i = icmp eq i8 %10, 0, !dbg !1093
+  br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i, !dbg !1097
 
 if.then.i4.i.i:                                   ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 9, i64 10, !dbg !1094
-  %11 = load i8, i8* %arrayidx.i.i.i, align 1, !dbg !1094, !tbaa !1095
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, !dbg !1096
+  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 9, i64 10, !dbg !1098
+  %11 = load i8, i8* %arrayidx.i.i.i, align 1, !dbg !1098, !tbaa !1099
+  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, !dbg !1100
 
 if.end.i.i.i:                                     ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9), !dbg !1097
-  %12 = bitcast %"class.std::ctype"* %9 to i8 (%"class.std::ctype"*, i8)***, !dbg !1098
-  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %12, align 8, !dbg !1098, !tbaa !1035
-  %vfn.i.i.i = getelementptr inbounds i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vtable.i.i.i, i64 6, !dbg !1098
-  %13 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8, !dbg !1098
-  %call.i.i.i = call signext i8 %13(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9, i8 signext 10), !dbg !1098
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, !dbg !1099
+  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9), !dbg !1101
+  %12 = bitcast %"class.std::ctype"* %9 to i8 (%"class.std::ctype"*, i8)***, !dbg !1102
+  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %12, align 8, !dbg !1102, !tbaa !1039
+  %vfn.i.i.i = getelementptr inbounds i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vtable.i.i.i, i64 6, !dbg !1102
+  %13 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8, !dbg !1102
+  %call.i.i.i = call signext i8 %13(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9, i8 signext 10), !dbg !1102
+  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, !dbg !1103
 
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.then.i4.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi i8 [ %11, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ], !dbg !1087
-  %call1.i15 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call5, i8 signext %retval.0.i.i.i), !dbg !1100
-  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call1.i15, metadata !1101, metadata !DIExpression()), !dbg !1104
-  %call.i.i16 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo5flushEv(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call1.i15), !dbg !1106
-  ret i32 0, !dbg !1107
+  %retval.0.i.i.i = phi i8 [ %11, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ], !dbg !1091
+  %call1.i18 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call6, i8 signext %retval.0.i.i.i), !dbg !1104
+  call void @llvm.dbg.value(metadata %"class.std::basic_ostream"* %call1.i18, metadata !1105, metadata !DIExpression()), !dbg !1108
+  %call.i.i19 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo5flushEv(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call1.i18), !dbg !1110
+  ret i32 0, !dbg !1111
 }
 
 declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #0
@@ -145,10 +154,10 @@ declare dso_local void @_ZSt16__throw_bad_castv() local_unnamed_addr #5
 declare dso_local void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_example1.cpp() #6 section ".text.startup" !dbg !1108 {
+define internal void @_GLOBAL__sub_I_example1.cpp() #6 section ".text.startup" !dbg !1112 {
 entry:
-  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit), !dbg !1110
-  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #8, !dbg !1114
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit), !dbg !1114
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #8, !dbg !1118
   ret void
 }
 
@@ -1089,199 +1098,203 @@ attributes #9 = { noreturn }
 !916 = !{i32 1, !"wchar_size", i32 4}
 !917 = !{i32 7, !"uwtable", i32 1}
 !918 = !{!"clang version 14.0.0 (https://github.com/HPSSA-LLVM/llvm-project.git a556ec8861df920bfaee3057df8aac739aa59b24)"}
-!919 = distinct !DISubprogram(name: "retval", linkageName: "_Z6retvalv", scope: !8, file: !8, line: 5, type: !605, scopeLine: 5, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
+!919 = distinct !DISubprogram(name: "retval", linkageName: "_Z6retvalv", scope: !8, file: !8, line: 4, type: !605, scopeLine: 4, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
 !920 = !{}
-!921 = !DILocation(line: 5, column: 23, scope: !919)
-!922 = !DILocation(line: 5, column: 30, scope: !919)
-!923 = !DILocation(line: 5, column: 16, scope: !919)
+!921 = !DILocation(line: 4, column: 23, scope: !919)
+!922 = !DILocation(line: 4, column: 30, scope: !919)
+!923 = !DILocation(line: 4, column: 16, scope: !919)
 !924 = !DISubprogram(name: "rand", scope: !506, file: !506, line: 453, type: !605, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized, retainedNodes: !920)
-!925 = distinct !DISubprogram(name: "main", scope: !8, file: !8, line: 7, type: !605, scopeLine: 7, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !926)
+!925 = distinct !DISubprogram(name: "main", scope: !8, file: !8, line: 6, type: !605, scopeLine: 6, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !926)
 !926 = !{!927, !928}
-!927 = !DILocalVariable(name: "a", scope: !925, file: !8, line: 8, type: !11)
-!928 = !DILocalVariable(name: "b", scope: !925, file: !8, line: 8, type: !11)
-!929 = !DILocation(line: 5, column: 23, scope: !919, inlinedAt: !930)
-!930 = distinct !DILocation(line: 9, column: 7, scope: !925)
-!931 = !DILocation(line: 5, column: 30, scope: !919, inlinedAt: !930)
+!927 = !DILocalVariable(name: "a", scope: !925, file: !8, line: 7, type: !11)
+!928 = !DILocalVariable(name: "b", scope: !925, file: !8, line: 7, type: !11)
+!929 = !DILocation(line: 4, column: 23, scope: !919, inlinedAt: !930)
+!930 = distinct !DILocation(line: 8, column: 7, scope: !925)
+!931 = !DILocation(line: 4, column: 30, scope: !919, inlinedAt: !930)
 !932 = !DILocation(line: 0, scope: !925)
-!933 = !DILocation(line: 5, column: 23, scope: !919, inlinedAt: !934)
-!934 = distinct !DILocation(line: 10, column: 7, scope: !925)
-!935 = !DILocation(line: 5, column: 30, scope: !919, inlinedAt: !934)
-!936 = !DILocation(line: 11, column: 9, scope: !925)
-!937 = !DILocation(line: 12, column: 9, scope: !925)
-!938 = !DILocation(line: 13, column: 13, scope: !925)
-!939 = !DILocalVariable(name: "__out", arg: 1, scope: !940, file: !941, line: 606, type: !944)
-!940 = distinct !DISubprogram(name: "operator<<<std::char_traits<char> >", linkageName: "_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc", scope: !2, file: !941, line: 606, type: !942, scopeLine: 607, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !949, retainedNodes: !947)
-!941 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/ostream", directory: "")
-!942 = !DISubroutineType(types: !943)
-!943 = !{!944, !944, !160}
-!944 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !945, size: 64)
-!945 = !DICompositeType(tag: DW_TAG_class_type, name: "basic_ostream<char, std::char_traits<char> >", scope: !2, file: !946, line: 359, size: 2176, flags: DIFlagFwdDecl | DIFlagNonTrivial)
-!946 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/ostream.tcc", directory: "")
-!947 = !{!939, !948}
-!948 = !DILocalVariable(name: "__s", arg: 2, scope: !940, file: !941, line: 606, type: !160)
-!949 = !{!950}
-!950 = !DITemplateTypeParameter(name: "_Traits", type: !951)
-!951 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "char_traits<char>", scope: !2, file: !952, line: 316, size: 8, flags: DIFlagTypePassByValue, elements: !953, templateParams: !1003, identifier: "_ZTSSt11char_traitsIcE")
-!952 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/char_traits.h", directory: "")
-!953 = !{!954, !961, !965, !966, !971, !974, !977, !981, !982, !985, !991, !994, !997, !1000}
-!954 = !DISubprogram(name: "assign", linkageName: "_ZNSt11char_traitsIcE6assignERcRKc", scope: !951, file: !952, line: 328, type: !955, scopeLine: 328, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!955 = !DISubroutineType(types: !956)
-!956 = !{null, !957, !959}
-!957 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !958, size: 64)
-!958 = !DIDerivedType(tag: DW_TAG_typedef, name: "char_type", scope: !951, file: !952, line: 318, baseType: !44)
-!959 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !960, size: 64)
-!960 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !958)
-!961 = !DISubprogram(name: "eq", linkageName: "_ZNSt11char_traitsIcE2eqERKcS2_", scope: !951, file: !952, line: 332, type: !962, scopeLine: 332, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!962 = !DISubroutineType(types: !963)
-!963 = !{!964, !959, !959}
-!964 = !DIBasicType(name: "bool", size: 8, encoding: DW_ATE_boolean)
-!965 = !DISubprogram(name: "lt", linkageName: "_ZNSt11char_traitsIcE2ltERKcS2_", scope: !951, file: !952, line: 336, type: !962, scopeLine: 336, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!966 = !DISubprogram(name: "compare", linkageName: "_ZNSt11char_traitsIcE7compareEPKcS2_m", scope: !951, file: !952, line: 344, type: !967, scopeLine: 344, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!967 = !DISubroutineType(types: !968)
-!968 = !{!11, !969, !969, !970}
-!969 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !960, size: 64)
-!970 = !DIDerivedType(tag: DW_TAG_typedef, name: "size_t", scope: !2, file: !24, line: 264, baseType: !114)
-!971 = !DISubprogram(name: "length", linkageName: "_ZNSt11char_traitsIcE6lengthEPKc", scope: !951, file: !952, line: 365, type: !972, scopeLine: 365, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!972 = !DISubroutineType(types: !973)
-!973 = !{!970, !969}
-!974 = !DISubprogram(name: "find", linkageName: "_ZNSt11char_traitsIcE4findEPKcmRS1_", scope: !951, file: !952, line: 375, type: !975, scopeLine: 375, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!975 = !DISubroutineType(types: !976)
-!976 = !{!969, !969, !970, !959}
-!977 = !DISubprogram(name: "move", linkageName: "_ZNSt11char_traitsIcE4moveEPcPKcm", scope: !951, file: !952, line: 389, type: !978, scopeLine: 389, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!978 = !DISubroutineType(types: !979)
-!979 = !{!980, !980, !969, !970}
-!980 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !958, size: 64)
-!981 = !DISubprogram(name: "copy", linkageName: "_ZNSt11char_traitsIcE4copyEPcPKcm", scope: !951, file: !952, line: 401, type: !978, scopeLine: 401, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!982 = !DISubprogram(name: "assign", linkageName: "_ZNSt11char_traitsIcE6assignEPcmc", scope: !951, file: !952, line: 413, type: !983, scopeLine: 413, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!983 = !DISubroutineType(types: !984)
-!984 = !{!980, !980, !970, !958}
-!985 = !DISubprogram(name: "to_char_type", linkageName: "_ZNSt11char_traitsIcE12to_char_typeERKi", scope: !951, file: !952, line: 425, type: !986, scopeLine: 425, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!986 = !DISubroutineType(types: !987)
-!987 = !{!958, !988}
-!988 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !989, size: 64)
-!989 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !990)
-!990 = !DIDerivedType(tag: DW_TAG_typedef, name: "int_type", scope: !951, file: !952, line: 319, baseType: !11)
-!991 = !DISubprogram(name: "to_int_type", linkageName: "_ZNSt11char_traitsIcE11to_int_typeERKc", scope: !951, file: !952, line: 431, type: !992, scopeLine: 431, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!992 = !DISubroutineType(types: !993)
-!993 = !{!990, !959}
-!994 = !DISubprogram(name: "eq_int_type", linkageName: "_ZNSt11char_traitsIcE11eq_int_typeERKiS2_", scope: !951, file: !952, line: 435, type: !995, scopeLine: 435, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!995 = !DISubroutineType(types: !996)
-!996 = !{!964, !988, !988}
-!997 = !DISubprogram(name: "eof", linkageName: "_ZNSt11char_traitsIcE3eofEv", scope: !951, file: !952, line: 439, type: !998, scopeLine: 439, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!998 = !DISubroutineType(types: !999)
-!999 = !{!990}
-!1000 = !DISubprogram(name: "not_eof", linkageName: "_ZNSt11char_traitsIcE7not_eofERKi", scope: !951, file: !952, line: 443, type: !1001, scopeLine: 443, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
-!1001 = !DISubroutineType(types: !1002)
-!1002 = !{!990, !988}
-!1003 = !{!1004}
-!1004 = !DITemplateTypeParameter(name: "_CharT", type: !44)
-!1005 = !DILocation(line: 0, scope: !940, inlinedAt: !1006)
-!1006 = distinct !DILocation(line: 13, column: 18, scope: !925)
-!1007 = !DILocation(line: 611, column: 2, scope: !1008, inlinedAt: !1006)
-!1008 = distinct !DILexicalBlock(scope: !940, file: !941, line: 608, column: 11)
-!1009 = !DILocation(line: 13, column: 25, scope: !925)
-!1010 = !DILocalVariable(name: "this", arg: 1, scope: !1011, type: !1023, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1011 = distinct !DISubprogram(name: "operator<<", linkageName: "_ZNSolsEPFRSoS_E", scope: !945, file: !941, line: 108, type: !1012, scopeLine: 109, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, declaration: !1020, retainedNodes: !1021)
-!1012 = !DISubroutineType(types: !1013)
-!1013 = !{!1014, !1016, !1017}
-!1014 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !1015, size: 64)
-!1015 = !DIDerivedType(tag: DW_TAG_typedef, name: "__ostream_type", scope: !945, file: !941, line: 71, baseType: !945)
-!1016 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !945, size: 64, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1017 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1018, size: 64)
-!1018 = !DISubroutineType(types: !1019)
-!1019 = !{!1014, !1014}
-!1020 = !DISubprogram(name: "operator<<", linkageName: "_ZNSolsEPFRSoS_E", scope: !945, file: !941, line: 108, type: !1012, scopeLine: 108, flags: DIFlagPublic | DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1021 = !{!1010, !1022}
-!1022 = !DILocalVariable(name: "__pf", arg: 2, scope: !1011, file: !941, line: 108, type: !1017)
-!1023 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !945, size: 64)
-!1024 = !DILocation(line: 0, scope: !1011, inlinedAt: !1025)
-!1025 = distinct !DILocation(line: 13, column: 30, scope: !925)
-!1026 = !DILocalVariable(name: "__os", arg: 1, scope: !1027, file: !941, line: 681, type: !944)
-!1027 = distinct !DISubprogram(name: "endl<char, std::char_traits<char> >", linkageName: "_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_", scope: !2, file: !941, line: 681, type: !1028, scopeLine: 682, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !1031, retainedNodes: !1030)
-!1028 = !DISubroutineType(types: !1029)
-!1029 = !{!944, !944}
-!1030 = !{!1026}
-!1031 = !{!1004, !950}
-!1032 = !DILocation(line: 0, scope: !1027, inlinedAt: !1033)
-!1033 = distinct !DILocation(line: 113, column: 9, scope: !1011, inlinedAt: !1025)
-!1034 = !DILocation(line: 682, column: 29, scope: !1027, inlinedAt: !1033)
-!1035 = !{!1036, !1036, i64 0}
-!1036 = !{!"vtable pointer", !1037, i64 0}
-!1037 = !{!"Simple C++ TBAA"}
-!1038 = !DILocalVariable(name: "this", arg: 1, scope: !1039, type: !1051, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1039 = distinct !DISubprogram(name: "widen", linkageName: "_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc", scope: !1041, file: !1040, line: 449, type: !1043, scopeLine: 450, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, declaration: !1048, retainedNodes: !1049)
-!1040 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/basic_ios.h", directory: "")
-!1041 = !DICompositeType(tag: DW_TAG_class_type, name: "basic_ios<char, std::char_traits<char> >", scope: !2, file: !1042, line: 178, size: 2112, flags: DIFlagFwdDecl | DIFlagNonTrivial)
-!1042 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/basic_ios.tcc", directory: "")
-!1043 = !DISubroutineType(types: !1044)
-!1044 = !{!1045, !1046, !44}
-!1045 = !DIDerivedType(tag: DW_TAG_typedef, name: "char_type", scope: !1041, file: !1040, line: 76, baseType: !44)
-!1046 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1047, size: 64, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1047 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !1041)
-!1048 = !DISubprogram(name: "widen", linkageName: "_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc", scope: !1041, file: !1040, line: 449, type: !1043, scopeLine: 449, flags: DIFlagPublic | DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1049 = !{!1038, !1050}
-!1050 = !DILocalVariable(name: "__c", arg: 2, scope: !1039, file: !1040, line: 449, type: !44)
-!1051 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1047, size: 64)
-!1052 = !DILocation(line: 0, scope: !1039, inlinedAt: !1053)
-!1053 = distinct !DILocation(line: 682, column: 34, scope: !1027, inlinedAt: !1033)
-!1054 = !DILocation(line: 450, column: 30, scope: !1039, inlinedAt: !1053)
-!1055 = !{!1056, !1057, i64 240}
-!1056 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !1057, i64 216, !1058, i64 224, !1059, i64 225, !1057, i64 232, !1057, i64 240, !1057, i64 248, !1057, i64 256}
-!1057 = !{!"any pointer", !1058, i64 0}
-!1058 = !{!"omnipotent char", !1037, i64 0}
-!1059 = !{!"bool", !1058, i64 0}
-!1060 = !DILocalVariable(name: "__f", arg: 1, scope: !1061, file: !1040, line: 47, type: !1068)
-!1061 = distinct !DISubprogram(name: "__check_facet<std::ctype<char> >", linkageName: "_ZSt13__check_facetISt5ctypeIcEERKT_PS3_", scope: !2, file: !1040, line: 47, type: !1062, scopeLine: 48, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !1070, retainedNodes: !1069)
-!1062 = !DISubroutineType(types: !1063)
-!1063 = !{!1064, !1068}
-!1064 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !1065, size: 64)
-!1065 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !1066)
-!1066 = distinct !DICompositeType(tag: DW_TAG_class_type, name: "ctype<char>", scope: !2, file: !1067, line: 681, size: 4608, flags: DIFlagFwdDecl | DIFlagNonTrivial, identifier: "_ZTSSt5ctypeIcE")
-!1067 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/locale_facets.h", directory: "")
-!1068 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1065, size: 64)
-!1069 = !{!1060}
-!1070 = !{!1071}
-!1071 = !DITemplateTypeParameter(name: "_Facet", type: !1066)
-!1072 = !DILocation(line: 0, scope: !1061, inlinedAt: !1073)
-!1073 = distinct !DILocation(line: 450, column: 16, scope: !1039, inlinedAt: !1053)
-!1074 = !DILocation(line: 49, column: 12, scope: !1075, inlinedAt: !1073)
-!1075 = distinct !DILexicalBlock(scope: !1061, file: !1040, line: 49, column: 11)
-!1076 = !DILocation(line: 49, column: 11, scope: !1061, inlinedAt: !1073)
-!1077 = !DILocation(line: 50, column: 2, scope: !1075, inlinedAt: !1073)
-!1078 = !DILocalVariable(name: "this", arg: 1, scope: !1079, type: !1068, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1079 = distinct !DISubprogram(name: "widen", linkageName: "_ZNKSt5ctypeIcE5widenEc", scope: !1066, file: !1067, line: 872, type: !1080, scopeLine: 873, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, declaration: !1084, retainedNodes: !1085)
-!1080 = !DISubroutineType(types: !1081)
-!1081 = !{!1082, !1083, !44}
-!1082 = !DIDerivedType(tag: DW_TAG_typedef, name: "char_type", scope: !1066, file: !1067, line: 686, baseType: !44)
-!1083 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1065, size: 64, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1084 = !DISubprogram(name: "widen", linkageName: "_ZNKSt5ctypeIcE5widenEc", scope: !1066, file: !1067, line: 872, type: !1080, scopeLine: 872, flags: DIFlagPublic | DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1085 = !{!1078, !1086}
-!1086 = !DILocalVariable(name: "__c", arg: 2, scope: !1079, file: !1067, line: 872, type: !44)
-!1087 = !DILocation(line: 0, scope: !1079, inlinedAt: !1088)
-!1088 = distinct !DILocation(line: 450, column: 40, scope: !1039, inlinedAt: !1053)
-!1089 = !DILocation(line: 874, column: 6, scope: !1090, inlinedAt: !1088)
-!1090 = distinct !DILexicalBlock(scope: !1079, file: !1067, line: 874, column: 6)
-!1091 = !{!1092, !1058, i64 56}
-!1092 = !{!"_ZTSSt5ctypeIcE", !1057, i64 16, !1059, i64 24, !1057, i64 32, !1057, i64 40, !1057, i64 48, !1058, i64 56, !1058, i64 57, !1058, i64 313, !1058, i64 569}
-!1093 = !DILocation(line: 874, column: 6, scope: !1079, inlinedAt: !1088)
-!1094 = !DILocation(line: 875, column: 11, scope: !1090, inlinedAt: !1088)
-!1095 = !{!1058, !1058, i64 0}
-!1096 = !DILocation(line: 875, column: 4, scope: !1090, inlinedAt: !1088)
-!1097 = !DILocation(line: 876, column: 8, scope: !1079, inlinedAt: !1088)
-!1098 = !DILocation(line: 877, column: 15, scope: !1079, inlinedAt: !1088)
-!1099 = !DILocation(line: 877, column: 2, scope: !1079, inlinedAt: !1088)
-!1100 = !DILocation(line: 682, column: 25, scope: !1027, inlinedAt: !1033)
-!1101 = !DILocalVariable(name: "__os", arg: 1, scope: !1102, file: !941, line: 703, type: !944)
-!1102 = distinct !DISubprogram(name: "flush<char, std::char_traits<char> >", linkageName: "_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_", scope: !2, file: !941, line: 703, type: !1028, scopeLine: 704, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !1031, retainedNodes: !1103)
-!1103 = !{!1101}
-!1104 = !DILocation(line: 0, scope: !1102, inlinedAt: !1105)
-!1105 = distinct !DILocation(line: 682, column: 14, scope: !1027, inlinedAt: !1033)
-!1106 = !DILocation(line: 704, column: 19, scope: !1102, inlinedAt: !1105)
-!1107 = !DILocation(line: 14, column: 3, scope: !925)
-!1108 = distinct !DISubprogram(linkageName: "_GLOBAL__sub_I_example1.cpp", scope: !8, file: !8, type: !1109, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
-!1109 = !DISubroutineType(types: !920)
-!1110 = !DILocation(line: 74, column: 25, scope: !1111, inlinedAt: !1113)
-!1111 = !DILexicalBlockFile(scope: !1112, file: !3, discriminator: 0)
-!1112 = distinct !DISubprogram(name: "__cxx_global_var_init", scope: !8, file: !8, type: !520, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
-!1113 = distinct !DILocation(line: 0, scope: !1108)
-!1114 = !DILocation(line: 0, scope: !1112, inlinedAt: !1113)
+!933 = !DILocation(line: 4, column: 23, scope: !919, inlinedAt: !934)
+!934 = distinct !DILocation(line: 9, column: 7, scope: !925)
+!935 = !DILocation(line: 4, column: 30, scope: !919, inlinedAt: !934)
+!936 = !DILocation(line: 10, column: 9, scope: !925)
+!937 = !DILocation(line: 12, column: 3, scope: !925)
+!938 = distinct !{!938, !937, !939, !940, !941}
+!939 = !DILocation(line: 14, column: 3, scope: !925)
+!940 = !{!"llvm.loop.mustprogress"}
+!941 = !{!"llvm.loop.unroll.disable"}
+!942 = !DILocation(line: 15, column: 13, scope: !925)
+!943 = !DILocalVariable(name: "__out", arg: 1, scope: !944, file: !945, line: 606, type: !948)
+!944 = distinct !DISubprogram(name: "operator<<<std::char_traits<char> >", linkageName: "_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc", scope: !2, file: !945, line: 606, type: !946, scopeLine: 607, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !953, retainedNodes: !951)
+!945 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/ostream", directory: "")
+!946 = !DISubroutineType(types: !947)
+!947 = !{!948, !948, !160}
+!948 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !949, size: 64)
+!949 = !DICompositeType(tag: DW_TAG_class_type, name: "basic_ostream<char, std::char_traits<char> >", scope: !2, file: !950, line: 359, size: 2176, flags: DIFlagFwdDecl | DIFlagNonTrivial)
+!950 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/ostream.tcc", directory: "")
+!951 = !{!943, !952}
+!952 = !DILocalVariable(name: "__s", arg: 2, scope: !944, file: !945, line: 606, type: !160)
+!953 = !{!954}
+!954 = !DITemplateTypeParameter(name: "_Traits", type: !955)
+!955 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "char_traits<char>", scope: !2, file: !956, line: 316, size: 8, flags: DIFlagTypePassByValue, elements: !957, templateParams: !1007, identifier: "_ZTSSt11char_traitsIcE")
+!956 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/char_traits.h", directory: "")
+!957 = !{!958, !965, !969, !970, !975, !978, !981, !985, !986, !989, !995, !998, !1001, !1004}
+!958 = !DISubprogram(name: "assign", linkageName: "_ZNSt11char_traitsIcE6assignERcRKc", scope: !955, file: !956, line: 328, type: !959, scopeLine: 328, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!959 = !DISubroutineType(types: !960)
+!960 = !{null, !961, !963}
+!961 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !962, size: 64)
+!962 = !DIDerivedType(tag: DW_TAG_typedef, name: "char_type", scope: !955, file: !956, line: 318, baseType: !44)
+!963 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !964, size: 64)
+!964 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !962)
+!965 = !DISubprogram(name: "eq", linkageName: "_ZNSt11char_traitsIcE2eqERKcS2_", scope: !955, file: !956, line: 332, type: !966, scopeLine: 332, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!966 = !DISubroutineType(types: !967)
+!967 = !{!968, !963, !963}
+!968 = !DIBasicType(name: "bool", size: 8, encoding: DW_ATE_boolean)
+!969 = !DISubprogram(name: "lt", linkageName: "_ZNSt11char_traitsIcE2ltERKcS2_", scope: !955, file: !956, line: 336, type: !966, scopeLine: 336, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!970 = !DISubprogram(name: "compare", linkageName: "_ZNSt11char_traitsIcE7compareEPKcS2_m", scope: !955, file: !956, line: 344, type: !971, scopeLine: 344, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!971 = !DISubroutineType(types: !972)
+!972 = !{!11, !973, !973, !974}
+!973 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !964, size: 64)
+!974 = !DIDerivedType(tag: DW_TAG_typedef, name: "size_t", scope: !2, file: !24, line: 264, baseType: !114)
+!975 = !DISubprogram(name: "length", linkageName: "_ZNSt11char_traitsIcE6lengthEPKc", scope: !955, file: !956, line: 365, type: !976, scopeLine: 365, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!976 = !DISubroutineType(types: !977)
+!977 = !{!974, !973}
+!978 = !DISubprogram(name: "find", linkageName: "_ZNSt11char_traitsIcE4findEPKcmRS1_", scope: !955, file: !956, line: 375, type: !979, scopeLine: 375, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!979 = !DISubroutineType(types: !980)
+!980 = !{!973, !973, !974, !963}
+!981 = !DISubprogram(name: "move", linkageName: "_ZNSt11char_traitsIcE4moveEPcPKcm", scope: !955, file: !956, line: 389, type: !982, scopeLine: 389, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!982 = !DISubroutineType(types: !983)
+!983 = !{!984, !984, !973, !974}
+!984 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !962, size: 64)
+!985 = !DISubprogram(name: "copy", linkageName: "_ZNSt11char_traitsIcE4copyEPcPKcm", scope: !955, file: !956, line: 401, type: !982, scopeLine: 401, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!986 = !DISubprogram(name: "assign", linkageName: "_ZNSt11char_traitsIcE6assignEPcmc", scope: !955, file: !956, line: 413, type: !987, scopeLine: 413, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!987 = !DISubroutineType(types: !988)
+!988 = !{!984, !984, !974, !962}
+!989 = !DISubprogram(name: "to_char_type", linkageName: "_ZNSt11char_traitsIcE12to_char_typeERKi", scope: !955, file: !956, line: 425, type: !990, scopeLine: 425, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!990 = !DISubroutineType(types: !991)
+!991 = !{!962, !992}
+!992 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !993, size: 64)
+!993 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !994)
+!994 = !DIDerivedType(tag: DW_TAG_typedef, name: "int_type", scope: !955, file: !956, line: 319, baseType: !11)
+!995 = !DISubprogram(name: "to_int_type", linkageName: "_ZNSt11char_traitsIcE11to_int_typeERKc", scope: !955, file: !956, line: 431, type: !996, scopeLine: 431, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!996 = !DISubroutineType(types: !997)
+!997 = !{!994, !963}
+!998 = !DISubprogram(name: "eq_int_type", linkageName: "_ZNSt11char_traitsIcE11eq_int_typeERKiS2_", scope: !955, file: !956, line: 435, type: !999, scopeLine: 435, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!999 = !DISubroutineType(types: !1000)
+!1000 = !{!968, !992, !992}
+!1001 = !DISubprogram(name: "eof", linkageName: "_ZNSt11char_traitsIcE3eofEv", scope: !955, file: !956, line: 439, type: !1002, scopeLine: 439, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!1002 = !DISubroutineType(types: !1003)
+!1003 = !{!994}
+!1004 = !DISubprogram(name: "not_eof", linkageName: "_ZNSt11char_traitsIcE7not_eofERKi", scope: !955, file: !956, line: 443, type: !1005, scopeLine: 443, flags: DIFlagPrototyped | DIFlagStaticMember, spFlags: DISPFlagOptimized)
+!1005 = !DISubroutineType(types: !1006)
+!1006 = !{!994, !992}
+!1007 = !{!1008}
+!1008 = !DITemplateTypeParameter(name: "_CharT", type: !44)
+!1009 = !DILocation(line: 0, scope: !944, inlinedAt: !1010)
+!1010 = distinct !DILocation(line: 15, column: 18, scope: !925)
+!1011 = !DILocation(line: 611, column: 2, scope: !1012, inlinedAt: !1010)
+!1012 = distinct !DILexicalBlock(scope: !944, file: !945, line: 608, column: 11)
+!1013 = !DILocation(line: 15, column: 25, scope: !925)
+!1014 = !DILocalVariable(name: "this", arg: 1, scope: !1015, type: !1027, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1015 = distinct !DISubprogram(name: "operator<<", linkageName: "_ZNSolsEPFRSoS_E", scope: !949, file: !945, line: 108, type: !1016, scopeLine: 109, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, declaration: !1024, retainedNodes: !1025)
+!1016 = !DISubroutineType(types: !1017)
+!1017 = !{!1018, !1020, !1021}
+!1018 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !1019, size: 64)
+!1019 = !DIDerivedType(tag: DW_TAG_typedef, name: "__ostream_type", scope: !949, file: !945, line: 71, baseType: !949)
+!1020 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !949, size: 64, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1021 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1022, size: 64)
+!1022 = !DISubroutineType(types: !1023)
+!1023 = !{!1018, !1018}
+!1024 = !DISubprogram(name: "operator<<", linkageName: "_ZNSolsEPFRSoS_E", scope: !949, file: !945, line: 108, type: !1016, scopeLine: 108, flags: DIFlagPublic | DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1025 = !{!1014, !1026}
+!1026 = !DILocalVariable(name: "__pf", arg: 2, scope: !1015, file: !945, line: 108, type: !1021)
+!1027 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !949, size: 64)
+!1028 = !DILocation(line: 0, scope: !1015, inlinedAt: !1029)
+!1029 = distinct !DILocation(line: 15, column: 30, scope: !925)
+!1030 = !DILocalVariable(name: "__os", arg: 1, scope: !1031, file: !945, line: 681, type: !948)
+!1031 = distinct !DISubprogram(name: "endl<char, std::char_traits<char> >", linkageName: "_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_", scope: !2, file: !945, line: 681, type: !1032, scopeLine: 682, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !1035, retainedNodes: !1034)
+!1032 = !DISubroutineType(types: !1033)
+!1033 = !{!948, !948}
+!1034 = !{!1030}
+!1035 = !{!1008, !954}
+!1036 = !DILocation(line: 0, scope: !1031, inlinedAt: !1037)
+!1037 = distinct !DILocation(line: 113, column: 9, scope: !1015, inlinedAt: !1029)
+!1038 = !DILocation(line: 682, column: 29, scope: !1031, inlinedAt: !1037)
+!1039 = !{!1040, !1040, i64 0}
+!1040 = !{!"vtable pointer", !1041, i64 0}
+!1041 = !{!"Simple C++ TBAA"}
+!1042 = !DILocalVariable(name: "this", arg: 1, scope: !1043, type: !1055, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1043 = distinct !DISubprogram(name: "widen", linkageName: "_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc", scope: !1045, file: !1044, line: 449, type: !1047, scopeLine: 450, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, declaration: !1052, retainedNodes: !1053)
+!1044 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/basic_ios.h", directory: "")
+!1045 = !DICompositeType(tag: DW_TAG_class_type, name: "basic_ios<char, std::char_traits<char> >", scope: !2, file: !1046, line: 178, size: 2112, flags: DIFlagFwdDecl | DIFlagNonTrivial)
+!1046 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/basic_ios.tcc", directory: "")
+!1047 = !DISubroutineType(types: !1048)
+!1048 = !{!1049, !1050, !44}
+!1049 = !DIDerivedType(tag: DW_TAG_typedef, name: "char_type", scope: !1045, file: !1044, line: 76, baseType: !44)
+!1050 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1051, size: 64, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1051 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !1045)
+!1052 = !DISubprogram(name: "widen", linkageName: "_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc", scope: !1045, file: !1044, line: 449, type: !1047, scopeLine: 449, flags: DIFlagPublic | DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1053 = !{!1042, !1054}
+!1054 = !DILocalVariable(name: "__c", arg: 2, scope: !1043, file: !1044, line: 449, type: !44)
+!1055 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1051, size: 64)
+!1056 = !DILocation(line: 0, scope: !1043, inlinedAt: !1057)
+!1057 = distinct !DILocation(line: 682, column: 34, scope: !1031, inlinedAt: !1037)
+!1058 = !DILocation(line: 450, column: 30, scope: !1043, inlinedAt: !1057)
+!1059 = !{!1060, !1061, i64 240}
+!1060 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !1061, i64 216, !1062, i64 224, !1063, i64 225, !1061, i64 232, !1061, i64 240, !1061, i64 248, !1061, i64 256}
+!1061 = !{!"any pointer", !1062, i64 0}
+!1062 = !{!"omnipotent char", !1041, i64 0}
+!1063 = !{!"bool", !1062, i64 0}
+!1064 = !DILocalVariable(name: "__f", arg: 1, scope: !1065, file: !1044, line: 47, type: !1072)
+!1065 = distinct !DISubprogram(name: "__check_facet<std::ctype<char> >", linkageName: "_ZSt13__check_facetISt5ctypeIcEERKT_PS3_", scope: !2, file: !1044, line: 47, type: !1066, scopeLine: 48, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !1074, retainedNodes: !1073)
+!1066 = !DISubroutineType(types: !1067)
+!1067 = !{!1068, !1072}
+!1068 = !DIDerivedType(tag: DW_TAG_reference_type, baseType: !1069, size: 64)
+!1069 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !1070)
+!1070 = distinct !DICompositeType(tag: DW_TAG_class_type, name: "ctype<char>", scope: !2, file: !1071, line: 681, size: 4608, flags: DIFlagFwdDecl | DIFlagNonTrivial, identifier: "_ZTSSt5ctypeIcE")
+!1071 = !DIFile(filename: "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/locale_facets.h", directory: "")
+!1072 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1069, size: 64)
+!1073 = !{!1064}
+!1074 = !{!1075}
+!1075 = !DITemplateTypeParameter(name: "_Facet", type: !1070)
+!1076 = !DILocation(line: 0, scope: !1065, inlinedAt: !1077)
+!1077 = distinct !DILocation(line: 450, column: 16, scope: !1043, inlinedAt: !1057)
+!1078 = !DILocation(line: 49, column: 12, scope: !1079, inlinedAt: !1077)
+!1079 = distinct !DILexicalBlock(scope: !1065, file: !1044, line: 49, column: 11)
+!1080 = !DILocation(line: 49, column: 11, scope: !1065, inlinedAt: !1077)
+!1081 = !DILocation(line: 50, column: 2, scope: !1079, inlinedAt: !1077)
+!1082 = !DILocalVariable(name: "this", arg: 1, scope: !1083, type: !1072, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1083 = distinct !DISubprogram(name: "widen", linkageName: "_ZNKSt5ctypeIcE5widenEc", scope: !1070, file: !1071, line: 872, type: !1084, scopeLine: 873, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, declaration: !1088, retainedNodes: !1089)
+!1084 = !DISubroutineType(types: !1085)
+!1085 = !{!1086, !1087, !44}
+!1086 = !DIDerivedType(tag: DW_TAG_typedef, name: "char_type", scope: !1070, file: !1071, line: 686, baseType: !44)
+!1087 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1069, size: 64, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1088 = !DISubprogram(name: "widen", linkageName: "_ZNKSt5ctypeIcE5widenEc", scope: !1070, file: !1071, line: 872, type: !1084, scopeLine: 872, flags: DIFlagPublic | DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1089 = !{!1082, !1090}
+!1090 = !DILocalVariable(name: "__c", arg: 2, scope: !1083, file: !1071, line: 872, type: !44)
+!1091 = !DILocation(line: 0, scope: !1083, inlinedAt: !1092)
+!1092 = distinct !DILocation(line: 450, column: 40, scope: !1043, inlinedAt: !1057)
+!1093 = !DILocation(line: 874, column: 6, scope: !1094, inlinedAt: !1092)
+!1094 = distinct !DILexicalBlock(scope: !1083, file: !1071, line: 874, column: 6)
+!1095 = !{!1096, !1062, i64 56}
+!1096 = !{!"_ZTSSt5ctypeIcE", !1061, i64 16, !1063, i64 24, !1061, i64 32, !1061, i64 40, !1061, i64 48, !1062, i64 56, !1062, i64 57, !1062, i64 313, !1062, i64 569}
+!1097 = !DILocation(line: 874, column: 6, scope: !1083, inlinedAt: !1092)
+!1098 = !DILocation(line: 875, column: 11, scope: !1094, inlinedAt: !1092)
+!1099 = !{!1062, !1062, i64 0}
+!1100 = !DILocation(line: 875, column: 4, scope: !1094, inlinedAt: !1092)
+!1101 = !DILocation(line: 876, column: 8, scope: !1083, inlinedAt: !1092)
+!1102 = !DILocation(line: 877, column: 15, scope: !1083, inlinedAt: !1092)
+!1103 = !DILocation(line: 877, column: 2, scope: !1083, inlinedAt: !1092)
+!1104 = !DILocation(line: 682, column: 25, scope: !1031, inlinedAt: !1037)
+!1105 = !DILocalVariable(name: "__os", arg: 1, scope: !1106, file: !945, line: 703, type: !948)
+!1106 = distinct !DISubprogram(name: "flush<char, std::char_traits<char> >", linkageName: "_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_", scope: !2, file: !945, line: 703, type: !1032, scopeLine: 704, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !7, templateParams: !1035, retainedNodes: !1107)
+!1107 = !{!1105}
+!1108 = !DILocation(line: 0, scope: !1106, inlinedAt: !1109)
+!1109 = distinct !DILocation(line: 682, column: 14, scope: !1031, inlinedAt: !1037)
+!1110 = !DILocation(line: 704, column: 19, scope: !1106, inlinedAt: !1109)
+!1111 = !DILocation(line: 16, column: 3, scope: !925)
+!1112 = distinct !DISubprogram(linkageName: "_GLOBAL__sub_I_example1.cpp", scope: !8, file: !8, type: !1113, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
+!1113 = !DISubroutineType(types: !920)
+!1114 = !DILocation(line: 74, column: 25, scope: !1115, inlinedAt: !1117)
+!1115 = !DILexicalBlockFile(scope: !1116, file: !3, discriminator: 0)
+!1116 = distinct !DISubprogram(name: "__cxx_global_var_init", scope: !8, file: !8, type: !520, flags: DIFlagArtificial | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !7, retainedNodes: !920)
+!1117 = distinct !DILocation(line: 0, scope: !1112)
+!1118 = !DILocation(line: 0, scope: !1116, inlinedAt: !1117)

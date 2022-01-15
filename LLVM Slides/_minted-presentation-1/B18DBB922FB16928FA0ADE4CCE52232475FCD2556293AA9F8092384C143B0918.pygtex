@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{ClassConsumer} \PYG{o}{:} \PYG{k}{public} \PYG{n}{clang}\PYG{o}{::}\PYG{n}{ASTConsumer} \PYG{p}{\PYGZob{}}
+	\PYG{k}{public}\PYG{o}{:}
+		\PYG{k}{explicit} \PYG{n}{ClassConsumer}\PYG{p}{(}\PYG{n}{ASTContext} \PYG{o}{*}\PYG{n}{Context}\PYG{p}{)}
+			\PYG{o}{:} \PYG{n}{Visitor}\PYG{p}{(}\PYG{n}{Context}\PYG{p}{)} \PYG{p}{\PYGZob{}\PYGZcb{}}
+		\PYG{k}{virtual} \PYG{k+kt}{void} \PYG{n}{HandleTranslationUnit}\PYG{p}{(}\PYG{n}{clang}\PYG{o}{::}\PYG{n}{ASTContext} \PYG{o}{\PYGZam{}}\PYG{n}{Context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{c+cp}{\PYGZsh{} Called on each TranslationDeclUnit}
+			\PYG{n}{Visitor}\PYG{p}{.}\PYG{n}{TraverseDecl}\PYG{p}{(}\PYG{n}{Context}\PYG{p}{.}\PYG{n}{getTranslationUnitDecl}\PYG{p}{());}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{k}{private}\PYG{o}{:}
+		\PYG{c+cp}{\PYGZsh{} Implements the actual recursive visit strategy.}
+		\PYG{n}{ClassVisitor} \PYG{n}{Visitor}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

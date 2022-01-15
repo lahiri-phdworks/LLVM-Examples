@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{l+m+mh}{0xff2}
+	
+	\PYG{o}{|\PYGZhy{}}\PYG{n}{BinaryOperator} \PYG{l+m+mh}{0x3c32fb0} \PYG{err}{\PYGZsq{}}\PYG{k+kt}{\PYGZus{}Bool}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{o}{\PYGZgt{}}\PYG{err}{\PYGZsq{}}
+	\PYG{o}{|} \PYG{o}{|\PYGZhy{}}\PYG{n}{ImplicitCastExpr} \PYG{l+m+mh}{0x3c32f98} \PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}} \PYG{o}{\PYGZlt{}}\PYG{n}{LValueToRValue}\PYG{o}{\PYGZgt{}}
+	\PYG{o}{|} \PYG{o}{|} \PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{DeclRefExpr} \PYG{l+m+mh}{0x3c32f58} \PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}} \PYG{n}{lvalue} \PYG{n}{Var} \PYG{l+m+mh}{0x3c32ed8} \PYG{l+s+sc}{\PYGZsq{}x\PYGZsq{}} \PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}
+	\PYG{o}{|} \PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{IntegerLiteral} \PYG{l+m+mh}{0x3c32f78} \PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}} \PYG{l+m+mi}{4082}
+	
+\end{Verbatim}

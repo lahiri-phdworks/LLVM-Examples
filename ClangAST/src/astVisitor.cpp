@@ -46,14 +46,14 @@ public:
   }
 
   // Declaration Visitor
-  bool VisitDecl(clang::Decl *Declaration) {
-    Declaration->dump();
-    return true;
-  }
+  // bool VisitDecl(clang::Decl *Declaration) {
+  //   Declaration->dump();
+  //   return true;
+  // }
 
   // Function Visitor
   bool VisitFunctionDecl(FunctionDecl *F) {
-    F->dumpColor();
+    // F->dumpColor();
     llvm::outs() << "Function Decl : \n";
     llvm::outs() << F->getNameAsString() << "\n";
     auto funcBody = F->getBody();
@@ -70,7 +70,9 @@ public:
   // Statement Visitor
   bool VisitStmt(Stmt *S) {
     llvm::outs() << "\t\t" << S->getStmtClassName() << "\n";
-    S->dumpColor();
+    if (S)
+      S->dumpColor();
+    S->dump();
     return true;
   }
 
