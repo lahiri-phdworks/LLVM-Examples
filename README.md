@@ -16,6 +16,8 @@ $ docker run --name llvm-examples --ulimit stack=10000000:10000000 \
 ## Examples & Implementations :
 
 - [llvm::LoopInfo in the runOnModule](https://lists.llvm.org/pipermail/llvm-dev/2019-April/131534.html)
+- [Analysing CFGs with LLVM](https://eli.thegreenplace.net/2013/09/16/analyzing-function-cfgs-with-llvm)
+- [A tutorial on how to write a compiler using LLVM](https://tomassetti.me/a-tutorial-on-how-to-write-a-compiler-using-llvm/)
 
 ## References & Links :
 
