@@ -1,6 +1,6 @@
 # LLVM-Examples
 
-LLVM Examples and Code samples. LLVM Passes.
+LLVM Examples and Code samples. LLVM Passes. Based on [llvm-project](https://github.com/llvm/llvm-project)
 
 ## Installing from Docker
 
