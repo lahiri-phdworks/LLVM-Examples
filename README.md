@@ -40,40 +40,31 @@ $ docker run --name llvm-examples --ulimit stack=10000000:10000000 \
 - [LLVM Passes](https://llvm.org/docs/Passes.html)
 - [LLVM GitHub Monorepo](https://github.com/llvm/llvm-project)
 - [Clang AST LLVM](https://clang.llvm.org/docs/IntroductionToTheClangAST.html)
-
 - Legacy Pass Example : See `folder`.
-
   - [LLVM : What is a pass? Legacy Pass Example](https://llvm.org/docs/WritingAnLLVMPass.html#introduction-what-is-a-pass)
 
 - New LLVM Pass Manager :
-
   - [LLVM : New Pass Manager](https://llvm.org/docs/NewPassManager.html)
   - [LLVM : Writing a new pass](https://llvm.org/docs/WritingAnLLVMNewPMPass.html)
 
 - For function paraments as operands, you can get it get it via Function Argumentslist()
-
   - [Function Parameters LLVM Function](https://llvm.org/doxygen/group__LLVMCCoreValueFunctionParameters.html)
   - [Value Reference](http://llvm.org/doxygen/classllvm_1_1Value.html)
   - [User class : for getnumoperands, getoperands](https://llvm.org/doxygen/classllvm_1_1User.html)
 
 - Some other differences are listed here. Even C++ one is quadratic probed.
-
   - https://llvm.org/docs/ProgrammersManual.html#llvm-adt-densemap-h
 
 - Where is "emit-llvm"? ASMWritter `AsmWritter.cpp`.
-
   - https://github.com/llvm-mirror/llvm/blob/master/tools/gold/gold-plugin.cpp#L232
   - https://www.cs.cornell.edu/~asampson/blog/llvm.html
 
 - `LLVM Data Structures` :
-
   - https://llvm.org/docs/ProgrammersManual.html#picking-the-right-data-structure-for-a-task
 
 - `LLVM RTTI` :
-
   - https://llvm.org/docs/HowToSetUpLLVMStyleRTTI.html#id1
 
 - Inspection & Traversal over `CFG` in `IR` :
-
   - [Inspection & Traversal Routines over CFG](https://llvm.org/docs/ProgrammersManual.html#basic-inspection-and-traversal-routines)
   - [LLVM : Making simple manipulations](https://llvm.org/docs/ProgrammersManual.html#making-simple-changes)
