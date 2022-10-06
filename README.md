@@ -2,6 +2,18 @@
 
 LLVM Examples and Code samples. LLVM Passes. Based on [llvm-project](https://github.com/llvm/llvm-project)
 
+```bash
+# llvm cmake
+cmake -G "Ninja" build \
+  -DLLVM_ENABLE_PROJECTS="llvm;compiler-rt;clang;clang-tools-extra" \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DLLVM_ENABLE_ASSERTIONS=ON \
+  -DLLVM_CCACHE_BUILD=OFF \
+  -DLLVM_BUILD_TESTS=ON \
+  -DLLVM_INSTALL_UTILS=ON \
+  -B build -S llvm
+```
+
 ## Installing from Docker
 
 Check `build` commands in the `Dockerfile` for more information 
