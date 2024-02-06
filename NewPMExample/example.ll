@@ -1,4 +1,4 @@
-; ModuleID = '<stdin>'
+; ModuleID = 'example1.bc'
 source_filename = "example1.cpp"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
@@ -23,6 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZSt4cout = external dso_local global %"class.std::basic_ostream", align 8
+@.str = private unnamed_addr constant [2 x i8] c" \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, void ()*, i8* }] [{ i32, void ()*, i8* } { i32 65535, void ()* @_GLOBAL__sub_I_example1.cpp, i8* null }]
 
 declare dso_local void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -35,10 +36,10 @@ declare dso_local i32 @__cxa_atexit(void (i8*)*, i8*, i8*) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i32 @_Z6retvalv() local_unnamed_addr #3 {
-entry:
-  %call = call i32 @rand() #7
-  %rem = srem i32 %call, 5
-  ret i32 %rem
+bb:
+  %i = call i32 @rand() #7
+  %i1 = srem i32 %i, 343
+  ret i32 %i1
 }
 
 ; Function Attrs: nounwind
@@ -46,74 +47,59 @@ declare dso_local i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
 define dso_local i32 @main() local_unnamed_addr #4 {
-entry:
-  %call.i = call i32 @rand() #7
-  %rem.i = srem i32 %call.i, 5
-  %call.i9 = call i32 @rand() #7
-  %rem.i10 = srem i32 %call.i9, 5
-  %new_alloca_1 = alloca i32, align 4
-  %new_alloca_2 = alloca i32, align 4
-  %0 = add i32 %rem.i10, %rem.i
-  %1 = mul i32 %rem.i10, %rem.i
-  %equals_compare = icmp eq i32 %0, %1
-  br i1 %equals_compare, label %2, label %3
+bb:
+  %i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 436)
+  %i1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %i, i8* nonnull getelementptr inbounds ([2 x i8], [2 x i8]* @.str, i64 0, i64 0), i64 1)
+  %i2 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %i, i32 9987)
+  %i3 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %i2, i8* nonnull getelementptr inbounds ([2 x i8], [2 x i8]* @.str, i64 0, i64 0), i64 1)
+  %i4 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %i2, i32 979162)
+  %i5 = bitcast %"class.std::basic_ostream"* %i4 to i8**
+  %i6 = load i8*, i8** %i5, align 8, !tbaa !3
+  %i7 = getelementptr i8, i8* %i6, i64 -24
+  %i8 = bitcast i8* %i7 to i64*
+  %i9 = load i64, i64* %i8, align 8
+  %i10 = bitcast %"class.std::basic_ostream"* %i4 to i8*
+  %i11 = add nsw i64 %i9, 240
+  %i12 = getelementptr inbounds i8, i8* %i10, i64 %i11
+  %i13 = bitcast i8* %i12 to %"class.std::ctype"**
+  %i14 = load %"class.std::ctype"*, %"class.std::ctype"** %i13, align 8, !tbaa !6
+  %i15 = icmp eq %"class.std::ctype"* %i14, null
+  br i1 %i15, label %bb16, label %bb17
 
-2:                                                ; preds = %entry
-  store i32 %0, i32* %new_alloca_1, align 4
-  br label %4
-
-3:                                                ; preds = %entry
-  store i32 %1, i32* %new_alloca_2, align 4
-  br label %4
-
-4:                                                ; preds = %3, %2
-  %add = add nsw i32 %rem.i10, %rem.i
-  %call3 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %add)
-  %5 = bitcast %"class.std::basic_ostream"* %call3 to i8**
-  %vtable.i = load i8*, i8** %5, align 8, !tbaa !3
-  %vbase.offset.ptr.i = getelementptr i8, i8* %vtable.i, i64 -24
-  %6 = bitcast i8* %vbase.offset.ptr.i to i64*
-  %vbase.offset.i = load i64, i64* %6, align 8
-  %7 = bitcast %"class.std::basic_ostream"* %call3 to i8*
-  %_M_ctype.i.idx.i = add nsw i64 %vbase.offset.i, 240
-  %_M_ctype.i.i = getelementptr inbounds i8, i8* %7, i64 %_M_ctype.i.idx.i
-  %8 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**
-  %9 = load %"class.std::ctype"*, %"class.std::ctype"** %8, align 8, !tbaa !6
-  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %9, null
-  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-
-if.then.i.i.i:                                    ; preds = %4
+bb16:                                             ; preds = %bb
   call void @_ZSt16__throw_bad_castv() #8
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %4
-  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 8
-  %10 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !tbaa !11
-  %tobool.not.i3.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
+bb17:                                             ; preds = %bb
+  %i18 = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %i14, i64 0, i32 8
+  %i19 = load i8, i8* %i18, align 8, !tbaa !11
+  %i20 = icmp eq i8 %i19, 0
+  br i1 %i20, label %bb24, label %bb21
 
-if.then.i4.i.i:                                   ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 9, i64 10
-  %11 = load i8, i8* %arrayidx.i.i.i, align 1, !tbaa !13
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+bb21:                                             ; preds = %bb17
+  %i22 = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %i14, i64 0, i32 9, i64 10
+  %i23 = load i8, i8* %i22, align 1, !tbaa !13
+  br label %bb30
 
-if.end.i.i.i:                                     ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9)
-  %12 = bitcast %"class.std::ctype"* %9 to i8 (%"class.std::ctype"*, i8)***
-  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %12, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vtable.i.i.i, i64 6
-  %13 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8
-  %call.i.i.i = call signext i8 %13(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9, i8 signext 10)
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+bb24:                                             ; preds = %bb17
+  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %i14)
+  %i25 = bitcast %"class.std::ctype"* %i14 to i8 (%"class.std::ctype"*, i8)***
+  %i26 = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %i25, align 8, !tbaa !3
+  %i27 = getelementptr inbounds i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %i26, i64 6
+  %i28 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %i27, align 8
+  %i29 = call signext i8 %i28(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %i14, i8 signext 10)
+  br label %bb30
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.end.i.i.i, %if.then.i4.i.i
-  %retval.0.i.i.i = phi i8 [ %11, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ]
-  %call1.i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call3, i8 signext %retval.0.i.i.i)
-  %call.i.i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo5flushEv(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call1.i)
+bb30:                                             ; preds = %bb21, %bb24
+  %i31 = phi i8 [ %i23, %bb21 ], [ %i29, %bb24 ]
+  %i32 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %i4, i8 signext %i31)
+  %i33 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo5flushEv(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %i32)
   ret i32 0
 }
 
 declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #0
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i8*, i64) local_unnamed_addr #0
 
 declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i8 signext) local_unnamed_addr #0
 
@@ -126,9 +112,9 @@ declare dso_local void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* no
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_example1.cpp() #6 section ".text.startup" {
-entry:
+bb:
   call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #7
+  %i = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* nonnull @__dso_handle) #7
   ret void
 }
 

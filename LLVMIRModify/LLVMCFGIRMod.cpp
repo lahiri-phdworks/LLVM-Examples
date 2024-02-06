@@ -26,23 +26,23 @@ struct ModifyBuildCFG : public PassInfoMixin<ModifyBuildCFG> {
     if (F.getName() != "main")
       return PreservedAnalyses::all();
 
-    // What precursors/pre-passes are needed. Define.
-    LoopInfo &getLI = FAM.getResult<llvm::LoopAnalysis>(F);
-    DominatorTree &DT = FAM.getResult<DominatorTreeAnalysis>(F);
-    PostDominatorTree &PDT = FAM.getResult<PostDominatorTreeAnalysis>(F);
+    // // What precursors/pre-passes are needed. Define.
+    // LoopInfo &getLI = FAM.getResult<llvm::LoopAnalysis>(F);
+    // DominatorTree &DT = FAM.getResult<DominatorTreeAnalysis>(F);
+    // PostDominatorTree &PDT = FAM.getResult<PostDominatorTreeAnalysis>(F);
 
-    /**
-     * @brief Loop Info Analysis
-     */
-    if (getLI.empty())
-      std::cout << "No Loops ! \n\n";
-    else
-      getLI.print(errs());
+    // /**
+    //  * @brief Loop Info Analysis
+    //  */
+    // if (getLI.empty())
+    //   std::cout << "No Loops ! \n\n";
+    // else
+    //   getLI.print(errs());
 
-    /**
-     * @brief Print Dominator Tree to llvm::errs()
-     */
-    DT.print(errs());
+    // /**
+    //  * @brief Print Dominator Tree to llvm::errs()
+    //  */
+    // DT.print(errs());
 
     // What we intend do do in the pass starts here.
     int found = 0;

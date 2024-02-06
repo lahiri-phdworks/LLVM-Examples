@@ -20,7 +20,7 @@ endif
 
 .PHONY: test 
 
-all: build test runpass
+all: build test runpass visual
 
 build: $(source).cpp 
 	mkdir -p build
@@ -28,12 +28,23 @@ build: $(source).cpp
 	$(CXX) $(CXXFLAGS) -shared $(source).cpp -o build/$(source).cpp.so $(LDFLAGS)
 
 test:
-	$(CXX) -fno-discard-value-names -c -emit-llvm -g -O1 -DMODIFY example1.cpp -o example1.bc
-	${OPT} -instnamer -mem2reg -enable-new-pm=0 --ipsccp --domtree example1.bc -S -o original.ll
+	$(CXX) -fno-discard-value-names -c -emit-llvm -O1 -S example1.cpp -o example1.bc
+	${OPT} -instnamer -mem2reg -enable-new-pm=0 -S example1.bc -o original.ll
 
 runpass: test
 	${OPT} -load-pass-plugin=build/$(source).cpp.so -enable-new-pm=1 -passes=$(passname) -S < example1.bc > modified.ll
 	rm -rf example1.bc
-	
+
+visual: 
+	${OPT} -dot-cfg -cfg-func-name=main original.ll -disable-output -enable-new-pm=0 
+	mv .main.dot original.dot
+
+	${OPT} -dot-cfg -cfg-func-name=main modified.ll -disable-output -enable-new-pm=0 
+	mv .main.dot modified.dot
+
+	dot -T pdf original.dot -o original.dot.pdf
+	dot -T pdf modified.dot -o modified.dot.pdf
+	rm -rf *.dot 
+
 clean: 
 	rm -rf build *.bc *.ll *.pdf *.dot *.a *.o 

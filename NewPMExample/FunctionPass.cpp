@@ -1,75 +1,73 @@
-
-// https://github.com/alexjung/Writing-an-LLVM-Pass-using-the-new-PassManager
-// https://www.duskborn.com/posts/llvm-new-pass-manager/
-
-#include "llvm/Analysis/LoopInfo.h"
-#include "llvm/Analysis/Passes.h"
+#include "llvm/Analysis/CFG.h"
+#include "llvm/Analysis/DomTreeUpdater.h"
 #include "llvm/Analysis/PostDominators.h"
-#include "llvm/IR/BasicBlock.h"
-#include "llvm/IR/CFG.h"
 #include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/InstIterator.h"
+#include "llvm/IR/InstrTypes.h"
+#include "llvm/IR/Instructions.h"
+#include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/Module.h"
 #include "llvm/IR/PassManager.h"
-#include "llvm/IR/Verifier.h"
 #include "llvm/Passes/PassBuilder.h"
 #include "llvm/Passes/PassPlugin.h"
 #include "llvm/Support/raw_ostream.h"
-#include "llvm/Transforms/IPO.h"
-#include "llvm/Transforms/Scalar.h"
+#include "llvm/Transforms/Utils/BasicBlockUtils.h"
 
 // only needed for printing
+#include <assert.h>
 #include <iostream>
-
 using namespace llvm;
 
-namespace {
+void RunOverInstructions(Function &F) {
+  std::cout << "Function: " << F.getName().str() << std::endl;
+  for (Function::iterator BB = F.begin(); BB != F.end(); BB++) {
+    std::cout << "\tBasic Block: " << BB->getName().str()
+              << ", size: " << BB->size() << "\n";
+    for (BasicBlock::iterator I = BB->begin(); I != BB->end(); I++) {
+      std::cout << "\t\tInstTy: " << I->getOpcodeName() << ", [LHS]-> "
+                << I->getName().str() << ", #ops : " << I->getNumOperands()
+                << "\n";
+      auto phi = dyn_cast<PHINode>(I);
+      if (phi != NULL)
+        errs() << "\t\tPhi Inst: " << phi << "\n";
 
-struct PrinterPass final : public PassInfoMixin<PrinterPass> {
-
-  static llvm::StringRef getPassName() {
-    return "Simple Test and Print pass.\n";
-  }
-
-  // The first argument of the run() function defines on what level
-  // of granularity your pass will run (e.g. Module, Function).
-  // The second argument is the corresponding AnalysisManager
-  // (e.g ModuleAnalysisManager, FunctionAnalysisManager)
-  PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
-
-    LoopInfo &getLI = FAM.getResult<llvm::LoopAnalysis>(F);
-    DominatorTree &DT = FAM.getResult<DominatorTreeAnalysis>(F);
-
-    /**
-     * @brief Loop Info Analysis
-     */
-    if (getLI.empty())
-      std::cout << "No Loops ! \n\n";
-    else
-      getLI.print(errs());
-
-    /**
-     * @brief Print Dominator Tree to llvm::errs()
-     */
-    DT.print(errs());
-
-    std::cout << "Function: " << F.getName().str() << std::endl;
-    for (Function::iterator BB = F.begin(); BB != F.end(); BB++) {
-      std::cout << "\tBasic Block : " << BB->getName().str()
-                << ", size : " << BB->size() << "\n";
-      for (BasicBlock::iterator I = BB->begin(); I != BB->end(); I++) {
-        std::cout << "\t\tInstTy : " << I->getOpcodeName()
-                  << ", #ops : " << I->getNumOperands() << "\n";
-        auto phi = dyn_cast<PHINode>(I);
-        if (phi != NULL)
-          errs() << "\t\tPhi Alloca : " << phi << "\n";
-
-        // LLVM Instructions
-        for (Use &U : I->operands()) {
-          Value *v = U.get();
-          if (v != NULL)
-            std::cout << "\t\t\t val : " << v->getName().str() << "\n";
+      // LLVM Instructions
+      for (auto &U : I->operands()) {
+        if (dyn_cast<llvm::ConstantInt>(U) == NULL)
+          std::cout << "\t\t\t operands: " << U.get()->getName().str() << "\n";
+        else {
+          ConstantInt *IntVal = dyn_cast<llvm::ConstantInt>(U);
+          std::cout << "\t\t\t value: " << IntVal->getSExtValue() << "\n";
         }
       }
     }
+  }
+}
+
+namespace {
+
+struct PrinterPass : public PassInfoMixin<PrinterPass> {
+
+  PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
+    if (F.getName() != "main")
+      return PreservedAnalyses::all();
+
+    // LoopInfo &getLI = FAM.getResult<llvm::LoopAnalysis>(F);
+    // DominatorTree &DT = FAM.getResult<DominatorTreeAnalysis>(F);
+
+    // /**
+    //  * @brief Loop Info Analysis
+    //  */
+    // if (getLI.empty())
+    //   std::cout << "No Loops ! \n\n";
+    // else
+    //   getLI.print(errs());
+
+    // /**
+    //  * @brief Print Dominator Tree to llvm::errs()
+    //  */
+    // DT.print(errs());
+    RunOverInstructions(F);
     return PreservedAnalyses::all();
   }
 };
