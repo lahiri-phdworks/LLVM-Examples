@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{90}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+cp}{\PYGZsh{} ./clang\PYGZus{}ast \PYGZdq{}int main() \PYGZob{} int a = 90; \PYGZcb{}\PYGZdq{}}
+\PYG{n}{FunctionDecl}\PYG{+w}{ }\PYG{l+m+mh}{0x3705db0}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{input}\PYG{p}{.}\PYG{n}{cc}\PYG{o}{:}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{26}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{5}\PYG{+w}{ }\PYG{n}{main}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{p}{()}\PYG{err}{\PYGZsq{}}
+\PYG{+w}{	}\PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{CompoundStmt}\PYG{+w}{ }\PYG{l+m+mh}{0x3705f78}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{26}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{		}\PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{DeclStmt}\PYG{+w}{ }\PYG{l+m+mh}{0x3705f60}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{14}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{24}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{			}\PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{VarDecl}\PYG{+w}{ }\PYG{l+m+mh}{0x3705ed8}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{14}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{22}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{18}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}\PYG{+w}{ }\PYG{n}{cinit}
+\PYG{+w}{				}\PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{IntegerLiteral}\PYG{+w}{ }\PYG{l+m+mh}{0x3705f40}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{col}\PYG{o}{:}\PYG{l+m+mi}{22}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}\PYG{+w}{ }\PYG{l+m+mi}{90}
+\end{Verbatim}

@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{retsum}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+cp}{\PYGZsh{} clang \PYGZhy{}S \PYGZhy{}emit\PYGZhy{}llvm code.cpp \PYGZhy{}O0 \PYGZhy{}o code.ll}
+\PYG{p}{;}\PYG{+w}{ }\PYG{n}{ModuleID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{n}{test}\PYG{p}{.}\PYG{n}{cc}\PYG{err}{\PYGZsq{}}
+\PYG{n}{source\PYGZus{}filename}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}test.cc\PYGZdq{}}
+\PYG{n}{target}\PYG{+w}{ }\PYG{n}{datalayout}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}e\PYGZhy{}m:e\PYGZhy{}p270:32:32\PYGZhy{}p271:32:32\PYGZhy{}p272:64:64\PYGZhy{}i64:...\PYGZdq{}}
+\PYG{n}{target}\PYG{+w}{ }\PYG{n}{triple}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}x86\PYGZus{}64\PYGZhy{}unknown\PYGZhy{}linux\PYGZhy{}gnu\PYGZdq{}}
+
+\PYG{p}{;}\PYG{+w}{ }\PYG{n}{Function}\PYG{+w}{ }\PYG{n}{Attrs}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{mustprogress}\PYG{+w}{ }\PYG{n}{noinline}\PYG{+w}{ }\PYG{n}{nounwind}\PYG{+w}{ }\PYG{n}{optnone}\PYG{+w}{ }\PYG{n}{uwtable}
+\PYG{n}{define}\PYG{+w}{ }\PYG{n}{dso\PYGZus{}local}\PYG{+w}{ }\PYG{n}{i32}\PYG{+w}{ }\PYG{err}{@}\PYG{n}{\PYGZus{}Z6retsumii}\PYG{p}{(}\PYG{n}{i32}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i32}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{err}{\PYGZsh{}}\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{alloca}\PYG{+w}{ }\PYG{n}{i32}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{align}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{+w}{	}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{4}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{alloca}\PYG{+w}{ }\PYG{n}{i32}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{align}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{+w}{	}\PYG{n}{store}\PYG{+w}{ }\PYG{n}{i32}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i32}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{align}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{+w}{	}\PYG{n}{store}\PYG{+w}{ }\PYG{n}{i32}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i32}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{align}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{+w}{	}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{5}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{load}\PYG{+w}{ }\PYG{n}{i32}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i32}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{align}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{+w}{	}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{6}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{load}\PYG{+w}{ }\PYG{n}{i32}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i32}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{align}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{+w}{	}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{add}\PYG{+w}{ }\PYG{n}{nsw}\PYG{+w}{ }\PYG{n}{i32}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{6}
+\PYG{+w}{	}\PYG{n}{ret}\PYG{+w}{ }\PYG{n}{i32}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{7}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

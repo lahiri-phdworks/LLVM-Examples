@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{	}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mh}{0xff2}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{o}{|\PYGZhy{}}\PYG{n}{BinaryOperator}\PYG{+w}{ }\PYG{l+m+mh}{0x3c32fb0}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{n}{\PYGZus{}Bool}\PYG{l+s+sc}{\PYGZsq{} \PYGZsq{}}\PYG{o}{\PYGZgt{}}\PYG{err}{\PYGZsq{}}
+\PYG{+w}{	}\PYG{o}{|}\PYG{+w}{ }\PYG{o}{|\PYGZhy{}}\PYG{n}{ImplicitCastExpr}\PYG{+w}{ }\PYG{l+m+mh}{0x3c32f98}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{LValueToRValue}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{	}\PYG{o}{|}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{DeclRefExpr}\PYG{+w}{ }\PYG{l+m+mh}{0x3c32f58}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}\PYG{+w}{ }\PYG{n}{lvalue}\PYG{+w}{ }\PYG{n}{Var}\PYG{+w}{ }\PYG{l+m+mh}{0x3c32ed8}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}x\PYGZsq{}}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}
+\PYG{+w}{	}\PYG{o}{|}\PYG{+w}{ }\PYG{err}{`}\PYG{o}{\PYGZhy{}}\PYG{n}{IntegerLiteral}\PYG{+w}{ }\PYG{l+m+mh}{0x3c32f78}\PYG{+w}{ }\PYG{err}{\PYGZsq{}}\PYG{k+kt}{int}\PYG{err}{\PYGZsq{}}\PYG{+w}{ }\PYG{l+m+mi}{4082}
+\PYG{+w}{	}
+\end{Verbatim}

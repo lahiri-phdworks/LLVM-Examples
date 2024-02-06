@@ -20,7 +20,7 @@
 \subtitle{LLVM : Low Level Virtual Machine}
 
 \author[LLVM \& Clang] % (optional, for multiple authors)
-{Presented By Sumit~Lahiri\inst{1} \& Nitesh Trivedi\inst{1}}
+{Presented By Sumit~Lahiri\inst{1}}
 
 \institute[VFU] % (optional)
 {
@@ -41,7 +41,7 @@
 		\item Compiler Infrastructure. \pause
 		\item Frontend : \texttt{clang}, C++, C, go, java to AST and finally to LLVM-IR. \pause
 		\item Middle End : \texttt{opt tool}, Optimizations and other passes on LLVM-IR. \pause
-		\item Back End : \texttt{LLVM CodeGen/Backend}, LLVM-IR to target code generator.  \pause
+		\item Back End : \texttt{LLVM CodeGen/Backend}, LLVM-IR to target code generator. 
 	\end{itemize}
 \end{frame}
 
@@ -132,7 +132,7 @@
 					\draw (parser)+(0, -1.5) node {\textbf{Frontend}};
 				}
 				\onslide<6->{
-					\draw (parser)+(0, -1.5) node {\color{red}\textbf{Frontend}};
+					\draw (parser)+(0, -1.5) node {\textbf{Frontend}};
 				}
 				\draw [->] (lex) -- (parser);
 			}
@@ -141,7 +141,7 @@
 			% Optimizer
 			%%%%%%%%%%%
 			\onslide<-2>{
-				\path (4, 0) coordinate [bigbox] (opt) node {Optimizer};
+				\path (4, 0) coordinate [bigbox] (opt) node {\color{red} \textbf{Optimizer}};
 			}
 			\onslide<1>{\draw [->] (front) -- (opt);}
 			\onslide<2>{\draw [->] (parser) -- (opt);}
@@ -168,7 +168,7 @@
 					\draw (opt)+(0, -2.61) coordinate (opt-label) node {\color{red} \textbf{Optimizer}};
 				}
 				% Optimizer Label
-				\draw (opt)+(0, -2.61) coordinate (opt-label) node {\textbf{Optimizer}};
+				\draw (opt)+(0, -2.61) coordinate (opt-label) node {\color{red} \textbf{Optimizer}};
 				\draw (opt-label)+(0, -0.5) node {\texttt{.ll,.bc}};
 			}
 			

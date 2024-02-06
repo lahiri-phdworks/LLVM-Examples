@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ClassVisitor}
+\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{RecursiveASTVisitor}\PYG{o}{\PYGZlt{}}\PYG{n}{ClassVisitor}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{	}\PYG{k}{explicit}\PYG{+w}{ }\PYG{n}{FindNamedClassVisitor}\PYG{p}{(}\PYG{n}{ASTContext}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{Context}\PYG{p}{)}
+\PYG{+w}{		}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{Context}\PYG{p}{(}\PYG{n}{Context}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{VisitWhileStmt}\PYG{p}{(}\PYG{n}{WhileStmt}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{S}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{llvm}\PYG{o}{::}\PYG{n}{outs}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}While Condition : \PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}
+\PYG{+w}{		}\PYG{n}{VisitDecl}\PYG{p}{(}\PYG{n}{S}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getConditionVariable}\PYG{p}{());}
+\PYG{+w}{		}\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{c+cp}{\PYGZsh{} ... More Visit Logic.}
+\PYG{+w}{	}\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{VisitDecl}\PYG{p}{(}\PYG{n}{clang}\PYG{o}{::}\PYG{n}{Decl}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{Declaration}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{Declaration}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dump}\PYG{p}{();}
+\PYG{+w}{		}\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{	}\PYG{n}{ASTContext}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{Context}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

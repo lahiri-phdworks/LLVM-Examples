@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{MyPass}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{PassInfoMixin}\PYG{o}{\PYGZlt{}}\PYG{n}{MyPass}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{PreservedAnalyses}\PYG{+w}{ }\PYG{n+nf}{run}\PYG{p}{(}\PYG{n}{Module}\PYG{+w}{ }\PYG{err}{\PYGZbs{}}\PYG{o}{\PYGZam{}}\PYG{n}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ModuleAnalysisManager}\PYG{+w}{ }\PYG{err}{\PYGZbs{}}\PYG{o}{\PYGZam{}}\PYG{n}{M}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{c+cp}{\PYGZsh{} Your code logic	}
+\PYG{+w}{		}\PYG{p}{...}
+\PYG{+w}{		}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{PreservedAnalyses}\PYG{o}{::}\PYG{n}{all}\PYG{p}{();}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{...}
+\PYG{p}{\PYGZcb{};}
+\PYG{k}{extern}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}C\PYGZdq{}}\PYG{+w}{ }\PYG{o}{::}\PYG{n}{llvm}\PYG{o}{::}\PYG{n}{PassPluginLibraryInfo}\PYG{+w}{ }\PYG{n}{LLVM\PYGZus{}ATTRIBUTE\PYGZus{}WEAK}
+\PYG{n}{llvmGetPassPluginInfo}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n}{LLVM\PYGZus{}PLUGIN\PYGZus{}API\PYGZus{}VERSION}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}MyPass\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}v0.1\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{		}\PYG{p}{[](}\PYG{n}{PassBuilder}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{PB}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{PB}\PYG{p}{.}\PYG{n}{registerPipelineParsingCallback}\PYG{p}{(}
+\PYG{+w}{			}\PYG{p}{[](}\PYG{n}{StringRef}\PYG{+w}{ }\PYG{n}{Name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ModulePassManager}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{MPM}\PYG{p}{,}
+\PYG{+w}{			}\PYG{n}{ArrayRef}\PYG{o}{\PYGZlt{}}\PYG{n}{PassBuilder}\PYG{o}{::}\PYG{n}{PipelineElement}\PYG{o}{\PYGZgt{}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{				}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Name}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}mypass\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{					}\PYG{n}{MPM}\PYG{p}{.}\PYG{n}{addPass}\PYG{p}{(}\PYG{n}{ModifyBuildCFG}\PYG{p}{());}
+\PYG{+w}{					}\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{				}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{				}\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{});}\PYG{+w}{ }\PYG{p}{\PYGZcb{}\PYGZcb{};}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

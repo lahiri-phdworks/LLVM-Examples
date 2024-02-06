@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{ClassAction}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{clang}\PYG{o}{::}\PYG{n}{ASTFrontendAction}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{	}\PYG{c+cp}{\PYGZsh{} returns a uniq ptr to your consumer.}
+\PYG{+w}{	}\PYG{k}{virtual}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{unique\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{n}{clang}\PYG{o}{::}\PYG{n}{ASTConsumer}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{	}\PYG{n}{CreateASTConsumer}\PYG{p}{(}\PYG{n}{clang}\PYG{o}{::}\PYG{n}{CompilerInstance}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Compiler}\PYG{p}{,}
+\PYG{+w}{		}\PYG{n}{llvm}\PYG{o}{::}\PYG{n}{StringRef}\PYG{+w}{ }\PYG{n}{InFile}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{return}
+\PYG{+w}{			}\PYG{c+cp}{\PYGZsh{} Instantiate your consumer.}
+\PYG{+w}{			}\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}unique}\PYG{o}{\PYGZlt{}}\PYG{n}{ClassConsumer}\PYG{o}{\PYGZgt{}}\PYG{p}{(}
+\PYG{+w}{				}\PYG{o}{\PYGZam{}}\PYG{n}{Compiler}\PYG{p}{.}\PYG{n}{getASTContext}\PYG{p}{()}
+\PYG{+w}{			}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}
