@@ -53,61 +53,62 @@ entry:
   %rem.i10 = srem i32 %call.i9, 5
   %new_alloca_1 = alloca i32, align 4
   %new_alloca_2 = alloca i32, align 4
-  %0 = add i32 %rem.i10, %rem.i
-  %1 = mul i32 %rem.i10, %rem.i
-  %equals_compare = icmp eq i32 %0, %1
-  br i1 %equals_compare, label %2, label %3
+  %new_add = add i32 %rem.i10, 232
+  %new_mul = mul i32 %rem.i10, 232
+  %equals_compare = icmp eq i32 %new_add, %new_mul
+  %mul_1 = mul i32 456, 534
+  %new_add_use = add i32 %mul_1, 534
+  br i1 %equals_compare, label %0, label %1
 
-2:                                                ; preds = %entry
-  store i32 %0, i32* %new_alloca_1, align 4
-  br label %4
+0:                                                ; preds = %entry
+  store i32 %new_add, i32* %new_alloca_1, align 4
+  br label %2
 
-3:                                                ; preds = %entry
-  store i32 %1, i32* %new_alloca_2, align 4
-  br label %4
+1:                                                ; preds = %entry
+  store i32 %new_mul, i32* %new_alloca_2, align 4
+  br label %2
 
-4:                                                ; preds = %3, %2
-  %add = add nsw i32 %rem.i10, %rem.i
-  %call3 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %add)
-  %5 = bitcast %"class.std::basic_ostream"* %call3 to i8**
-  %vtable.i = load i8*, i8** %5, align 8, !tbaa !3
+2:                                                ; preds = %1, %0
+  %call3 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %mul_1)
+  %3 = bitcast %"class.std::basic_ostream"* %call3 to i8**
+  %vtable.i = load i8*, i8** %3, align 8, !tbaa !3
   %vbase.offset.ptr.i = getelementptr i8, i8* %vtable.i, i64 -24
-  %6 = bitcast i8* %vbase.offset.ptr.i to i64*
-  %vbase.offset.i = load i64, i64* %6, align 8
-  %7 = bitcast %"class.std::basic_ostream"* %call3 to i8*
+  %4 = bitcast i8* %vbase.offset.ptr.i to i64*
+  %vbase.offset.i = load i64, i64* %4, align 8
+  %5 = bitcast %"class.std::basic_ostream"* %call3 to i8*
   %_M_ctype.i.idx.i = add nsw i64 %vbase.offset.i, 240
-  %_M_ctype.i.i = getelementptr inbounds i8, i8* %7, i64 %_M_ctype.i.idx.i
-  %8 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**
-  %9 = load %"class.std::ctype"*, %"class.std::ctype"** %8, align 8, !tbaa !6
-  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %9, null
+  %_M_ctype.i.i = getelementptr inbounds i8, i8* %5, i64 %_M_ctype.i.idx.i
+  %6 = bitcast i8* %_M_ctype.i.i to %"class.std::ctype"**
+  %7 = load %"class.std::ctype"*, %"class.std::ctype"** %6, align 8, !tbaa !6
+  %tobool.not.i.i.i = icmp eq %"class.std::ctype"* %7, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-if.then.i.i.i:                                    ; preds = %4
+if.then.i.i.i:                                    ; preds = %2
   call void @_ZSt16__throw_bad_castv() #8
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %4
-  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 8
-  %10 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !tbaa !11
-  %tobool.not.i3.i.i = icmp eq i8 %10, 0
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %2
+  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %7, i64 0, i32 8
+  %8 = load i8, i8* %_M_widen_ok.i.i.i, align 8, !tbaa !11
+  %tobool.not.i3.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %9, i64 0, i32 9, i64 10
-  %11 = load i8, i8* %arrayidx.i.i.i, align 1, !tbaa !13
+  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", %"class.std::ctype"* %7, i64 0, i32 9, i64 10
+  %9 = load i8, i8* %arrayidx.i.i.i, align 1, !tbaa !13
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
 if.end.i.i.i:                                     ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9)
-  %12 = bitcast %"class.std::ctype"* %9 to i8 (%"class.std::ctype"*, i8)***
-  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %12, align 8, !tbaa !3
+  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %7)
+  %10 = bitcast %"class.std::ctype"* %7 to i8 (%"class.std::ctype"*, i8)***
+  %vtable.i.i.i = load i8 (%"class.std::ctype"*, i8)**, i8 (%"class.std::ctype"*, i8)*** %10, align 8, !tbaa !3
   %vfn.i.i.i = getelementptr inbounds i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vtable.i.i.i, i64 6
-  %13 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8
-  %call.i.i.i = call signext i8 %13(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %9, i8 signext 10)
+  %11 = load i8 (%"class.std::ctype"*, i8)*, i8 (%"class.std::ctype"*, i8)** %vfn.i.i.i, align 8
+  %call.i.i.i = call signext i8 %11(%"class.std::ctype"* nonnull align 8 dereferenceable(570) %7, i8 signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.end.i.i.i, %if.then.i4.i.i
-  %retval.0.i.i.i = phi i8 [ %11, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi i8 [ %9, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ]
   %call1.i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo3putEc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call3, i8 signext %retval.0.i.i.i)
   %call.i.i = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSo5flushEv(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call1.i)
   ret i32 0
