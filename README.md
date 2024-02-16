@@ -17,7 +17,7 @@ $ sudo apt-get install make ninja ninja-build cmake cmake-data binutils build-es
 $ cmake \
     -S llvm -B build -Wno-dev -GNinja \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DLLVM_ENABLE_PROJECTS="llvm;compiler-rt;clang;clang-tools-extra;lldl;mlir" \
+    -DLLVM_ENABLE_PROJECTS="llvm;compiler-rt;clang;clang-tools-extra;lldb;lld;mlir" \
     -DLLVM_BUILD_RUNTIMES="libcxx;libcxxabi" \
     -DLLVM_BINUTILS_INCDIR=$HOME/binutils/include \
     -DCMAKE_BUILD_TYPE=Release \
