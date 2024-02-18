@@ -1,13 +1,23 @@
 # LLVM-Examples
 
 LLVM Examples and Code samples. LLVM Passes. Based on [llvm-project](https://github.com/llvm/llvm-project)
+Clone the LLVM Repository in the `$HOME` directory or change the `paths` in the MAKEFILEs to point to the build directory of the `LLVM`. 
 
 ```bash
-# llvm cmake
-cmake \
+# Clone
+$ git clone https://github.com/llvm/llvm-project.git
+
+# Change directory
+$ cd llvm-project
+
+# Install the essential packages with make and cmake.
+$ sudo apt-get install make ninja ninja-build cmake cmake-data binutils build-essentials python3 python3-pip
+
+# llvm cmake command 
+$ cmake \
     -S llvm -B build -Wno-dev -GNinja \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DLLVM_ENABLE_PROJECTS="llvm;compiler-rt;clang;clang-tools-extra;lldl;mlir" \
+    -DLLVM_ENABLE_PROJECTS="llvm;compiler-rt;clang;clang-tools-extra;lldb;lld;mlir" \
     -DLLVM_BUILD_RUNTIMES="libcxx;libcxxabi" \
     -DLLVM_BINUTILS_INCDIR=$HOME/binutils/include \
     -DCMAKE_BUILD_TYPE=Release \
@@ -15,6 +25,8 @@ cmake \
     -DLLVM_ENABLE_FFI=ON \
     -DLLVM_BUILD_TESTS=ON \
     -DLLVM_INSTALL_UTILS=ON
+
+$ cd build && ninja -j10 all
 ```
 
 ## Installing from Docker
@@ -26,6 +38,13 @@ on installing `LLVM` on local machine.
 $ docker build -f DockerFile -t prodrelworks/llvm-examples:latest .
 $ docker run --name llvm-examples --ulimit stack=10000000:10000000 \
   --cpus=4 --memory=20g -it prodrelworks/llvm-examples:latest
+```
+## Running Examples. 
+
+```bash
+$ cd NewPMExample
+$ make clean
+$ make all
 ```
 
 ## Examples & Implementations :
