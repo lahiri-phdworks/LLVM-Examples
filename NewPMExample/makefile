@@ -29,11 +29,11 @@ build: $(source).cpp
 
 test:
 	$(CXX) -c -emit-llvm -O1 example1.cpp -o example1.bc
-	${OPT} --instnamer -mem2reg -enable-new-pm=0 example1.bc -S -o example.ll
+	${OPT} -p instnamer,mem2reg example1.bc -S -o example.ll
 	rm -rf example1.bc
 
 runpass: test
-	${OPT} -load-pass-plugin=build/$(source).cpp.so -enable-new-pm=1 -disable-output -passes=$(passname) < example.ll
+	${OPT} -load-pass-plugin=build/$(source).cpp.so -disable-output -passes=$(passname) < example.ll
 	
 clean: 
 	rm -rf build *.bc *.ll *.pdf *.dot *.a *.o 
