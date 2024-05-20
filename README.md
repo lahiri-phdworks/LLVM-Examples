@@ -11,7 +11,7 @@ $ git clone https://github.com/llvm/llvm-project.git
 $ cd llvm-project
 
 # Install the essential packages with make and cmake.
-$ sudo apt-get install make ninja ninja-build cmake cmake-data binutils build-essentials python3 python3-pip
+$ sudo apt-get install make ninja-build cmake cmake-data binutils build-essentials python3 python3-pip
 
 # llvm cmake command 
 $ cmake \
